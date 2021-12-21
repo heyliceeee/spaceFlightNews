@@ -91,6 +91,9 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="cI8-JO-3f3"/>
+                    <connections>
+                        <segue destination="HXY-lA-3Jz" kind="show" identifier="showCacheValidity" id="glA-oW-gv2"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b5z-Ta-Itb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -126,16 +129,16 @@
             </objects>
             <point key="canvasLocation" x="28.985507246376812" y="872.54464285714278"/>
         </scene>
-        <!--Cache Validity View Controller-->
+        <!--Cache Validity-->
         <scene sceneID="HN2-wj-vOj">
             <objects>
-                <viewController id="HXY-lA-3Jz" customClass="CacheValidityViewController" customModule="spaceNewsApi" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CacheValidityStoryboard" id="HXY-lA-3Jz" customClass="CacheValidityViewController" customModule="spaceNewsApi" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gkr-dv-q4s">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="cache validity" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gI5-lO-d7s">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -150,10 +153,13 @@
                             <constraint firstItem="gI5-lO-d7s" firstAttribute="leading" secondItem="etw-pt-H1d" secondAttribute="leading" id="Laf-Rp-hIG"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Cache Validity" leftItemsSupplementBackButton="YES" largeTitleDisplayMode="never" id="28b-wH-YtV">
+                        <barButtonItem key="backBarButtonItem" title="More" id="LsK-Lm-6dQ"/>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cuv-z1-CHi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1716" y="873"/>
+            <point key="canvasLocation" x="1719" y="873"/>
         </scene>
     </scenes>
     <resources>

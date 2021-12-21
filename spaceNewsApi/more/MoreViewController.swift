@@ -88,11 +88,11 @@ class MoreViewController: UIViewController, UITableViewDelegate, UITableViewData
         models.append(Section(title: "SETTINGS", options: [
             
             .labelCell(model: SettingsLabelOptions(title: "Cache Validity", myText: "2 hours", handler: {
-                let cacheValidityVC = storyboard?.instantiateViewController(withIdentifier: "CacheValidityViewController") as? CacheValidityViewController
                 
-                
-                self.navigationController?.pushViewController(cacheValidityVC!, animated: true)
-                
+
+                let cVVC = self.storyboard?.instantiateViewController(withIdentifier: "CacheValidityStoryboard")
+                self.navigationController?.pushViewController(cVVC!, animated: false)
+
             })),
             
             .labelCell(model: SettingsLabelOptions(title: "Appearance", myText: "Dark", handler: {})),
@@ -205,6 +205,8 @@ class MoreViewController: UIViewController, UITableViewDelegate, UITableViewData
         tableView.deselectRow(at: indexPath, animated: true)
         
         let type = models[indexPath.section].options[indexPath.row]
+        
+        //performSegue(withIdentifier: "showCacheValidity", sender: self)
         
         switch type.self {
             case .staticCell(let model):
