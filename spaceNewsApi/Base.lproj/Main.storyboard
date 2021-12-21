@@ -154,7 +154,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Cache Validity" leftItemsSupplementBackButton="YES" largeTitleDisplayMode="never" id="28b-wH-YtV">
-                        <barButtonItem key="backBarButtonItem" title="More" id="LsK-Lm-6dQ"/>
+                        <barButtonItem key="backBarButtonItem" title="More" id="LsK-Lm-6dQ">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </barButtonItem>
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cuv-z1-CHi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

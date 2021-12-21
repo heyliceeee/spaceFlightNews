@@ -91,7 +91,7 @@ class MoreViewController: UIViewController, UITableViewDelegate, UITableViewData
                 
 
                 let cVVC = self.storyboard?.instantiateViewController(withIdentifier: "CacheValidityStoryboard")
-                self.navigationController?.pushViewController(cVVC!, animated: false)
+                self.navigationController?.pushViewController(cVVC!, animated: true)
 
             })),
             
