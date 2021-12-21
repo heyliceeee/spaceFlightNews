@@ -42,7 +42,7 @@ struct SettingsSwitchOptions {
     let handler: (() -> Void)
     var isOn: Bool
 }
-
+	
 
 struct SettingsOptions {
     let title: String
@@ -87,7 +87,13 @@ class MoreViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         models.append(Section(title: "SETTINGS", options: [
             
-            .labelCell(model: SettingsLabelOptions(title: "Cache Validity", myText: "2 hours", handler: {})),
+            .labelCell(model: SettingsLabelOptions(title: "Cache Validity", myText: "2 hours", handler: {
+                let cacheValidityVC = storyboard?.instantiateViewController(withIdentifier: "CacheValidityViewController") as? CacheValidityViewController
+                
+                
+                self.navigationController?.pushViewController(cacheValidityVC!, animated: true)
+                
+            })),
             
             .labelCell(model: SettingsLabelOptions(title: "Appearance", myText: "Dark", handler: {})),
             
