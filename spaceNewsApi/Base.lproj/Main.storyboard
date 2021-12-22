@@ -13,7 +13,7 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="spaceNewsApi" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -29,7 +29,7 @@
             <objects>
                 <viewController id="KF0-fE-q1I" customClass="ViewController" customModule="spaceNewsApi" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5YR-sf-iXE">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="xE8-cL-yKe"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -45,7 +45,7 @@
             <objects>
                 <viewController id="o62-zE-xcY" customClass="ViewController" customModule="spaceNewsApi" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="M8h-DF-RpP">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="u5v-2g-DIQ"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -61,12 +61,10 @@
             <objects>
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="JvO-Ap-qP2" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="rHn-kv-qPR">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="rHn-kv-qPR">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="tintColor" systemColor="systemPurpleColor"/>
-                        <color key="barTintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="selectedImageTintColor" systemColor="systemPurpleColor"/>
                     </tabBar>
                     <connections>
@@ -80,37 +78,18 @@
             </objects>
             <point key="canvasLocation" x="28.985507246376812" y="97.767857142857139"/>
         </scene>
-        <!--More View Controller-->
-        <scene sceneID="z3S-lc-d6D">
-            <objects>
-                <viewController id="EMZ-vE-djP" customClass="MoreViewController" customModule="spaceNewsApi" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Yms-UW-kf9">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="Ixm-ui-6bV"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="cI8-JO-3f3"/>
-                    <connections>
-                        <segue destination="HXY-lA-3Jz" kind="show" identifier="showCacheValidity" id="glA-oW-gv2"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="b5z-Ta-Itb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="939.13043478260875" y="872.54464285714278"/>
-        </scene>
         <!--Navigation Controller-->
         <scene sceneID="aSa-lq-nc0">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="K1r-tT-QyR" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" toolbarHidden="NO" id="K1r-tT-QyR" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" systemItem="more" id="jm0-SH-1hp"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="OtB-PQ-Te6">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" backIndicatorImage="chevron.backward" catalog="system" largeTitles="YES" id="OtB-PQ-Te6">
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" systemColor="systemPurpleColor"/>
                         <color key="tintColor" systemColor="systemPurpleColor"/>
-                        <color key="barTintColor" systemColor="systemPurpleColor"/>
+                        <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <color key="textShadowColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -121,6 +100,10 @@
                         </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="5Jl-BN-7pz">
+                        <rect key="frame" x="0.0" y="764" width="414" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
                     <connections>
                         <segue destination="EMZ-vE-djP" kind="relationship" relationship="rootViewController" id="ojZ-ey-FJ3"/>
                     </connections>
@@ -129,42 +112,40 @@
             </objects>
             <point key="canvasLocation" x="28.985507246376812" y="872.54464285714278"/>
         </scene>
-        <!--Cache Validity-->
-        <scene sceneID="HN2-wj-vOj">
+        <!--More View Controller-->
+        <scene sceneID="z3S-lc-d6D">
             <objects>
-                <viewController storyboardIdentifier="CacheValidityStoryboard" id="HXY-lA-3Jz" customClass="CacheValidityViewController" customModule="spaceNewsApi" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="gkr-dv-q4s">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
+                <viewController id="EMZ-vE-djP" customClass="MoreViewController" customModule="spaceNewsApi" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Yms-UW-kf9">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="cache validity" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gI5-lO-d7s">
-                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="etw-pt-H1d"/>
+                        <viewLayoutGuide key="safeArea" id="Ixm-ui-6bV"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="gI5-lO-d7s" firstAttribute="top" secondItem="etw-pt-H1d" secondAttribute="top" id="5m0-cK-eay"/>
-                            <constraint firstItem="etw-pt-H1d" firstAttribute="trailing" secondItem="gI5-lO-d7s" secondAttribute="trailing" id="6GS-R8-U89"/>
-                            <constraint firstItem="etw-pt-H1d" firstAttribute="bottom" secondItem="gI5-lO-d7s" secondAttribute="bottom" id="K6G-wE-ecE"/>
-                            <constraint firstItem="gI5-lO-d7s" firstAttribute="leading" secondItem="etw-pt-H1d" secondAttribute="leading" id="Laf-Rp-hIG"/>
-                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Cache Validity" leftItemsSupplementBackButton="YES" largeTitleDisplayMode="never" id="28b-wH-YtV">
-                        <barButtonItem key="backBarButtonItem" title="More" id="LsK-Lm-6dQ">
-                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="cI8-JO-3f3"/>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="cuv-z1-CHi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="b5z-Ta-Itb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1719" y="873"/>
+            <point key="canvasLocation" x="939.13043478260875" y="872.54464285714278"/>
+        </scene>
+        <!--Cache Validity View Controller-->
+        <scene sceneID="dHZ-Pd-jpd">
+            <objects>
+                <viewController storyboardIdentifier="CacheValidityStoryboard" id="aDh-hE-mPm" customClass="CacheValidityViewController" customModule="spaceNewsApi" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="WU3-aQ-xnc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="hpi-aV-lPr"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RS5-md-3Eq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1662" y="873"/>
         </scene>
     </scenes>
     <resources>
+        <image name="chevron.backward" catalog="system" width="96" height="128"/>
         <image name="heart.fill" catalog="system" width="128" height="109"/>
         <image name="star.fill" catalog="system" width="128" height="116"/>
         <systemColor name="systemBackgroundColor">
