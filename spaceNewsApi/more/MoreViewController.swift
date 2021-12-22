@@ -71,7 +71,7 @@ class MoreViewController: UIViewController, UITableViewDelegate, UITableViewData
         super.viewDidLoad()
         
         //navbar
-        //title = "More"
+        title = "More"
         //navigationItem.title = "More"
         
         //table
@@ -91,7 +91,7 @@ class MoreViewController: UIViewController, UITableViewDelegate, UITableViewData
                 
 
                 let cVVC = self.storyboard?.instantiateViewController(withIdentifier: "CacheValidityStoryboard")
-                //self.navigationController?.pushViewController(cVVC!, animated: true)
+                self.navigationController?.pushViewController(cVVC!, animated: false)
 
             })),
             

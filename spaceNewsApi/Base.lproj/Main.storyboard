@@ -81,15 +81,15 @@
         <!--Navigation Controller-->
         <scene sceneID="aSa-lq-nc0">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" toolbarHidden="NO" id="K1r-tT-QyR" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="K1r-tT-QyR" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" systemItem="more" id="jm0-SH-1hp"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" backIndicatorImage="chevron.backward" catalog="system" largeTitles="YES" id="OtB-PQ-Te6">
-                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" backIndicatorImage="chevron.backward" catalog="system" id="OtB-PQ-Te6">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" systemColor="systemPurpleColor"/>
                         <color key="tintColor" systemColor="systemPurpleColor"/>
-                        <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="barTintColor" systemColor="systemPurpleColor"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <color key="textShadowColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -100,10 +100,6 @@
                         </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
-                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="5Jl-BN-7pz">
-                        <rect key="frame" x="0.0" y="764" width="414" height="49"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </toolbar>
                     <connections>
                         <segue destination="EMZ-vE-djP" kind="relationship" relationship="rootViewController" id="ojZ-ey-FJ3"/>
                     </connections>
@@ -132,16 +128,56 @@
         <scene sceneID="dHZ-Pd-jpd">
             <objects>
                 <viewController storyboardIdentifier="CacheValidityStoryboard" id="aDh-hE-mPm" customClass="CacheValidityViewController" customModule="spaceNewsApi" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="WU3-aQ-xnc">
+                    <view key="view" contentMode="scaleToFill" ambiguous="YES" id="WU3-aQ-xnc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Swipe to change cache validity" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="epr-zA-4Fg">
+                                <rect key="frame" x="90" y="177" width="235" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="235" id="gsO-5A-tUI"/>
+                                    <constraint firstAttribute="height" constant="21" id="yYV-cj-hy4"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="fQp-Zd-g06">
+                                <rect key="frame" x="18" y="236" width="378" height="31"/>
+                                <color key="tintColor" systemColor="systemPurpleColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="d3g-AW-wW0"/>
+                                    <constraint firstAttribute="width" constant="374" id="h4K-0H-dCG"/>
+                                </constraints>
+                            </slider>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2 hours" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Ha-GD-8Su">
+                                <rect key="frame" x="178" y="302" width="58" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="rtV-Aq-kWp"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="hpi-aV-lPr"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="1Ha-GD-8Su" firstAttribute="centerY" secondItem="WU3-aQ-xnc" secondAttribute="centerY" id="7lX-s1-2rj"/>
+                            <constraint firstItem="fQp-Zd-g06" firstAttribute="top" secondItem="epr-zA-4Fg" secondAttribute="bottom" constant="38" id="9sa-ja-mr3"/>
+                            <constraint firstItem="fQp-Zd-g06" firstAttribute="leading" secondItem="hpi-aV-lPr" secondAttribute="leading" constant="20" id="L3Z-Xc-44T"/>
+                            <constraint firstItem="hpi-aV-lPr" firstAttribute="trailing" secondItem="fQp-Zd-g06" secondAttribute="trailing" constant="20" id="OlJ-Tf-M3r"/>
+                            <constraint firstItem="epr-zA-4Fg" firstAttribute="top" secondItem="hpi-aV-lPr" secondAttribute="top" constant="133" id="b9H-3w-A2k"/>
+                            <constraint firstItem="1Ha-GD-8Su" firstAttribute="top" secondItem="fQp-Zd-g06" secondAttribute="bottom" constant="36" id="bOi-Fs-shO"/>
+                            <constraint firstItem="hpi-aV-lPr" firstAttribute="trailing" secondItem="epr-zA-4Fg" secondAttribute="trailing" constant="89" id="gJM-1j-NL9"/>
+                            <constraint firstItem="1Ha-GD-8Su" firstAttribute="centerX" secondItem="WU3-aQ-xnc" secondAttribute="centerX" id="hgt-4e-Jv2"/>
+                            <constraint firstItem="hpi-aV-lPr" firstAttribute="trailing" secondItem="1Ha-GD-8Su" secondAttribute="trailing" constant="178" id="jmF-JH-zyg"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RS5-md-3Eq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1662" y="873"/>
+            <point key="canvasLocation" x="1660.8695652173915" y="872.54464285714278"/>
         </scene>
     </scenes>
     <resources>

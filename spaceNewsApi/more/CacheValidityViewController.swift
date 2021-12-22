@@ -10,5 +10,4 @@ import UIKit
 class CacheValidityViewController: UIViewController {
     
     static let identifier = "CacheValidityViewController"
-    
 }
