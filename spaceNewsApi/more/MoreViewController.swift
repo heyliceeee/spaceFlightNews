@@ -225,5 +225,4 @@ class MoreViewController: UIViewController, UITableViewDelegate, UITableViewData
                 model.handler()
         }
     }
-
 }

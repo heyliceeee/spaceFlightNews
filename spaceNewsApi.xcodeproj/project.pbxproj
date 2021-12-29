@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C33F3FF8277C798D009734A6 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C33F3FF7277C798D009734A6 /* TodayViewController.swift */; };
+		C33F3FFC277C85E1009734A6 /* ArticleService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C33F3FFB277C85E1009734A6 /* ArticleService.swift */; };
+		C33F3FFE277CAF9C009734A6 /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = C33F3FFD277CAF9B009734A6 /* Article.swift */; };
 		C33F462F276758B7009F7B4F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C33F462E276758B7009F7B4F /* AppDelegate.swift */; };
 		C33F4631276758B7009F7B4F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C33F4630276758B7009F7B4F /* SceneDelegate.swift */; };
 		C33F4633276758B7009F7B4F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C33F4632276758B7009F7B4F /* ViewController.swift */; };
@@ -43,6 +46,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C33F3FF7277C798D009734A6 /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
+		C33F3FFB277C85E1009734A6 /* ArticleService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleService.swift; sourceTree = "<group>"; };
+		C33F3FFD277CAF9B009734A6 /* Article.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
 		C33F462B276758B7009F7B4F /* spaceNewsApi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = spaceNewsApi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C33F462E276758B7009F7B4F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C33F4630276758B7009F7B4F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -90,6 +96,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C33F3FFA277C838C009734A6 /* today */ = {
+			isa = PBXGroup;
+			children = (
+				C33F3FF7277C798D009734A6 /* TodayViewController.swift */,
+				C33F3FFB277C85E1009734A6 /* ArticleService.swift */,
+				C33F3FFD277CAF9B009734A6 /* Article.swift */,
+			);
+			path = today;
+			sourceTree = "<group>";
+		};
 		C33F4622276758B7009F7B4F = {
 			isa = PBXGroup;
 			children = (
@@ -113,10 +129,11 @@
 		C33F462D276758B7009F7B4F /* spaceNewsApi */ = {
 			isa = PBXGroup;
 			children = (
+				C33F3FFA277C838C009734A6 /* today */,
 				C33F466327675D59009F7B4F /* more */,
+				C33F4632276758B7009F7B4F /* ViewController.swift */,
 				C33F462E276758B7009F7B4F /* AppDelegate.swift */,
 				C33F4630276758B7009F7B4F /* SceneDelegate.swift */,
-				C33F4632276758B7009F7B4F /* ViewController.swift */,
 				C33F4634276758B8009F7B4F /* Main.storyboard */,
 				C33F463A276758BB009F7B4F /* Assets.xcassets */,
 				C33F463C276758BB009F7B4F /* LaunchScreen.storyboard */,
@@ -287,6 +304,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C33F3FFE277CAF9C009734A6 /* Article.swift in Sources */,
 				C33F466527676438009F7B4F /* SettingTableViewCell.swift in Sources */,
 				C33F466227675BB6009F7B4F /* MoreViewController.swift in Sources */,
 				C33F4667276773BC009F7B4F /* SwitchTableViewCell.swift in Sources */,
@@ -295,8 +313,10 @@
 				C33F4633276758B7009F7B4F /* ViewController.swift in Sources */,
 				C3E4465F2768A7D700AFE39B /* OnlyLabelTableViewCell.swift in Sources */,
 				C33F462F276758B7009F7B4F /* AppDelegate.swift in Sources */,
+				C33F3FFC277C85E1009734A6 /* ArticleService.swift in Sources */,
 				C33F466927677B4A009F7B4F /* LabelTableViewCell.swift in Sources */,
 				C33F4631276758B7009F7B4F /* SceneDelegate.swift in Sources */,
+				C33F3FF8277C798D009734A6 /* TodayViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
