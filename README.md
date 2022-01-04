@@ -1,5 +1,7 @@
 # spaceFlightNews
 
-Maria Alice Dias 
-Marta Oliveira
-Tiago Costa
+Maria Alice Dias - heyliceeee
+
+Marta Oliveira - martaoliveira15
+
+Tiago Costa - falphir
