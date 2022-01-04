@@ -254,7 +254,7 @@
         <scene sceneID="dHZ-Pd-jpd">
             <objects>
                 <viewController storyboardIdentifier="CacheValidityStoryboard" id="aDh-hE-mPm" customClass="CacheValidityViewController" customModule="spaceNewsApi" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" ambiguous="YES" id="WU3-aQ-xnc">
+                    <view key="view" contentMode="scaleToFill" id="WU3-aQ-xnc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
