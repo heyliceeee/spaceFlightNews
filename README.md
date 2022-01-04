@@ -1,7 +1,13 @@
 # spaceFlightNews
 
-Maria Alice Dias - heyliceeee
+<h1><b>Grupo 4</b></h1>
 
-Marta Oliveira - martaoliveira15
+<h3><b>Integrantes</b></h3>
 
-Tiago Costa - falphir
+<hr>
+
+heyliceeee - Maria Alice Dias <br>
+<br>
+martaoliveira15 - Marta Oliveira  <br>
+<br>
+Falphir - Tiago Costa <br>
