@@ -9,6 +9,8 @@ import UIKit
 
 class TodayViewController: UIViewController {
     
+    var a = ArticleService()
+    
     @IBOutlet weak var IDlabel: UILabel!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var urlLabel: UILabel!
@@ -25,12 +27,13 @@ class TodayViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-    }
+        
+        a.fetch()
+}
     
     
-    @IBAction func btn(_ sender: Any) {
-        ArticleService.listArticles() { (article) in
+/* @IBAction func btn(_ sender: Any) {
+         ArticleService.listArticles() { (article) in
             DispatchQueue.main.sync {
                 self.IDlabel.text = "ID: \(article.id)"
                 self.IDlabel.text = "Title: \(article.title)"
@@ -45,5 +48,5 @@ class TodayViewController: UIViewController {
                 self.IDlabel.text = "Events: \(article.events)"
             }
         }
-    }
+    }*/
 }

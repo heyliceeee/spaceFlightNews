@@ -8,26 +8,30 @@
 import Foundation
 
 class ArticleService {
-    
-    class func listArticles(completion: @escaping (Article) -> Void){
         
-        guard let url = URL(string: "https://api.spaceflightnewsapi.net/v3/articles") else { return }
-        URLSession.shared.dataTask(with: url) { (data, response, error) in
+    let API_URL = "https://api.spaceflightnewsapi.net/v3"
+        
+    
+    func fetch() {
+        
+        let urlString = API_URL + "/articles/13120"
+        
+        if let url = URL.init(string: urlString){
             
-            if error == nil {
+            let task = URLSession.shared.dataTask(
+                with: url,
+                completionHandler: {(data, response, error) in
                 
-                guard let response = response as? HTTPURLResponse else { return }
+                //handle data or error
+                print(String.init(data: data!, encoding: .ascii) ?? "no data")
                 
-                if response.statusCode == 200 {
-                    
-                    guard let data = data else { return }
-                    
-                } else {
-                    print("status invalid, status code: \(response.statusCode)")
+                //handle JSON decoding
+                if let article = try? JSONDecoder().decode(Article.self, from: data!){
+                    print(article.launches ?? "no launches")
+                    print(article.events ?? "no events")
                 }
-            } else {
-                print(error!.localizedDescription)
-            }
-        }.resume()
+            })
+            task.resume()
+        }
     }
 }
