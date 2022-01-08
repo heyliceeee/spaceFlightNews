@@ -7,6 +7,7 @@
 
 import Foundation
 
+
 struct Article: Codable {
     var id: Int?
     var title: String?

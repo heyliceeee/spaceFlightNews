@@ -9,7 +9,8 @@ import UIKit
 
 class TodayViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    var articles = ArticleService()
+    //var articles = ArticleService()
+    var fetchedArticle = [Article]()
     
     @IBOutlet weak var ArticlesTableView: UITableView!
     
@@ -22,8 +23,97 @@ class TodayViewController: UIViewController, UITableViewDelegate, UITableViewDat
         ArticlesTableView.dataSource = self
         ArticlesTableView.separatorColor = UIColor(white: 0.95, alpha: 1)
         
-        articles.fetch()
+        //articles.fetch()
+        parseData()
     }
+    
+    
+    
+    //---------------- API ----------------//
+    
+    func parseData(){
+        
+        fetchedArticle = []
+        
+        let url = "https://api.spaceflightnewsapi.net/v3/articles"
+        var request = URLRequest(url: URL(string: url)!)
+        request.httpMethod = "GET"
+        
+        let configuration = URLSessionConfiguration.default
+        let session = URLSession(configuration: configuration, delegate: nil, delegateQueue: OperationQueue.main)
+        
+        let task = session.dataTask(with: request) { (data, response, error) in
+            
+            if(error != nil){
+                print("error")
+            
+            } else {
+                do {
+                    let fetchedData = try JSONSerialization.jsonObject(with: data!, options: . mutableLeaves) as! NSArray
+                    
+                    for eachFetchedArticle in fetchedData {
+                        
+                        let eachArticle = eachFetchedArticle as! [String: Any]
+                        
+                        let idArticle = eachArticle["id"] as! Int
+                        let titleArticle = eachArticle["title"] as! String
+                        let urlArticle = eachArticle["url"] as! String
+                        let imageUrlArticle = eachArticle["imageUrl"] as! String
+                        let newsSiteArticle = eachArticle["newsSite"] as! String
+                        //let summaryArticle = eachArticle["summary"] as! String
+                        let publishedAtArticle = eachArticle["publishedAt"] as! String
+                        let updatedAtArticle = eachArticle["updatedAt"] as! String
+                        let featuredArticle = eachArticle["featured"] as! Bool
+                        //let launchesArticle = eachArticle["launches"] as! Array<String>
+                        //let eventsArticle = eachArticle["events"] as! Array<String>
+                        
+                        
+                        self.fetchedArticle.append(Article(id: idArticle, title: titleArticle, url: urlArticle, imageUrl: imageUrlArticle, newsSite: newsSiteArticle, publishedAt: publishedAtArticle, updatedAt: updatedAtArticle, featured: featuredArticle))
+                    }
+                    
+                    print(self.fetchedArticle)
+                    
+                }
+                catch {
+                    print("error 2")
+                }
+            }
+        }
+        task.resume()
+    }
+    
+    
+    
+ class Article {
+        
+     var id: Int?
+     var title: String?
+     var url: String?
+     var imageUrl: String?
+     var newsSite: String?
+     //var summary: String?
+     var publishedAt: String?
+     var updatedAt: String?
+     var featured: Bool?
+     var launches: String?
+     var events: String?
+     
+     
+     init(id: Int, title: String, url: String, imageUrl: String, newsSite: String, publishedAt: String, updatedAt: String, featured: Bool){
+         
+         self.id = id
+         self.title = title
+         self.url = url
+         self.imageUrl = imageUrl
+         self.newsSite = newsSite
+         self.publishedAt = publishedAt
+         self.updatedAt = updatedAt
+         self.featured = featured
+     }
+}
+    
+    
+    //---------------- FIM API ----------------//
     
     
     //num de linhas maybe
@@ -36,7 +126,7 @@ class TodayViewController: UIViewController, UITableViewDelegate, UITableViewDat
     //num de rows
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return 8
+        return fetchedArticle.count
     }
     
     
@@ -48,11 +138,11 @@ class TodayViewController: UIViewController, UITableViewDelegate, UITableViewDat
         cell.contentView.backgroundColor = UIColor(white: 0.95, alpha: 1)
         
         //image API
-        //cell.imageCell.image = self. ... [indexPath.row]
+        //cell.imageCell.image = fetchedArticle[indexPath.row].imageUrl
         
         //title API
-        //cell.titleCell.text = self. ... [indexPath.row]
-        
+        cell.titleCell?.text = fetchedArticle[indexPath.row].title
+
         //summary API
         //cell.summaryCell.text = self. ... [indexPath.row]
         

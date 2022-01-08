@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="CCa-c5-UrQ">
-                                <rect key="frame" x="20" y="61" width="374" height="752"/>
+                                <rect key="frame" x="20" y="92" width="374" height="725"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="115" id="aiG-G8-g4z" customClass="ArticleTableViewCell" customModule="spaceNewsApi" customModuleProvider="target">
@@ -36,13 +36,13 @@
                                                                 <constraint firstAttribute="width" constant="87" id="1VU-9Z-Kfl"/>
                                                             </constraints>
                                                         </imageView>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IS0-Sv-PSD">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IS0-Sv-PSD">
                                                             <rect key="frame" x="103" y="8" width="244" height="23"/>
                                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
                                                             <color key="textColor" systemColor="systemPurpleColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wsX-BM-owL">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wsX-BM-owL">
                                                             <rect key="frame" x="103" y="37" width="244" height="58"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                             <nil key="textColor"/>
@@ -85,10 +85,21 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="fvH-FS-VuB"/>
                                 </connections>
                             </tableView>
-                            <navigationBar contentMode="scaleToFill" id="hey-3k-FDy">
-                                <rect key="frame" x="0.0" y="17" width="414" height="44"/>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dAp-Qr-po2">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <color key="barTintColor" systemColor="systemPurpleColor"/>
+                                <items>
+                                    <navigationItem id="bfH-2c-6pD"/>
+                                </items>
+                            </navigationBar>
+                            <navigationBar contentMode="scaleToFill" id="hey-3k-FDy">
+                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <color key="barTintColor" systemColor="systemPurpleColor"/>
+                                <textAttributes key="titleTextAttributes">
+                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </textAttributes>
                                 <items>
                                     <navigationItem title="SpaceFlight News" id="3Fp-El-Lij"/>
                                 </items>
@@ -98,9 +109,9 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="CCa-c5-UrQ" secondAttribute="trailing" constant="20" id="Ny2-fV-saI"/>
-                            <constraint firstItem="CCa-c5-UrQ" firstAttribute="top" secondItem="hey-3k-FDy" secondAttribute="bottom" id="Vfq-Ta-Z3p"/>
+                            <constraint firstItem="CCa-c5-UrQ" firstAttribute="top" secondItem="hey-3k-FDy" secondAttribute="bottom" constant="4" id="Vfq-Ta-Z3p"/>
                             <constraint firstItem="CCa-c5-UrQ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="Vux-2P-OiE"/>
-                            <constraint firstItem="CCa-c5-UrQ" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="bSi-UC-K00"/>
+                            <constraint firstItem="CCa-c5-UrQ" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" constant="4" id="bSi-UC-K00"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Today" image="star.fill" catalog="system" id="odl-o4-mn3"/>
