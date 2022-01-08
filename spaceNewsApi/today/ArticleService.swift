@@ -14,7 +14,7 @@ class ArticleService {
     
     func fetch() {
         
-        let urlString = API_URL + "/articles/13120"
+        let urlString = API_URL + "/articles"
         
         if let url = URL.init(string: urlString){
             

@@ -7,46 +7,56 @@
 
 import UIKit
 
-class TodayViewController: UIViewController {
+class TodayViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    var a = ArticleService()
+    var articles = ArticleService()
     
-    @IBOutlet weak var IDlabel: UILabel!
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var urlLabel: UILabel!
-    @IBOutlet weak var imageurlLabel: UILabel!
-    @IBOutlet weak var newssiteLabel: UILabel!
-    @IBOutlet weak var summaryLabel: UILabel!
-    @IBOutlet weak var publishedatLabel: UILabel!
-    @IBOutlet weak var updatedatLabel: UILabel!
-    @IBOutlet weak var featuredLabel: UILabel!
-    @IBOutlet weak var launchesLabel: UILabel!
-    @IBOutlet weak var eventsLabel: UILabel!
-    
+    @IBOutlet weak var ArticlesTableView: UITableView!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        a.fetch()
-}
+        
+        ArticlesTableView.delegate = self
+        ArticlesTableView.dataSource = self
+        ArticlesTableView.separatorColor = UIColor(white: 0.95, alpha: 1)
+        
+        articles.fetch()
+    }
     
     
-/* @IBAction func btn(_ sender: Any) {
-         ArticleService.listArticles() { (article) in
-            DispatchQueue.main.sync {
-                self.IDlabel.text = "ID: \(article.id)"
-                self.IDlabel.text = "Title: \(article.title)"
-                self.IDlabel.text = "URL: \(article.url)"
-                self.IDlabel.text = "ImageURL: \(article.imageUrl)"
-                self.IDlabel.text = "NewsSite: \(article.newsSite)"
-                self.IDlabel.text = "Summary: \(article.summary)"
-                self.IDlabel.text = "PublishedAt: \(article.publishedAt)"
-                self.IDlabel.text = "UpdatedAt: \(article.updatedAt)"
-                self.IDlabel.text = "Featured: \(article.featured)"
-                self.IDlabel.text = "Launches: \(article.launches)"
-                self.IDlabel.text = "Events: \(article.events)"
-            }
-        }
-    }*/
+    //num de linhas maybe
+    func numberOfSections(in tableView: UITableView) -> Int {
+        
+        return 1
+    }
+    
+    
+    //num de rows
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        return 8
+    }
+    
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ArticleTableViewCell
+        
+        //backgroundColor da cell
+        cell.contentView.backgroundColor = UIColor(white: 0.95, alpha: 1)
+        
+        //image API
+        //cell.imageCell.image = self. ... [indexPath.row]
+        
+        //title API
+        //cell.titleCell.text = self. ... [indexPath.row]
+        
+        //summary API
+        //cell.summaryCell.text = self. ... [indexPath.row]
+        
+        
+        return cell
+    }
 }
