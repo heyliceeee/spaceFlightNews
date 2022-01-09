@@ -9,10 +9,10 @@ import UIKit
 
 class TodayViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    //var articles = ArticleService()
     var fetchedArticle = [Article]()
     
     @IBOutlet weak var ArticlesTableView: UITableView!
+    
     
     
     override func viewDidLoad() {
@@ -21,44 +21,42 @@ class TodayViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
         ArticlesTableView.delegate = self
         ArticlesTableView.dataSource = self
-        ArticlesTableView.separatorColor = UIColor(white: 0.95, alpha: 1)
+        //ArticlesTableView.separatorColor = UIColor(white: 0.95, alpha: 1)
         
-        //articles.fetch()
         parseData()
+        
     }
-    
-    
     
     //---------------- API ----------------//
     
     func parseData(){
-        
+
         fetchedArticle = []
-        
+
         let url = "https://api.spaceflightnewsapi.net/v3/articles"
         var request = URLRequest(url: URL(string: url)!)
         request.httpMethod = "GET"
-        
+
         let configuration = URLSessionConfiguration.default
         let session = URLSession(configuration: configuration, delegate: nil, delegateQueue: OperationQueue.main)
-        
+
         let task = session.dataTask(with: request) { (data, response, error) in
-            
+
             if(error != nil){
                 print("error")
-            
+
             } else {
                 do {
                     let fetchedData = try JSONSerialization.jsonObject(with: data!, options: . mutableLeaves) as! NSArray
-                    
+
                     for eachFetchedArticle in fetchedData {
-                        
+
                         let eachArticle = eachFetchedArticle as! [String: Any]
-                        
+
                         let idArticle = eachArticle["id"] as! Int
                         let titleArticle = eachArticle["title"] as! String
-                        let urlArticle = eachArticle["url"] as! String
-                        let imageUrlArticle = eachArticle["imageUrl"] as! String
+                        //let urlArticle = eachArticle["url"] as! URL
+                        //let imageUrlArticle = eachArticle["imageUrl"] as! URL
                         let newsSiteArticle = eachArticle["newsSite"] as! String
                         //let summaryArticle = eachArticle["summary"] as! String
                         let publishedAtArticle = eachArticle["publishedAt"] as! String
@@ -66,13 +64,13 @@ class TodayViewController: UIViewController, UITableViewDelegate, UITableViewDat
                         let featuredArticle = eachArticle["featured"] as! Bool
                         //let launchesArticle = eachArticle["launches"] as! Array<String>
                         //let eventsArticle = eachArticle["events"] as! Array<String>
-                        
-                        
-                        self.fetchedArticle.append(Article(id: idArticle, title: titleArticle, url: urlArticle, imageUrl: imageUrlArticle, newsSite: newsSiteArticle, publishedAt: publishedAtArticle, updatedAt: updatedAtArticle, featured: featuredArticle))
+
+
+                        self.fetchedArticle.append(Article(id: idArticle, title: titleArticle, newsSite: newsSiteArticle, publishedAt: publishedAtArticle, updatedAt: updatedAtArticle, featured: featuredArticle))
                     }
-                    
+
                     print(self.fetchedArticle)
-                    
+
                 }
                 catch {
                     print("error 2")
@@ -81,15 +79,15 @@ class TodayViewController: UIViewController, UITableViewDelegate, UITableViewDat
         }
         task.resume()
     }
-    
-    
-    
+
+
+
  class Article {
-        
+
      var id: Int?
      var title: String?
-     var url: String?
-     var imageUrl: String?
+     //var url: URL?
+     //var imageUrl: URL?
      var newsSite: String?
      //var summary: String?
      var publishedAt: String?
@@ -97,22 +95,20 @@ class TodayViewController: UIViewController, UITableViewDelegate, UITableViewDat
      var featured: Bool?
      var launches: String?
      var events: String?
-     
-     
-     init(id: Int, title: String, url: String, imageUrl: String, newsSite: String, publishedAt: String, updatedAt: String, featured: Bool){
-         
+
+
+     init(id: Int, title: String, newsSite: String, publishedAt: String, updatedAt: String, featured: Bool){
+
          self.id = id
          self.title = title
-         self.url = url
-         self.imageUrl = imageUrl
+         //self.url = url
+         //self.imageUrl = imageUrl
          self.newsSite = newsSite
          self.publishedAt = publishedAt
          self.updatedAt = updatedAt
          self.featured = featured
      }
 }
-    
-    
     //---------------- FIM API ----------------//
     
     
@@ -139,12 +135,13 @@ class TodayViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
         //image API
         //cell.imageCell.image = fetchedArticle[indexPath.row].imageUrl
+        cell.imageCell.backgroundColor = .systemGray
         
         //title API
         cell.titleCell?.text = fetchedArticle[indexPath.row].title
 
-        //summary API
-        //cell.summaryCell.text = self. ... [indexPath.row]
+        //newsSite API
+        cell.newsSiteCell.text = fetchedArticle[indexPath.row].newsSite
         
         
         return cell

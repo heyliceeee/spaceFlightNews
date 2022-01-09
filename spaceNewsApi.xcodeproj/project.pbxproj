@@ -104,8 +104,6 @@
 			isa = PBXGroup;
 			children = (
 				C33F3FF7277C798D009734A6 /* TodayViewController.swift */,
-				C33F3FFB277C85E1009734A6 /* ArticleService.swift */,
-				C33F3FFD277CAF9B009734A6 /* Article.swift */,
 				C3626EBA2789B372006AC642 /* DesignView.swift */,
 				C3626EBC2789E06D006AC642 /* ArticleTableViewCell.swift */,
 			);
@@ -135,6 +133,7 @@
 		C33F462D276758B7009F7B4F /* spaceNewsApi */ = {
 			isa = PBXGroup;
 			children = (
+				C382C748278A512900EFA1C6 /* API */,
 				C33F3FFA277C838C009734A6 /* today */,
 				C33F466327675D59009F7B4F /* more */,
 				C33F4632276758B7009F7B4F /* ViewController.swift */,
@@ -177,6 +176,15 @@
 				C3B53B432771F311003FCC1A /* CacheValidityViewController.swift */,
 			);
 			path = more;
+			sourceTree = "<group>";
+		};
+		C382C748278A512900EFA1C6 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				C33F3FFB277C85E1009734A6 /* ArticleService.swift */,
+				C33F3FFD277CAF9B009734A6 /* Article.swift */,
+			);
+			path = API;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

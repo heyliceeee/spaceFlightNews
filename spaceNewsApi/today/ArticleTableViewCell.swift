@@ -11,8 +11,7 @@ class ArticleTableViewCell: UITableViewCell {
 
     @IBOutlet weak var imageCell: UIImageView!
     @IBOutlet weak var titleCell: UILabel!
-    @IBOutlet weak var summaryCell: UILabel!
-    
+    @IBOutlet weak var newsSiteCell: UILabel!
     
     
 }
