@@ -24,7 +24,6 @@ class TodayViewController: UIViewController, UITableViewDelegate, UITableViewDat
         //ArticlesTableView.separatorColor = UIColor(white: 0.95, alpha: 1)
         
         parseData()
-        
     }
     
     //---------------- API ----------------//
@@ -56,7 +55,8 @@ class TodayViewController: UIViewController, UITableViewDelegate, UITableViewDat
                         let idArticle = eachArticle["id"] as! Int
                         let titleArticle = eachArticle["title"] as! String
                         //let urlArticle = eachArticle["url"] as! URL
-                        //let imageUrlArticle = eachArticle["imageUrl"] as! URL
+                        let imageUrlArticle = eachArticle["imageUrl"] as! String
+                        //let imageArticle = eachArticle["imageUrl"] as! UIImage
                         let newsSiteArticle = eachArticle["newsSite"] as! String
                         //let summaryArticle = eachArticle["summary"] as! String
                         let publishedAtArticle = eachArticle["publishedAt"] as! String
@@ -66,7 +66,7 @@ class TodayViewController: UIViewController, UITableViewDelegate, UITableViewDat
                         //let eventsArticle = eachArticle["events"] as! Array<String>
 
 
-                        self.fetchedArticle.append(Article(id: idArticle, title: titleArticle, newsSite: newsSiteArticle, publishedAt: publishedAtArticle, updatedAt: updatedAtArticle, featured: featuredArticle))
+                        self.fetchedArticle.append(Article(id: idArticle, title: titleArticle, imageUrl: imageUrlArticle, newsSite: newsSiteArticle, publishedAt: publishedAtArticle, updatedAt: updatedAtArticle, featured: featuredArticle))
                     }
 
                     print(self.fetchedArticle)
@@ -87,7 +87,8 @@ class TodayViewController: UIViewController, UITableViewDelegate, UITableViewDat
      var id: Int?
      var title: String?
      //var url: URL?
-     //var imageUrl: URL?
+     var imageUrl: String?
+     //var image: UIImage?
      var newsSite: String?
      //var summary: String?
      var publishedAt: String?
@@ -97,12 +98,16 @@ class TodayViewController: UIViewController, UITableViewDelegate, UITableViewDat
      var events: String?
 
 
-     init(id: Int, title: String, newsSite: String, publishedAt: String, updatedAt: String, featured: Bool){
+     init(id: Int, title: String, imageUrl: String, newsSite: String, publishedAt: String, updatedAt: String, featured: Bool){
 
          self.id = id
          self.title = title
          //self.url = url
-         //self.imageUrl = imageUrl
+         
+         self.imageUrl = imageUrl
+         //let IMAGEMFUNCIONA = try! Data(contentsOf: URL(string: imageUrl)!)
+         //self.image = UIImage(data: IMAGEMFUNCIONA)
+         
          self.newsSite = newsSite
          self.publishedAt = publishedAt
          self.updatedAt = updatedAt
@@ -126,6 +131,26 @@ class TodayViewController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     
+    //----- CONVERT URL TO IMAGEVIEW -----//
+    //let a = URL(string: imageUrlString)!
+    //let b = try! Data(contentsOf: a)
+    
+    
+    func downloadImageFromUrl(urlImage: String, completion: @escaping (_ success: UIImage) -> Void){
+        
+        let url = URL(string: urlImage)
+        
+        let task = URLSession.shared.dataTask(with: url!){data, response, error in
+            guard let data = data, error == nil else {return}
+            
+            completion(UIImage(data: data)!)
+        }
+        task.resume()
+    }
+    
+    
+    
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ArticleTableViewCell
@@ -134,8 +159,19 @@ class TodayViewController: UIViewController, UITableViewDelegate, UITableViewDat
         cell.contentView.backgroundColor = UIColor(white: 0.95, alpha: 1)
         
         //image API
-        //cell.imageCell.image = fetchedArticle[indexPath.row].imageUrl
-        cell.imageCell.backgroundColor = .systemGray
+        self.downloadImageFromUrl(urlImage: fetchedArticle[indexPath.row].imageUrl as! String, completion: {image in
+            
+            DispatchQueue.main.sync {
+                cell.imageCell.image = image
+            }
+        })
+        //cell.imageCell.image = fetchedArticle[indexPath.row].image
+        
+        //print("teste: ", fetchedArticle[indexPath.row].imageUrl)
+        
+        //cell.imageCell.backgroundColor = .systemGray
+        
+        
         
         //title API
         cell.titleCell?.text = fetchedArticle[indexPath.row].title
