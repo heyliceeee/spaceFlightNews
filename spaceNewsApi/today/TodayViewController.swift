@@ -165,11 +165,6 @@ class TodayViewController: UIViewController, UITableViewDelegate, UITableViewDat
                 cell.imageCell.image = image
             }
         })
-        //cell.imageCell.image = fetchedArticle[indexPath.row].image
-        
-        //print("teste: ", fetchedArticle[indexPath.row].imageUrl)
-        
-        //cell.imageCell.backgroundColor = .systemGray
         
         
         
