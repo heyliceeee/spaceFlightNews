@@ -178,8 +178,10 @@ class TodayViewController: UIViewController, UITableViewDelegate, UITableViewDat
     //AO SELECIONAR UMA CELL
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
         
-        let articles = fetchedArticle.data?[indexPath.row]
+        let articlesID = fetchedArticle[indexPath.row].id
         
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "ArticleDetailsStoryboard")
+        self.navigationController?.pushViewController(vc!, animated: false)
         
     }
 }
