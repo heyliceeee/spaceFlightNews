@@ -89,7 +89,7 @@ class MoreViewController: UIViewController, UITableViewDelegate, UITableViewData
             
             .labelCell(model: SettingsLabelOptions(title: "Cache Validity", myText: "2 hours", handler: {
                 
-
+                //abrir ecra de cache validity
                 let cVVC = self.storyboard?.instantiateViewController(withIdentifier: "CacheValidityStoryboard")
                 self.navigationController?.pushViewController(cVVC!, animated: false)
 

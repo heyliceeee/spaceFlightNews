@@ -23,7 +23,7 @@ class TodayViewController: UIViewController, UITableViewDelegate, UITableViewDat
         ArticlesTableView.dataSource = self
         //ArticlesTableView.separatorColor = UIColor(white: 0.95, alpha: 1)
         
-        parseData()
+        parseData() //mostra todos os artigos
     }
     
     //---------------- API ----------------//
@@ -132,10 +132,6 @@ class TodayViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     
     //----- CONVERT URL TO IMAGEVIEW -----//
-    //let a = URL(string: imageUrlString)!
-    //let b = try! Data(contentsOf: a)
-    
-    
     func downloadImageFromUrl(urlImage: String, completion: @escaping (_ success: UIImage) -> Void){
         
         let url = URL(string: urlImage)
@@ -150,7 +146,7 @@ class TodayViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     
     
-    
+    //O QUE A CELL MOSTRA
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ArticleTableViewCell
@@ -176,5 +172,14 @@ class TodayViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
         
         return cell
+    }
+    
+    
+    //AO SELECIONAR UMA CELL
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
+        
+        let articles = fetchedArticle.data?[indexPath.row]
+        
+        
     }
 }
