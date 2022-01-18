@@ -67,7 +67,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wsX-BM-owL">
-                                                            <rect key="frame" x="126" y="87" width="116" height="23"/>
+                                                            <rect key="frame" x="126" y="87" width="182" height="23"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -87,7 +87,7 @@
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="363" id="1SV-Vb-1Wh"/>
                                                         <constraint firstItem="wsX-BM-owL" firstAttribute="leading" secondItem="WTW-hD-6xl" secondAttribute="trailing" constant="8" id="4Ff-Xd-swh"/>
-                                                        <constraint firstItem="Ai6-AG-6AY" firstAttribute="leading" secondItem="wsX-BM-owL" secondAttribute="trailing" constant="67.5" id="6fF-0Z-0Vg"/>
+                                                        <constraint firstItem="Ai6-AG-6AY" firstAttribute="leading" secondItem="wsX-BM-owL" secondAttribute="trailing" constant="1.5" id="6fF-0Z-0Vg"/>
                                                         <constraint firstAttribute="trailingMargin" secondItem="IS0-Sv-PSD" secondAttribute="trailing" id="GI7-e5-VHp"/>
                                                         <constraint firstItem="WTW-hD-6xl" firstAttribute="leading" secondItem="bbL-dJ-RTP" secondAttribute="leading" id="Hmn-6z-NfI"/>
                                                         <constraint firstItem="WTW-hD-6xl" firstAttribute="top" secondItem="bbL-dJ-RTP" secondAttribute="top" id="INu-fn-XV0"/>
@@ -98,7 +98,7 @@
                                                         <constraint firstItem="6BP-4X-xxr" firstAttribute="top" secondItem="IS0-Sv-PSD" secondAttribute="bottom" constant="6" id="YBV-A0-Or6"/>
                                                         <constraint firstAttribute="bottom" secondItem="WTW-hD-6xl" secondAttribute="bottom" id="a0c-a6-tef"/>
                                                         <constraint firstItem="IS0-Sv-PSD" firstAttribute="top" secondItem="bbL-dJ-RTP" secondAttribute="topMargin" id="b5c-yw-LNB"/>
-                                                        <constraint firstAttribute="trailingMargin" secondItem="wsX-BM-owL" secondAttribute="trailing" constant="113" id="gFc-zG-QiJ"/>
+                                                        <constraint firstAttribute="trailingMargin" secondItem="wsX-BM-owL" secondAttribute="trailing" constant="47" id="gFc-zG-QiJ"/>
                                                         <constraint firstAttribute="trailing" secondItem="6BP-4X-xxr" secondAttribute="trailing" constant="8" id="kUQ-ne-jVf"/>
                                                         <constraint firstItem="wsX-BM-owL" firstAttribute="top" secondItem="IS0-Sv-PSD" secondAttribute="bottom" constant="2" id="mZu-Mt-WR7"/>
                                                         <constraint firstItem="Ai6-AG-6AY" firstAttribute="top" secondItem="IS0-Sv-PSD" secondAttribute="bottom" constant="1" id="nyf-1k-7hi"/>
