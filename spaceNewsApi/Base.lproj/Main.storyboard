@@ -13,7 +13,7 @@
             <objects>
                 <viewController storyboardIdentifier="ArticleDetailsStoryboard" id="Rxq-DW-C9C" customClass="ArticleDetailsViewController" customModule="spaceNewsApi" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="O5a-QY-wGi">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ja6-Bg-m4e">
@@ -27,6 +27,10 @@
                         <viewLayoutGuide key="safeArea" id="z0i-PR-hzx"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <navigationItem key="navigationItem" id="eQN-Gw-8ML"/>
+                    <connections>
+                        <outlet property="label" destination="ja6-Bg-m4e" id="gK6-YZ-szi"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lxk-rn-8m1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -119,6 +123,7 @@
                                             <outlet property="imageCell" destination="WTW-hD-6xl" id="b4t-2z-5DN"/>
                                             <outlet property="newsSiteCell" destination="wsX-BM-owL" id="6rK-AD-GFm"/>
                                             <outlet property="titleCell" destination="IS0-Sv-PSD" id="yFI-W7-3j8"/>
+                                            <segue destination="Rxq-DW-C9C" kind="show" identifier="segue" id="FPf-nu-InA"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

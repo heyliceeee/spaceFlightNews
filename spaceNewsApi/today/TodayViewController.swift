@@ -179,9 +179,17 @@ class TodayViewController: UIViewController, UITableViewDelegate, UITableViewDat
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
         
         let articlesID = fetchedArticle[indexPath.row].id
+        var idconvert = ("\(articlesID)")
         
-        let vc = self.storyboard?.instantiateViewController(withIdentifier: "ArticleDetailsStoryboard")
-        self.navigationController?.pushViewController(vc!, animated: false)
+        
+        func prepare(for segue: UIStoryboardSegue, sender: Any?){
+            
+            if segue.identifier == "segue" {
+                let destinationController = segue.destination as! ArticleDetailsViewController
+                
+                destinationController.labelText = idconvert
+            }
+        }
         
     }
 }
