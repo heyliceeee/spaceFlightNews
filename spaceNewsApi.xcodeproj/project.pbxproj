@@ -27,6 +27,7 @@
 		C3626EBB2789B372006AC642 /* DesignView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3626EBA2789B372006AC642 /* DesignView.swift */; };
 		C3626EBD2789E06D006AC642 /* ArticleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3626EBC2789E06D006AC642 /* ArticleTableViewCell.swift */; };
 		C3B53B442771F311003FCC1A /* CacheValidityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B53B432771F311003FCC1A /* CacheValidityViewController.swift */; };
+		C3BBBF042796C34600A4C5F4 /* ArticleDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3BBBF032796C34500A4C5F4 /* ArticleDetailsViewController.swift */; };
 		C3E4465F2768A7D700AFE39B /* OnlyLabelTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3E4465E2768A7D700AFE39B /* OnlyLabelTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -72,6 +73,7 @@
 		C3626EBA2789B372006AC642 /* DesignView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignView.swift; sourceTree = "<group>"; };
 		C3626EBC2789E06D006AC642 /* ArticleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleTableViewCell.swift; sourceTree = "<group>"; };
 		C3B53B432771F311003FCC1A /* CacheValidityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheValidityViewController.swift; sourceTree = "<group>"; };
+		C3BBBF032796C34500A4C5F4 /* ArticleDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleDetailsViewController.swift; sourceTree = "<group>"; };
 		C3E4465E2768A7D700AFE39B /* OnlyLabelTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnlyLabelTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -106,6 +108,7 @@
 				C33F3FF7277C798D009734A6 /* TodayViewController.swift */,
 				C3626EBA2789B372006AC642 /* DesignView.swift */,
 				C3626EBC2789E06D006AC642 /* ArticleTableViewCell.swift */,
+				C3BBBF032796C34500A4C5F4 /* ArticleDetailsViewController.swift */,
 			);
 			path = today;
 			sourceTree = "<group>";
@@ -332,6 +335,7 @@
 				C33F3FFC277C85E1009734A6 /* ArticleService.swift in Sources */,
 				C33F466927677B4A009F7B4F /* LabelTableViewCell.swift in Sources */,
 				C33F4631276758B7009F7B4F /* SceneDelegate.swift in Sources */,
+				C3BBBF042796C34600A4C5F4 /* ArticleDetailsViewController.swift in Sources */,
 				C33F3FF8277C798D009734A6 /* TodayViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
