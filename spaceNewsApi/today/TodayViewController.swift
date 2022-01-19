@@ -18,6 +18,8 @@ class TodayViewController: UIViewController, UITableViewDelegate, UITableViewDat
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //navbar title
+        self.title = "Home"
         
         ArticlesTableView.delegate = self
         ArticlesTableView.dataSource = self
@@ -179,16 +181,23 @@ class TodayViewController: UIViewController, UITableViewDelegate, UITableViewDat
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
         
         let articlesID = fetchedArticle[indexPath.row].id
-        var idconvert = ("\(articlesID)")
+        
+        let idconvert = "\(articlesID ?? 0)" //convert int to string
         
         
-        func prepare(for segue: UIStoryboardSegue, sender: Any?){
+        //func prepare(for segue: UIStoryboardSegue, sender: Any?){
             
-            if segue.identifier == "segue" {
-                let destinationController = segue.destination as! ArticleDetailsViewController
+          //  if segue.identifier == "segue" {
+            //    let destinationController = segue.destination as! ArticleDetailsViewController
                 
-                destinationController.labelText = idconvert
-            }
+              //  destinationController.labelText = idconvert
+            //}
+        
+        if let vc = storyboard?.instantiateViewController(identifier: "ArticleDetailsStoryboard") as? ArticleDetailsViewController{
+            
+            self.navigationController?.pushViewController(vc, animated: true)
+            
+            vc.id = idconvert
         }
         
     }

@@ -9,15 +9,14 @@ import UIKit
 
 class ArticleDetailsViewController: UIViewController {
     
-    @IBOutlet weak var label: UILabel!
-    //static let identifier = "ArticleDetailsViewController"
+    @IBOutlet weak var lbl_ID: UILabel!
     
-    var labelText = String()
+    var id = ""
     
     
     override func viewDidLoad(){
         super.viewDidLoad()
         
-        label.text = labelText
+        lbl_ID.text = id
     }
 }
