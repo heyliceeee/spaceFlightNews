@@ -177,19 +177,29 @@ class TodayViewController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     
-    //AO SELECIONAR UMA CELL
+    //AO SELECIONAR UMA CELL - article details
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
         
         let articlesID = fetchedArticle[indexPath.row].id
-        
         let idconvert = "\(articlesID ?? 0)" //convert int to string
+        
+        
+        //let articlesIMG = fetchedArticle[indexPath.row].imageUrl
+        //let imgconvert = fetchedArticle[indexPath.row].imageUrl
         
         
         if let vc = storyboard?.instantiateViewController(identifier: "ArticleDetailsStoryboard") as? ArticleDetailsViewController{
             
             self.navigationController?.pushViewController(vc, animated: true)
             
-            vc.id = idconvert
+           vc.id = idconvert
+            
+            self.downloadImageFromUrl(urlImage: fetchedArticle[indexPath.row].imageUrl as! String, completion: {image in
+                
+                DispatchQueue.main.sync {
+                    vc.img = image
+                }
+            })
         }
         
     }

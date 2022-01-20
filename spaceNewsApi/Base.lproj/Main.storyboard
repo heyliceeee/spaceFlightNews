@@ -46,6 +46,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="eQN-Gw-8ML"/>
                     <connections>
+                        <outlet property="image" destination="Cs8-Uh-LSg" id="ldA-2x-c2H"/>
                         <outlet property="lbl_ID" destination="ja6-Bg-m4e" id="vZ9-0R-P0M"/>
                     </connections>
                 </viewController>
