@@ -181,11 +181,19 @@ class TodayViewController: UIViewController, UITableViewDelegate, UITableViewDat
         let articlesID = fetchedArticle[indexPath.row].id
         let idconvert = "\(articlesID ?? 0)" //convert int to string
         
+        let articlesTitle = fetchedArticle[indexPath.row].title
+
+        
         if let vc = storyboard?.instantiateViewController(identifier: "ArticleDetailsStoryboard") as? ArticleDetailsViewController{
             
             self.navigationController?.pushViewController(vc, animated: true)
             
             vc.id = idconvert
+            vc.titleArticle = fetchedArticle[indexPath.row].title ?? ""
+            //vc.newsSite = fetchedArticle[indexPath.row].newsSite ?? ""
+            //vc.publishedAt = fetchedArticle[indexPath.row].publishedAt ?? ""
+            //vc.updatedAt = fetchedArticle[indexPath.row].updatedAt ?? ""
+            //vc.urlArticle = fetchedArticle[indexPath.row].urlArticle ?? ""
             
             self.downloadImageFromUrl(urlImage: fetchedArticle[indexPath.row].imageUrl as! String, completion: {image in
                 
