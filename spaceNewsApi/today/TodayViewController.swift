@@ -60,7 +60,7 @@ class TodayViewController: UIViewController, UITableViewDelegate, UITableViewDat
                         let imageUrlArticle = eachArticle["imageUrl"] as! String
                         //let imageArticle = eachArticle["imageUrl"] as! UIImage
                         let newsSiteArticle = eachArticle["newsSite"] as! String
-                        //let summaryArticle = eachArticle["summary"] as! String
+                        let summaryArticle = eachArticle["summary"] as! String
                         let publishedAtArticle = eachArticle["publishedAt"] as! String
                         let updatedAtArticle = eachArticle["updatedAt"] as! String
                         let featuredArticle = eachArticle["featured"] as! Bool
@@ -68,7 +68,7 @@ class TodayViewController: UIViewController, UITableViewDelegate, UITableViewDat
                         //let eventsArticle = eachArticle["events"] as! Array<String>
 
 
-                        self.fetchedArticle.append(Article(id: idArticle, title: titleArticle, imageUrl: imageUrlArticle, newsSite: newsSiteArticle, publishedAt: publishedAtArticle, updatedAt: updatedAtArticle, featured: featuredArticle))
+                        self.fetchedArticle.append(Article(id: idArticle, title: titleArticle, imageUrl: imageUrlArticle, newsSite: newsSiteArticle, summary: summaryArticle, publishedAt: publishedAtArticle, updatedAt: updatedAtArticle, featured: featuredArticle))
                     }
 
                     print(self.fetchedArticle)
@@ -90,9 +90,8 @@ class TodayViewController: UIViewController, UITableViewDelegate, UITableViewDat
      var title: String?
      //var url: URL?
      var imageUrl: String?
-     //var image: UIImage?
      var newsSite: String?
-     //var summary: String?
+     var summary: String?
      var publishedAt: String?
      var updatedAt: String?
      var featured: Bool?
@@ -100,16 +99,14 @@ class TodayViewController: UIViewController, UITableViewDelegate, UITableViewDat
      var events: String?
 
 
-     init(id: Int, title: String, imageUrl: String, newsSite: String, publishedAt: String, updatedAt: String, featured: Bool){
+     init(id: Int, title: String, imageUrl: String, newsSite: String, summary: String, publishedAt: String, updatedAt: String, featured: Bool){
 
          self.id = id
          self.title = title
          //self.url = url
          
          self.imageUrl = imageUrl
-         //let IMAGEMFUNCIONA = try! Data(contentsOf: URL(string: imageUrl)!)
-         //self.image = UIImage(data: IMAGEMFUNCIONA)
-         
+         self.summary = summary
          self.newsSite = newsSite
          self.publishedAt = publishedAt
          self.updatedAt = updatedAt
@@ -148,6 +145,7 @@ class TodayViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     
     
+    
     //O QUE A CELL MOSTRA
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
@@ -156,7 +154,7 @@ class TodayViewController: UIViewController, UITableViewDelegate, UITableViewDat
         //backgroundColor da cell
         cell.contentView.backgroundColor = UIColor(white: 0.95, alpha: 1)
         
-        //image API
+        //image Articles list
         self.downloadImageFromUrl(urlImage: fetchedArticle[indexPath.row].imageUrl as! String, completion: {image in
             
             DispatchQueue.main.sync {
@@ -164,11 +162,10 @@ class TodayViewController: UIViewController, UITableViewDelegate, UITableViewDat
             }
         })
         
-        
-        //title API
+        //title Articles list
         cell.titleCell?.text = fetchedArticle[indexPath.row].title
 
-        //newsSite API
+        //newsSite Articles list
         cell.newsSiteCell.text = fetchedArticle[indexPath.row].newsSite
         
         return cell
@@ -188,20 +185,21 @@ class TodayViewController: UIViewController, UITableViewDelegate, UITableViewDat
             
             self.navigationController?.pushViewController(vc, animated: true)
             
-            vc.id = idconvert
-            vc.titleArticle = fetchedArticle[indexPath.row].title ?? ""
+            vc.id = idconvert //ID
+            vc.titleArticle = fetchedArticle[indexPath.row].title ?? "" //title
             //vc.newsSite = fetchedArticle[indexPath.row].newsSite ?? ""
             //vc.publishedAt = fetchedArticle[indexPath.row].publishedAt ?? ""
             //vc.updatedAt = fetchedArticle[indexPath.row].updatedAt ?? ""
             //vc.urlArticle = fetchedArticle[indexPath.row].urlArticle ?? ""
             
+            //image
             self.downloadImageFromUrl(urlImage: fetchedArticle[indexPath.row].imageUrl as! String, completion: {image in
-                
-                DispatchQueue.main.sync {
-                    vc.img = image
-                }
+
+                vc.img = image
             })
         }
         
     }
 }
+
+

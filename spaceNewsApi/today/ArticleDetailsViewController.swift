@@ -27,7 +27,6 @@ class ArticleDetailsViewController: UIViewController {
         super.viewDidLoad()
         
         lbl_ID.text = id
-        
         lbl_Title.text = titleArticle
         //lbl_newsSite.text = newsSite
         //lbl_publishedAt.text = publishedAt
