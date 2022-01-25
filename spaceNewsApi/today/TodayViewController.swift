@@ -154,7 +154,7 @@ class TodayViewController: UIViewController, UITableViewDelegate, UITableViewDat
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ArticleTableViewCell
         
         //backgroundColor da cell
-        cell.contentView.backgroundColor = UIColor(white: 0.95, alpha: 1)
+        //cell.contentView.backgroundColor = UIColor(white: 0.95, alpha: 1)
         
         //image API
         self.downloadImageFromUrl(urlImage: fetchedArticle[indexPath.row].imageUrl as! String, completion: {image in
