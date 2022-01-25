@@ -171,6 +171,9 @@ class TodayViewController: UIViewController, UITableViewDelegate, UITableViewDat
         //newsSite API
         cell.newsSiteCell.text = fetchedArticle[indexPath.row].newsSite
         
+        //Remove Cell Selection Backgound
+        cell.selectionStyle = UITableViewCell.SelectionStyle.none
+        
         return cell
     }
     
