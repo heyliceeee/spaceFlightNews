@@ -116,7 +116,7 @@ class TodayViewController: UIViewController, UITableViewDelegate, UITableViewDat
     //---------------- FIM API ----------------//
     
     
-    //num de linhas maybe
+    //num de sections
     func numberOfSections(in tableView: UITableView) -> Int {
         
         return 1
@@ -188,20 +188,21 @@ class TodayViewController: UIViewController, UITableViewDelegate, UITableViewDat
             
             self.navigationController?.pushViewController(vc, animated: true)
             
-            vc.id = idconvert //ID
+            vc.id = idconvert //id
             vc.titleArticle = fetchedArticle[indexPath.row].title ?? "" //title
+            let imagem = vc.image
             //vc.newsSite = fetchedArticle[indexPath.row].newsSite ?? ""
             //vc.publishedAt = fetchedArticle[indexPath.row].publishedAt ?? ""
             //vc.updatedAt = fetchedArticle[indexPath.row].updatedAt ?? ""
             //vc.urlArticle = fetchedArticle[indexPath.row].urlArticle ?? ""
             
             //image
-            self.downloadImageFromUrl(urlImage: fetchedArticle[indexPath.row].imageUrl as! String, completion: {image in
-
-                vc.img = image
-            })
+            //let url = URL(string: fetchedArticle[indexPath])
+//            self.downloadImageFromUrl(urlImage: fetchedArticle[indexPath.row].imageUrl as! String, completion: {image in
+//
+//                vc.img = image
+//            })
         }
-        
     }
 }
 

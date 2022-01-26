@@ -28,6 +28,8 @@
 		C3626EBD2789E06D006AC642 /* ArticleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3626EBC2789E06D006AC642 /* ArticleTableViewCell.swift */; };
 		C3B53B442771F311003FCC1A /* CacheValidityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B53B432771F311003FCC1A /* CacheValidityViewController.swift */; };
 		C3BBBF042796C34600A4C5F4 /* ArticleDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3BBBF032796C34500A4C5F4 /* ArticleDetailsViewController.swift */; };
+		C3E184E827A191A100B178D3 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = C3E184E727A191A100B178D3 /* SDWebImage */; };
+		C3E184EA27A191A100B178D3 /* SDWebImageMapKit in Frameworks */ = {isa = PBXBuildFile; productRef = C3E184E927A191A100B178D3 /* SDWebImageMapKit */; };
 		C3E4465F2768A7D700AFE39B /* OnlyLabelTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3E4465E2768A7D700AFE39B /* OnlyLabelTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -82,6 +84,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C3E184EA27A191A100B178D3 /* SDWebImageMapKit in Frameworks */,
+				C3E184E827A191A100B178D3 /* SDWebImage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -206,6 +210,10 @@
 			dependencies = (
 			);
 			name = spaceNewsApi;
+			packageProductDependencies = (
+				C3E184E727A191A100B178D3 /* SDWebImage */,
+				C3E184E927A191A100B178D3 /* SDWebImageMapKit */,
+			);
 			productName = spaceNewsApi;
 			productReference = C33F462B276758B7009F7B4F /* spaceNewsApi.app */;
 			productType = "com.apple.product-type.application";
@@ -278,6 +286,9 @@
 				Base,
 			);
 			mainGroup = C33F4622276758B7009F7B4F;
+			packageReferences = (
+				C3E184E627A191A100B178D3 /* XCRemoteSwiftPackageReference "SDWebImage" */,
+			);
 			productRefGroup = C33F462C276758B7009F7B4F /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -700,6 +711,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		C3E184E627A191A100B178D3 /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImage";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		C3E184E727A191A100B178D3 /* SDWebImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C3E184E627A191A100B178D3 /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImage;
+		};
+		C3E184E927A191A100B178D3 /* SDWebImageMapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C3E184E627A191A100B178D3 /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImageMapKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		C33F4637276758B8009F7B4F /* spaceNewsApi.xcdatamodeld */ = {
