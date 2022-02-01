@@ -27,7 +27,7 @@ class ArticleService {
             guard let data = responseData.data else { return }
             
             do {
-                let articles = try JSONDecoder().decode(Article.self, from: data)
+                let articles = try JSONDecoder().decode([Article].self, from: data)
                 print("articles == \(articles)")
             
             } catch {

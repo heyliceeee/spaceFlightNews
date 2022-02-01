@@ -18,8 +18,8 @@ struct Article: Decodable{
     var publishedAt: String?
     var updatedAt: String?
     var featured: Bool?
-    var launches: String?
-    var events: String?
+    //var launches: String?
+    //var events: String?
 }
 //class Article {
 //
