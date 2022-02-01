@@ -15,6 +15,9 @@ class ArticleService {
     
     fileprivate var baseURL = ""
     
+    typealias articlesCallBack = (_ articles:[Article]?, _ status: Bool, _ message: String) -> Void
+    var callBack:articlesCallBack?
+    
     init(baseURL: String){
         self.baseURL = baseURL
     }
@@ -24,17 +27,27 @@ class ArticleService {
         AF.request(self.baseURL + endPoint, method: .get, parameters: nil, encoding: URLEncoding.default, headers: nil, interceptor: nil).response {
             (responseData) in
             
-            guard let data = responseData.data else { return }
+            guard let data = responseData.data else {
+                
+                self.callBack?(nil, false, "")
+
+                return }
             
             do {
                 let articles = try JSONDecoder().decode([Article].self, from: data)
-                print("articles == \(articles)")
+                self.callBack?(articles, true, "")
             
             } catch {
-                print("error decoding == \(error)")
+                self.callBack?(nil, false, error.localizedDescription)
             }
         }
         }
+    
+    
+    func completionHandler(callBack: @escaping articlesCallBack){
+        
+        self.callBack = callBack
+    }
     }
    
     

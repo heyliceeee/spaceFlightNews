@@ -11,7 +11,7 @@ class TodayViewController: UIViewController ,UITableViewDelegate, UITableViewDat
 
     @IBOutlet weak var ArticlesTableView: UITableView!
     
-    
+    var articles = [Article]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,6 +24,15 @@ class TodayViewController: UIViewController ,UITableViewDelegate, UITableViewDat
         
         let apiService = ArticleService(baseURL: "https://api.spaceflightnewsapi.net/v3")
         apiService.getRecentArticles(endPoint: "/articles")
+        apiService.completionHandler { [weak self] (articles, status, message) in
+            
+            if status {
+                guard let self = self else { return }
+                guard let _articles = articles else { return }
+                self.articles = _articles
+                self.ArticlesTableView.reloadData()
+            }
+        }
         //ArticlesTableView.separatorColor = UIColor(white: 0.95, alpha: 1)
         
         //apiService.getRecentArticles() //mostra todos os artigos
@@ -40,7 +49,7 @@ class TodayViewController: UIViewController ,UITableViewDelegate, UITableViewDat
     //num de rows
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 
-        return 8 //apiService.fetchedRecentArticles.count
+        return articles.count
     }
     
     
@@ -67,23 +76,25 @@ class TodayViewController: UIViewController ,UITableViewDelegate, UITableViewDat
 //        //backgroundColor da cell
 //        //cell.contentView.backgroundColor = UIColor(white: 0.95, alpha: 1)
 //
-//        //image Articles list
+        //image Articles list
 //        self.downloadImageFromUrl(urlImage: apiService.fetchedRecentArticles[indexPath.row].imageUrl as! String, completion: {image in
-//
+
 //            DispatchQueue.main.sync {
 //                cell.imageCell.image = image
 //            }
 //        })
-//
+
+        let article = articles[indexPath.row]
+        
 //        //title Articles list
-//        cell.titleCell?.text = apiService.fetchedRecentArticles[indexPath.row].title
-//
+        cell.titleCell?.text = article.title
+
 //        //newsSite Articles list
-//        cell.newsSiteCell.text = apiService.fetchedRecentArticles[indexPath.row].newsSite
-//
+        cell.newsSiteCell.text = article.newsSite
+
 //        //Remove Cell Selection Backgound
-//        cell.selectionStyle = UITableViewCell.SelectionStyle.none
-//
+        cell.selectionStyle = UITableViewCell.SelectionStyle.none
+
         return cell
     }
 //
