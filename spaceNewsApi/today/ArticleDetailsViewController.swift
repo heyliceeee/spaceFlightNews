@@ -11,13 +11,17 @@ import AlamofireImage
 
 class ArticleDetailsViewController: UIViewController {
     
-    @IBOutlet weak var lbl_ID: UILabel!
+    //@IBOutlet weak var lbl_ID: UILabel!
     @IBOutlet weak var image: UIImageView!
     @IBOutlet weak var lbl_Title: UILabel!
+    @IBOutlet weak var lbl_Summary: UILabel!
+    @IBOutlet weak var lbl_newsSite: UILabel!
+    @IBOutlet weak var lbl_date: UILabel!
     
     
     var id = ""
     var titleArticle = ""
+    var Summary = ""
     var newsSite = ""
     var publishedAt = ""
     var updatedAt = ""
@@ -27,11 +31,14 @@ class ArticleDetailsViewController: UIViewController {
     override func viewDidLoad(){
         super.viewDidLoad()
         
-        lbl_ID.text = id
+
+        
+        //lbl_ID.text = id
         lbl_Title.text = titleArticle
-        //lbl_newsSite.text = newsSite
+        lbl_Summary.text = Summary
+        lbl_newsSite.text = newsSite
         //lbl_publishedAt.text = publishedAt
-        //lbl_updatedAt.text = updatedAt
+        lbl_date.text = updatedAt
         //lbl_urlArticle.text = urlArticle
 
         AF.request(img).responseImage(completionHandler: { [self] (response) in

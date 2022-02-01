@@ -133,8 +133,18 @@ class TodayViewController: UIViewController ,UITableViewDelegate, UITableViewDat
 //
             vc.id = idconvert //id
             vc.titleArticle = article.title ?? "" //title
+            vc.Summary = article.summary ?? ""
+            vc.newsSite = article.newsSite ?? ""
             
-            //vc.newsSite = fetchedArticle[indexPath.row].newsSite ?? ""
+            vc.updatedAt = article.updatedAt ?? ""
+            
+            
+            
+            
+            //let date = df.date(from: dateconvert)
+            
+            //vc.updatedAt = "\(date)" ?? ""
+            
             //vc.publishedAt = fetchedArticle[indexPath.row].publishedAt ?? ""
             //vc.updatedAt = fetchedArticle[indexPath.row].updatedAt ?? ""
             //vc.urlArticle = fetchedArticle[indexPath.row].urlArticle ?? ""
