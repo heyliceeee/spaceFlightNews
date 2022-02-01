@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import Alamofire
+import AlamofireImage
 
 class ArticleDetailsViewController: UIViewController {
     
@@ -20,8 +22,7 @@ class ArticleDetailsViewController: UIViewController {
     var publishedAt = ""
     var updatedAt = ""
     var urlArticle = ""
-    var img = UIImage()
-    
+    var img = ""
     
     override func viewDidLoad(){
         super.viewDidLoad()
@@ -32,7 +33,12 @@ class ArticleDetailsViewController: UIViewController {
         //lbl_publishedAt.text = publishedAt
         //lbl_updatedAt.text = updatedAt
         //lbl_urlArticle.text = urlArticle
-        
-        image.image = img
+
+        AF.request(img).responseImage(completionHandler: { [self] (response) in
+                   print(response)
+                   if case .success(let imageView) = response.result {
+                       image.image = imageView
+                   }
+                   })
     }
 }

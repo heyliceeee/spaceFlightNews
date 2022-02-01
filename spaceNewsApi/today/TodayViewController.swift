@@ -129,14 +129,28 @@ class TodayViewController: UIViewController ,UITableViewDelegate, UITableViewDat
 //
         if let vc = storyboard?.instantiateViewController(identifier: "ArticleDetailsStoryboard") as? ArticleDetailsViewController{
 //
-//            self.navigationController?.pushViewController(vc, animated: true)
+            self.navigationController?.pushViewController(vc, animated: true)
 //
             vc.id = idconvert //id
             vc.titleArticle = article.title ?? "" //title
+            
             //vc.newsSite = fetchedArticle[indexPath.row].newsSite ?? ""
             //vc.publishedAt = fetchedArticle[indexPath.row].publishedAt ?? ""
             //vc.updatedAt = fetchedArticle[indexPath.row].updatedAt ?? ""
             //vc.urlArticle = fetchedArticle[indexPath.row].urlArticle ?? ""
+            
+            if let imageUrl = article.imageUrl {
+                
+                vc.img = imageUrl
+//                AF.request(imageUrl).responseImage(completionHandler: { (response) in
+//                   print(response)
+//
+//                   if case .success(let image) = response.result {
+//                       vc.img = image
+//                   }
+//
+//                   })
+            }
 
 //            //image
 //            //let url = URL(string: fetchedArticle[indexPath])
