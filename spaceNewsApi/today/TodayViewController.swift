@@ -118,31 +118,33 @@ class TodayViewController: UIViewController ,UITableViewDelegate, UITableViewDat
 //
 //    //AO SELECIONAR UMA CELL - article details
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
+        
+        let article = articles[indexPath.row]
 //
-//        let articlesID = apiService.fetchedRecentArticles[indexPath.row].id
-//        let idconvert = "\(articlesID ?? 0)" //convert int to string
+        let articlesID = article.id
+        let idconvert = "\(articlesID ?? 0)" //convert int to string
 //
 //        let articlesTitle = apiService.fetchedRecentArticles[indexPath.row].title
 //
 //
-//        if let vc = storyboard?.instantiateViewController(identifier: "ArticleDetailsStoryboard") as? ArticleDetailsViewController{
+        if let vc = storyboard?.instantiateViewController(identifier: "ArticleDetailsStoryboard") as? ArticleDetailsViewController{
 //
 //            self.navigationController?.pushViewController(vc, animated: true)
 //
-//            vc.id = idconvert //id
-//            vc.titleArticle = apiService.fetchedRecentArticles[indexPath.row].title ?? "" //title
-//            //vc.newsSite = fetchedArticle[indexPath.row].newsSite ?? ""
-//            //vc.publishedAt = fetchedArticle[indexPath.row].publishedAt ?? ""
-//            //vc.updatedAt = fetchedArticle[indexPath.row].updatedAt ?? ""
-//            //vc.urlArticle = fetchedArticle[indexPath.row].urlArticle ?? ""
-//
+            vc.id = idconvert //id
+            vc.titleArticle = article.title ?? "" //title
+            //vc.newsSite = fetchedArticle[indexPath.row].newsSite ?? ""
+            //vc.publishedAt = fetchedArticle[indexPath.row].publishedAt ?? ""
+            //vc.updatedAt = fetchedArticle[indexPath.row].updatedAt ?? ""
+            //vc.urlArticle = fetchedArticle[indexPath.row].urlArticle ?? ""
+
 //            //image
 //            //let url = URL(string: fetchedArticle[indexPath])
 //            self.downloadImageFromUrl(urlImage: apiService.fetchedRecentArticles[indexPath.row].imageUrl as! String, completion: {image in
 //
 //                vc.img = image
 //            })
-//        }
+        }
     }
 }
 
