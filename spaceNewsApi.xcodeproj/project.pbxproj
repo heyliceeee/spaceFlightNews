@@ -26,11 +26,10 @@
 		C33F466927677B4A009F7B4F /* LabelTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C33F466827677B4A009F7B4F /* LabelTableViewCell.swift */; };
 		C3626EBB2789B372006AC642 /* DesignView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3626EBA2789B372006AC642 /* DesignView.swift */; };
 		C3626EBD2789E06D006AC642 /* ArticleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3626EBC2789E06D006AC642 /* ArticleTableViewCell.swift */; };
+		C3B0227827A99924000E9604 /* AlamofireImage in Frameworks */ = {isa = PBXBuildFile; productRef = C3B0227727A99924000E9604 /* AlamofireImage */; };
 		C3B53B442771F311003FCC1A /* CacheValidityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B53B432771F311003FCC1A /* CacheValidityViewController.swift */; };
 		C3BB68A027A9768E002F1C4D /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = C3BB689F27A9768E002F1C4D /* Alamofire */; };
 		C3BBBF042796C34600A4C5F4 /* ArticleDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3BBBF032796C34500A4C5F4 /* ArticleDetailsViewController.swift */; };
-		C3E184E827A191A100B178D3 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = C3E184E727A191A100B178D3 /* SDWebImage */; };
-		C3E184EA27A191A100B178D3 /* SDWebImageMapKit in Frameworks */ = {isa = PBXBuildFile; productRef = C3E184E927A191A100B178D3 /* SDWebImageMapKit */; };
 		C3E4465F2768A7D700AFE39B /* OnlyLabelTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3E4465E2768A7D700AFE39B /* OnlyLabelTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -86,8 +85,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C3BB68A027A9768E002F1C4D /* Alamofire in Frameworks */,
-				C3E184EA27A191A100B178D3 /* SDWebImageMapKit in Frameworks */,
-				C3E184E827A191A100B178D3 /* SDWebImage in Frameworks */,
+				C3B0227827A99924000E9604 /* AlamofireImage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -213,9 +211,8 @@
 			);
 			name = spaceNewsApi;
 			packageProductDependencies = (
-				C3E184E727A191A100B178D3 /* SDWebImage */,
-				C3E184E927A191A100B178D3 /* SDWebImageMapKit */,
 				C3BB689F27A9768E002F1C4D /* Alamofire */,
+				C3B0227727A99924000E9604 /* AlamofireImage */,
 			);
 			productName = spaceNewsApi;
 			productReference = C33F462B276758B7009F7B4F /* spaceNewsApi.app */;
@@ -290,8 +287,8 @@
 			);
 			mainGroup = C33F4622276758B7009F7B4F;
 			packageReferences = (
-				C3E184E627A191A100B178D3 /* XCRemoteSwiftPackageReference "SDWebImage" */,
 				C3BB689E27A9768D002F1C4D /* XCRemoteSwiftPackageReference "Alamofire" */,
+				C3B0227627A99923000E9604 /* XCRemoteSwiftPackageReference "AlamofireImage" */,
 			);
 			productRefGroup = C33F462C276758B7009F7B4F /* Products */;
 			projectDirPath = "";
@@ -717,6 +714,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		C3B0227627A99923000E9604 /* XCRemoteSwiftPackageReference "AlamofireImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/AlamofireImage";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.0;
+			};
+		};
 		C3BB689E27A9768D002F1C4D /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire";
@@ -725,31 +730,18 @@
 				minimumVersion = 5.0.0;
 			};
 		};
-		C3E184E627A191A100B178D3 /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/SDWebImage/SDWebImage";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 5.0.0;
-			};
-		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		C3B0227727A99924000E9604 /* AlamofireImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C3B0227627A99923000E9604 /* XCRemoteSwiftPackageReference "AlamofireImage" */;
+			productName = AlamofireImage;
+		};
 		C3BB689F27A9768E002F1C4D /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = C3BB689E27A9768D002F1C4D /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
-		};
-		C3E184E727A191A100B178D3 /* SDWebImage */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = C3E184E627A191A100B178D3 /* XCRemoteSwiftPackageReference "SDWebImage" */;
-			productName = SDWebImage;
-		};
-		C3E184E927A191A100B178D3 /* SDWebImageMapKit */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = C3E184E627A191A100B178D3 /* XCRemoteSwiftPackageReference "SDWebImage" */;
-			productName = SDWebImageMapKit;
 		};
 /* End XCSwiftPackageProductDependency section */
 
