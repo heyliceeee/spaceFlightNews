@@ -125,8 +125,10 @@ class TodayViewController: UIViewController ,UITableViewDelegate, UITableViewDat
         let idconvert = "\(articlesID ?? 0)" //convert int to string
 //
 //        let articlesTitle = apiService.fetchedRecentArticles[indexPath.row].title
-//
-//
+
+        let articleUpdatedAt = article.updatedAt
+        
+        
         if let vc = storyboard?.instantiateViewController(identifier: "ArticleDetailsStoryboard") as? ArticleDetailsViewController{
 //
             self.navigationController?.pushViewController(vc, animated: true)
@@ -136,10 +138,14 @@ class TodayViewController: UIViewController ,UITableViewDelegate, UITableViewDat
             vc.Summary = article.summary ?? ""
             vc.newsSite = article.newsSite ?? ""
             
-            vc.updatedAt = article.updatedAt ?? ""
+            //ALICE ESTÁ A TENTARRR
+            let formatter = ISO8601DateFormatter()
+            let date1 = formatter.date(from: articleUpdatedAt ?? "")
+            formatter.formatOptions = [.withFullDate, .withTime, .withDashSeparatorInDate, .withColonSeparatorInTime]
+            let date2 = formatter.date(from: articleUpdatedAt ?? "")
             
             
-            
+            vc.updatedAt = "\(date2)"
             
             //let date = df.date(from: dateconvert)
             
