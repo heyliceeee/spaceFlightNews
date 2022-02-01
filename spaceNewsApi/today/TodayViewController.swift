@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import Alamofire
+import AlamofireImage
 
 class TodayViewController: UIViewController ,UITableViewDelegate, UITableViewDataSource{
 
@@ -85,6 +87,21 @@ class TodayViewController: UIViewController ,UITableViewDelegate, UITableViewDat
 //        })
 
         let article = articles[indexPath.row]
+        
+        
+        if let imageUrl = article.imageUrl {
+            AF.request(imageUrl).responseImage(completionHandler: { (response) in
+               print(response)
+               
+               if case .success(let image) = response.result {
+                   cell.imageCell.image = image
+               }
+               
+               })
+        }
+         
+        
+        //cell.imageCell.image = UIImage(data: url)
         
 //        //title Articles list
         cell.titleCell?.text = article.title

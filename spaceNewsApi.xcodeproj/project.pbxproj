@@ -32,6 +32,7 @@
 		C3E184E827A191A100B178D3 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = C3E184E727A191A100B178D3 /* SDWebImage */; };
 		C3E184EA27A191A100B178D3 /* SDWebImageMapKit in Frameworks */ = {isa = PBXBuildFile; productRef = C3E184E927A191A100B178D3 /* SDWebImageMapKit */; };
 		C3E4465F2768A7D700AFE39B /* OnlyLabelTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3E4465E2768A7D700AFE39B /* OnlyLabelTableViewCell.swift */; };
+		F51E3E2227A99761001E1239 /* AlamofireImage in Frameworks */ = {isa = PBXBuildFile; productRef = F51E3E2127A99761001E1239 /* AlamofireImage */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -86,6 +87,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C3BB68A027A9768E002F1C4D /* Alamofire in Frameworks */,
+				F51E3E2227A99761001E1239 /* AlamofireImage in Frameworks */,
 				C3E184EA27A191A100B178D3 /* SDWebImageMapKit in Frameworks */,
 				C3E184E827A191A100B178D3 /* SDWebImage in Frameworks */,
 			);
@@ -216,6 +218,7 @@
 				C3E184E727A191A100B178D3 /* SDWebImage */,
 				C3E184E927A191A100B178D3 /* SDWebImageMapKit */,
 				C3BB689F27A9768E002F1C4D /* Alamofire */,
+				F51E3E2127A99761001E1239 /* AlamofireImage */,
 			);
 			productName = spaceNewsApi;
 			productReference = C33F462B276758B7009F7B4F /* spaceNewsApi.app */;
@@ -292,6 +295,7 @@
 			packageReferences = (
 				C3E184E627A191A100B178D3 /* XCRemoteSwiftPackageReference "SDWebImage" */,
 				C3BB689E27A9768D002F1C4D /* XCRemoteSwiftPackageReference "Alamofire" */,
+				F51E3E2027A99761001E1239 /* XCRemoteSwiftPackageReference "AlamofireImage" */,
 			);
 			productRefGroup = C33F462C276758B7009F7B4F /* Products */;
 			projectDirPath = "";
@@ -733,6 +737,14 @@
 				minimumVersion = 5.0.0;
 			};
 		};
+		F51E3E2027A99761001E1239 /* XCRemoteSwiftPackageReference "AlamofireImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/AlamofireImage";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -750,6 +762,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = C3E184E627A191A100B178D3 /* XCRemoteSwiftPackageReference "SDWebImage" */;
 			productName = SDWebImageMapKit;
+		};
+		F51E3E2127A99761001E1239 /* AlamofireImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F51E3E2027A99761001E1239 /* XCRemoteSwiftPackageReference "AlamofireImage" */;
+			productName = AlamofireImage;
 		};
 /* End XCSwiftPackageProductDependency section */
 
