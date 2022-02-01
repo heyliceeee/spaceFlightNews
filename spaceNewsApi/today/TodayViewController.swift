@@ -7,11 +7,8 @@
 
 import UIKit
 
-class TodayViewController: UIViewController //,UITableViewDelegate, UITableViewDataSource
-{
+class TodayViewController: UIViewController ,UITableViewDelegate, UITableViewDataSource{
 
-    
-    
     @IBOutlet weak var ArticlesTableView: UITableView!
     
     
@@ -22,8 +19,8 @@ class TodayViewController: UIViewController //,UITableViewDelegate, UITableViewD
         //navbar title
         self.title = "Home"
         
-        //ArticlesTableView.delegate = self
-        //ArticlesTableView.dataSource = self
+        ArticlesTableView.delegate = self
+        ArticlesTableView.dataSource = self
         
         let apiService = ArticleService(baseURL: "https://api.spaceflightnewsapi.net/v3")
         apiService.getRecentArticles(endPoint: "/articles")
@@ -34,17 +31,17 @@ class TodayViewController: UIViewController //,UITableViewDelegate, UITableViewD
     
     
     //num de sections
-//    func numberOfSections(in tableView: UITableView) -> Int {
-//
-//        return 1
-//    }
+    func numberOfSections(in tableView: UITableView) -> Int {
+
+        return 1
+    }
     
     
     //num de rows
-//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//
-//        return 8 //apiService.fetchedRecentArticles.count
-//    }
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+
+        return 8 //apiService.fetchedRecentArticles.count
+    }
     
     
     //----- CONVERT URL TO IMAGEVIEW -----//
@@ -63,9 +60,9 @@ class TodayViewController: UIViewController //,UITableViewDelegate, UITableViewD
     
     
     //O QUE A CELL MOSTRA
-//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 //
-//        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ArticleTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ArticleTableViewCell
 //
 //        //backgroundColor da cell
 //        //cell.contentView.backgroundColor = UIColor(white: 0.95, alpha: 1)
@@ -87,12 +84,12 @@ class TodayViewController: UIViewController //,UITableViewDelegate, UITableViewD
 //        //Remove Cell Selection Backgound
 //        cell.selectionStyle = UITableViewCell.SelectionStyle.none
 //
-//        return cell
-//    }
+        return cell
+    }
 //
 //
 //    //AO SELECIONAR UMA CELL - article details
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
 //
 //        let articlesID = apiService.fetchedRecentArticles[indexPath.row].id
 //        let idconvert = "\(articlesID ?? 0)" //convert int to string
@@ -118,7 +115,7 @@ class TodayViewController: UIViewController //,UITableViewDelegate, UITableViewD
 //                vc.img = image
 //            })
 //        }
-//    }
+    }
 }
 
 
