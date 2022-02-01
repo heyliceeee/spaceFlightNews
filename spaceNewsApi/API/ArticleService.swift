@@ -21,9 +21,18 @@ class ArticleService {
         
     func getRecentArticles(endPoint: String){
         
-        AF.request(self.baseURL + endPoint, method: .get, parameters: nil, encoding: URLEncoding.default, headers: nil, interceptor: nil).response{
+        AF.request(self.baseURL + endPoint, method: .get, parameters: nil, encoding: URLEncoding.default, headers: nil, interceptor: nil).response {
             (responseData) in
-            print("we got the response")
+            
+            guard let data = responseData.data else { return }
+            
+            do {
+                let articles = try JSONDecoder().decode(Article.self, from: data)
+                print("articles == \(articles)")
+            
+            } catch {
+                print("error decoding == \(error)")
+            }
         }
         }
     }
