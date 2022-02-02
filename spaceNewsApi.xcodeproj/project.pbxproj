@@ -35,6 +35,7 @@
 		F51E3E2227A99761001E1239 /* AlamofireImage in Frameworks */ = {isa = PBXBuildFile; productRef = F51E3E2127A99761001E1239 /* AlamofireImage */; };
 		F5622F2227AAE901009F7138 /* Preferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5622F2127AAE901009F7138 /* Preferences.swift */; };
 		F5622F2427AAED7D009F7138 /* TextSizeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5622F2327AAED7D009F7138 /* TextSizeViewController.swift */; };
+		F58E1A8D27AB0B6C009CF0D3 /* CacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F58E1A8C27AB0B6C009CF0D3 /* CacheManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,6 +84,7 @@
 		C3E4465E2768A7D700AFE39B /* OnlyLabelTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnlyLabelTableViewCell.swift; sourceTree = "<group>"; };
 		F5622F2127AAE901009F7138 /* Preferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preferences.swift; sourceTree = "<group>"; };
 		F5622F2327AAED7D009F7138 /* TextSizeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextSizeViewController.swift; sourceTree = "<group>"; };
+		F58E1A8C27AB0B6C009CF0D3 /* CacheManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,6 +162,7 @@
 				C33F463F276758BB009F7B4F /* Info.plist */,
 				C33F4637276758B8009F7B4F /* spaceNewsApi.xcdatamodeld */,
 				F5622F2127AAE901009F7138 /* Preferences.swift */,
+				F58E1A8C27AB0B6C009CF0D3 /* CacheManager.swift */,
 			);
 			path = spaceNewsApi;
 			sourceTree = "<group>";
@@ -359,6 +362,7 @@
 				C3E4465F2768A7D700AFE39B /* OnlyLabelTableViewCell.swift in Sources */,
 				C33F462F276758B7009F7B4F /* AppDelegate.swift in Sources */,
 				C3626EBD2789E06D006AC642 /* ArticleTableViewCell.swift in Sources */,
+				F58E1A8D27AB0B6C009CF0D3 /* CacheManager.swift in Sources */,
 				C33F3FFC277C85E1009734A6 /* ArticleService.swift in Sources */,
 				C33F466927677B4A009F7B4F /* LabelTableViewCell.swift in Sources */,
 				C33F4631276758B7009F7B4F /* SceneDelegate.swift in Sources */,

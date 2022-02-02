@@ -11,6 +11,7 @@ import AlamofireImage
 
 class ArticleDetailsViewController: UIViewController {
     
+    private let cacheManager = CacheManager()
     var preferences : Preferences = Preferences()
     
     //@IBOutlet weak var lbl_ID: UILabel!
@@ -19,6 +20,8 @@ class ArticleDetailsViewController: UIViewController {
     @IBOutlet weak var lbl_Summary: UILabel!
     @IBOutlet weak var lbl_newsSite: UILabel!
     @IBOutlet weak var lbl_date: UILabel!
+    
+    private let defaultTitleFontSize = 20.0
     
     
     var id = ""
@@ -34,7 +37,8 @@ class ArticleDetailsViewController: UIViewController {
         super.viewDidLoad()
         
         //Preferences
-        lbl_Title.font  = lbl_Title.font.withSize(CGFloat(preferences.getfontSize()))
+        //lbl_Title.font  = lbl_Title.font.withSize(CGFloat(preferences.getfontSize()))
+        lbl_Title.font = lbl_Title.font.withSize(CGFloat(cacheManager.getCachedFontSize() ?? Float(defaultTitleFontSize)))
         
         //lbl_ID.text = id
         lbl_Title.text = titleArticle

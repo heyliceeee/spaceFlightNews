@@ -380,8 +380,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="uz4-gq-egQ">
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="20" minValue="17" maxValue="32" translatesAutoresizingMaskIntoConstraints="NO" id="uz4-gq-egQ">
                                 <rect key="frame" x="14" y="238" width="304" height="31"/>
+                                <color key="tintColor" systemColor="systemPurpleColor"/>
+                                <connections>
+                                    <action selector="sliderOnValueChange:" destination="0lh-fz-YHB" eventType="valueChanged" id="3t2-ET-B6z"/>
+                                </connections>
                             </slider>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sam-yA-pYC">
                                 <rect key="frame" x="332" y="242" width="42" height="21"/>
@@ -419,6 +423,7 @@
                     <connections>
                         <outlet property="lbl_SizeEx" destination="URD-fI-p9Q" id="Afq-X4-cq8"/>
                         <outlet property="lbl_fontSize" destination="Sam-yA-pYC" id="o2E-Or-qvp"/>
+                        <outlet property="slider_fontSize" destination="uz4-gq-egQ" id="xZ5-sj-o3t"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jI3-Gu-GO1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
