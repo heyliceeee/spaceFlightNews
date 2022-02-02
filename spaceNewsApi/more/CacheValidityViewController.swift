@@ -7,7 +7,20 @@
 
 import UIKit
 
+
 class CacheValidityViewController: UIViewController {
     
     static let identifier = "CacheValidityViewController"
+    
+    
+    private let tableView: UITableView = {
+    
+        let table = UITableView(frame: .zero, style: .grouped)
+        table.register(SwitchTableViewCell.self, forCellReuseIdentifier: SwitchTableViewCell.identifier)
+        
+       return table
+    }()
+    
+    
+    
 }

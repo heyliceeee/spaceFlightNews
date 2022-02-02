@@ -95,7 +95,13 @@ class MoreViewController: UIViewController, UITableViewDelegate, UITableViewData
 
             })),
             
-            .labelCell(model: SettingsLabelOptions(title: "Appearance", myText: "Dark", handler: {})),
+            .labelCell(model: SettingsLabelOptions(title: "Appearance", myText: "Dark", handler: {
+                
+                //abrir ecra de dark/light mode
+                let aVC = self.storyboard?.instantiateViewController(withIdentifier: "AppearanceStoryboard")
+                self.navigationController?.pushViewController(aVC!, animated: false)
+                
+            })),
             
             .staticCell(model: SettingsOptions(title: "Text Size"){}),
             

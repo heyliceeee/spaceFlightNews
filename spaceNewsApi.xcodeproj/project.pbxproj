@@ -30,6 +30,7 @@
 		C3B53B442771F311003FCC1A /* CacheValidityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B53B432771F311003FCC1A /* CacheValidityViewController.swift */; };
 		C3BB68A027A9768E002F1C4D /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = C3BB689F27A9768E002F1C4D /* Alamofire */; };
 		C3BBBF042796C34600A4C5F4 /* ArticleDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3BBBF032796C34500A4C5F4 /* ArticleDetailsViewController.swift */; };
+		C3E0EBE827AB32540003C532 /* AppearanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3E0EBE727AB32540003C532 /* AppearanceViewController.swift */; };
 		C3E4465F2768A7D700AFE39B /* OnlyLabelTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3E4465E2768A7D700AFE39B /* OnlyLabelTableViewCell.swift */; };
 		F51E3E2227A99761001E1239 /* AlamofireImage in Frameworks */ = {isa = PBXBuildFile; productRef = F51E3E2127A99761001E1239 /* AlamofireImage */; };
 /* End PBXBuildFile section */
@@ -77,6 +78,7 @@
 		C3626EBC2789E06D006AC642 /* ArticleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleTableViewCell.swift; sourceTree = "<group>"; };
 		C3B53B432771F311003FCC1A /* CacheValidityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheValidityViewController.swift; sourceTree = "<group>"; };
 		C3BBBF032796C34500A4C5F4 /* ArticleDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleDetailsViewController.swift; sourceTree = "<group>"; };
+		C3E0EBE727AB32540003C532 /* AppearanceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppearanceViewController.swift; sourceTree = "<group>"; };
 		C3E4465E2768A7D700AFE39B /* OnlyLabelTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnlyLabelTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -183,6 +185,7 @@
 				C33F466827677B4A009F7B4F /* LabelTableViewCell.swift */,
 				C3E4465E2768A7D700AFE39B /* OnlyLabelTableViewCell.swift */,
 				C3B53B432771F311003FCC1A /* CacheValidityViewController.swift */,
+				C3E0EBE727AB32540003C532 /* AppearanceViewController.swift */,
 			);
 			path = more;
 			sourceTree = "<group>";
@@ -341,6 +344,7 @@
 				C33F466527676438009F7B4F /* SettingTableViewCell.swift in Sources */,
 				C33F466227675BB6009F7B4F /* MoreViewController.swift in Sources */,
 				C33F4667276773BC009F7B4F /* SwitchTableViewCell.swift in Sources */,
+				C3E0EBE827AB32540003C532 /* AppearanceViewController.swift in Sources */,
 				C3B53B442771F311003FCC1A /* CacheValidityViewController.swift in Sources */,
 				C33F4639276758B8009F7B4F /* spaceNewsApi.xcdatamodeld in Sources */,
 				C3626EBB2789B372006AC642 /* DesignView.swift in Sources */,
