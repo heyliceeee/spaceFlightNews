@@ -33,6 +33,11 @@
 		C3E0EBE827AB32540003C532 /* AppearanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3E0EBE727AB32540003C532 /* AppearanceViewController.swift */; };
 		C3E4465F2768A7D700AFE39B /* OnlyLabelTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3E4465E2768A7D700AFE39B /* OnlyLabelTableViewCell.swift */; };
 		F51E3E2227A99761001E1239 /* AlamofireImage in Frameworks */ = {isa = PBXBuildFile; productRef = F51E3E2127A99761001E1239 /* AlamofireImage */; };
+		F565EC8727AB49C80008762E /* Launch.swift in Sources */ = {isa = PBXBuildFile; fileRef = F565EC8627AB49C80008762E /* Launch.swift */; };
+		F565EC8927AB49E70008762E /* LaunchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F565EC8827AB49E70008762E /* LaunchService.swift */; };
+		F565EC8B27AB4A0F0008762E /* TextSizeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F565EC8A27AB4A0F0008762E /* TextSizeViewController.swift */; };
+		F565EC8D27AB4A360008762E /* CacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F565EC8C27AB4A360008762E /* CacheManager.swift */; };
+		F565EC8F27AB4A570008762E /* Preferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = F565EC8E27AB4A570008762E /* Preferences.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,6 +85,11 @@
 		C3BBBF032796C34500A4C5F4 /* ArticleDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleDetailsViewController.swift; sourceTree = "<group>"; };
 		C3E0EBE727AB32540003C532 /* AppearanceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppearanceViewController.swift; sourceTree = "<group>"; };
 		C3E4465E2768A7D700AFE39B /* OnlyLabelTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnlyLabelTableViewCell.swift; sourceTree = "<group>"; };
+		F565EC8627AB49C80008762E /* Launch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Launch.swift; sourceTree = "<group>"; };
+		F565EC8827AB49E70008762E /* LaunchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchService.swift; sourceTree = "<group>"; };
+		F565EC8A27AB4A0F0008762E /* TextSizeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextSizeViewController.swift; sourceTree = "<group>"; };
+		F565EC8C27AB4A360008762E /* CacheManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheManager.swift; sourceTree = "<group>"; };
+		F565EC8E27AB4A570008762E /* Preferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preferences.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,6 +165,8 @@
 				C33F463C276758BB009F7B4F /* LaunchScreen.storyboard */,
 				C33F463F276758BB009F7B4F /* Info.plist */,
 				C33F4637276758B8009F7B4F /* spaceNewsApi.xcdatamodeld */,
+				F565EC8C27AB4A360008762E /* CacheManager.swift */,
+				F565EC8E27AB4A570008762E /* Preferences.swift */,
 			);
 			path = spaceNewsApi;
 			sourceTree = "<group>";
@@ -186,6 +198,7 @@
 				C3E4465E2768A7D700AFE39B /* OnlyLabelTableViewCell.swift */,
 				C3B53B432771F311003FCC1A /* CacheValidityViewController.swift */,
 				C3E0EBE727AB32540003C532 /* AppearanceViewController.swift */,
+				F565EC8A27AB4A0F0008762E /* TextSizeViewController.swift */,
 			);
 			path = more;
 			sourceTree = "<group>";
@@ -195,6 +208,8 @@
 			children = (
 				C33F3FFB277C85E1009734A6 /* ArticleService.swift */,
 				C33F3FFD277CAF9B009734A6 /* Article.swift */,
+				F565EC8627AB49C80008762E /* Launch.swift */,
+				F565EC8827AB49E70008762E /* LaunchService.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -349,11 +364,16 @@
 				C33F4639276758B8009F7B4F /* spaceNewsApi.xcdatamodeld in Sources */,
 				C3626EBB2789B372006AC642 /* DesignView.swift in Sources */,
 				C33F4633276758B7009F7B4F /* ViewController.swift in Sources */,
+				F565EC8927AB49E70008762E /* LaunchService.swift in Sources */,
 				C3E4465F2768A7D700AFE39B /* OnlyLabelTableViewCell.swift in Sources */,
+				F565EC8727AB49C80008762E /* Launch.swift in Sources */,
 				C33F462F276758B7009F7B4F /* AppDelegate.swift in Sources */,
+				F565EC8D27AB4A360008762E /* CacheManager.swift in Sources */,
 				C3626EBD2789E06D006AC642 /* ArticleTableViewCell.swift in Sources */,
+				F565EC8B27AB4A0F0008762E /* TextSizeViewController.swift in Sources */,
 				C33F3FFC277C85E1009734A6 /* ArticleService.swift in Sources */,
 				C33F466927677B4A009F7B4F /* LabelTableViewCell.swift in Sources */,
+				F565EC8F27AB4A570008762E /* Preferences.swift in Sources */,
 				C33F4631276758B7009F7B4F /* SceneDelegate.swift in Sources */,
 				C3BBBF042796C34600A4C5F4 /* ArticleDetailsViewController.swift in Sources */,
 				C33F3FF8277C798D009734A6 /* TodayViewController.swift in Sources */,

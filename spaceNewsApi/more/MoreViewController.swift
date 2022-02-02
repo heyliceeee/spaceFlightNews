@@ -103,7 +103,11 @@ class MoreViewController: UIViewController, UITableViewDelegate, UITableViewData
                 
             })),
             
-            .staticCell(model: SettingsOptions(title: "Text Size"){}),
+            .staticCell(model: SettingsOptions(title: "Text Size"){
+                //abrir ecra de cache validity
+                let TSVC = self.storyboard?.instantiateViewController(withIdentifier: "TextSizeViewController")
+                self.navigationController?.pushViewController(TSVC!, animated: false)
+            }),
             
             .switchCell(model: SettingsSwitchOptions(title: "Notifications", handler: {}, isOn: true)),
             

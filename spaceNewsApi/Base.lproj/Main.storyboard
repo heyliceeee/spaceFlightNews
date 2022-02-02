@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="JvO-Ap-qP2">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="JvO-Ap-qP2">
     <device id="retina6_0" orientation="portrait" appearance="dark"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -416,12 +416,70 @@
             </objects>
             <point key="canvasLocation" x="27.69230769230769" y="-597.86729857819898"/>
         </scene>
+        <!--Text Size View Controller-->
+        <scene sceneID="wf2-Nj-jEM">
+            <objects>
+                <viewController storyboardIdentifier="TextSizeViewController" id="ASO-6F-Lce" customClass="TextSizeViewController" customModule="spaceNewsApi" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="rF9-vw-gOt">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="20" minValue="17" maxValue="32" translatesAutoresizingMaskIntoConstraints="NO" id="yj8-ED-LQN">
+                                <rect key="frame" x="14" y="238" width="304" height="31"/>
+                                <color key="tintColor" systemColor="systemPurpleColor"/>
+                                <connections>
+                                    <action selector="sliderOnValueChange:" destination="ASO-6F-Lce" eventType="valueChanged" id="2SC-dG-Jj9"/>
+                                </connections>
+                            </slider>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j45-oP-fEy">
+                                <rect key="frame" x="332" y="242" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Slide to change text size" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h3H-hW-X7b">
+                                <rect key="frame" x="102" y="177" width="186" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fWD-mC-IrP">
+                                <rect key="frame" x="189" y="412" width="12" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="ONd-V1-cXr"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="h3H-hW-X7b" firstAttribute="centerX" secondItem="rF9-vw-gOt" secondAttribute="centerX" id="2BQ-yY-6Ko"/>
+                            <constraint firstItem="j45-oP-fEy" firstAttribute="leading" secondItem="yj8-ED-LQN" secondAttribute="trailing" constant="16" id="6jT-gY-uEW"/>
+                            <constraint firstItem="yj8-ED-LQN" firstAttribute="top" secondItem="h3H-hW-X7b" secondAttribute="bottom" constant="40" id="AYh-tT-hWv"/>
+                            <constraint firstItem="h3H-hW-X7b" firstAttribute="top" secondItem="ONd-V1-cXr" secondAttribute="top" constant="133" id="X1h-fH-l9a"/>
+                            <constraint firstItem="fWD-mC-IrP" firstAttribute="top" secondItem="yj8-ED-LQN" secondAttribute="bottom" constant="144" id="ZOd-yJ-CJP"/>
+                            <constraint firstItem="j45-oP-fEy" firstAttribute="top" secondItem="ONd-V1-cXr" secondAttribute="top" constant="198" id="bN4-ea-MOc"/>
+                            <constraint firstItem="yj8-ED-LQN" firstAttribute="leading" secondItem="ONd-V1-cXr" secondAttribute="leading" constant="16" id="dGl-KG-wJl"/>
+                            <constraint firstItem="ONd-V1-cXr" firstAttribute="trailing" secondItem="j45-oP-fEy" secondAttribute="trailing" constant="16" id="f7H-r5-jGV"/>
+                            <constraint firstItem="fWD-mC-IrP" firstAttribute="centerX" secondItem="rF9-vw-gOt" secondAttribute="centerX" id="t7R-SR-Zmg"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="lbl_SizeEx" destination="fWD-mC-IrP" id="unw-0d-j63"/>
+                        <outlet property="lbl_fontSize" destination="j45-oP-fEy" id="8aV-Lv-Nom"/>
+                        <outlet property="slider_fontSize" destination="yj8-ED-LQN" id="jVC-oR-p1r"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QSX-2n-238" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2469.2307692307691" y="874.4075829383886"/>
+        </scene>
     </scenes>
     <resources>
         <image name="chevron.backward" catalog="system" width="96" height="128"/>
-        <image name="heart.fill" catalog="system" width="128" height="109"/>
+        <image name="heart.fill" catalog="system" width="32" height="32"/>
         <image name="sidebar.left" catalog="system" width="128" height="93"/>
-        <image name="star.fill" catalog="system" width="128" height="116"/>
+        <image name="star.fill" catalog="system" width="32" height="32"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
