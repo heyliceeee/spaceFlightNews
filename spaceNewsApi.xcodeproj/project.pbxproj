@@ -33,6 +33,8 @@
 		C3E184EA27A191A100B178D3 /* SDWebImageMapKit in Frameworks */ = {isa = PBXBuildFile; productRef = C3E184E927A191A100B178D3 /* SDWebImageMapKit */; };
 		C3E4465F2768A7D700AFE39B /* OnlyLabelTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3E4465E2768A7D700AFE39B /* OnlyLabelTableViewCell.swift */; };
 		F51E3E2227A99761001E1239 /* AlamofireImage in Frameworks */ = {isa = PBXBuildFile; productRef = F51E3E2127A99761001E1239 /* AlamofireImage */; };
+		F5622F2227AAE901009F7138 /* Preferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5622F2127AAE901009F7138 /* Preferences.swift */; };
+		F5622F2427AAED7D009F7138 /* TextSizeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5622F2327AAED7D009F7138 /* TextSizeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,6 +81,8 @@
 		C3B53B432771F311003FCC1A /* CacheValidityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheValidityViewController.swift; sourceTree = "<group>"; };
 		C3BBBF032796C34500A4C5F4 /* ArticleDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleDetailsViewController.swift; sourceTree = "<group>"; };
 		C3E4465E2768A7D700AFE39B /* OnlyLabelTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnlyLabelTableViewCell.swift; sourceTree = "<group>"; };
+		F5622F2127AAE901009F7138 /* Preferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preferences.swift; sourceTree = "<group>"; };
+		F5622F2327AAED7D009F7138 /* TextSizeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextSizeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,6 +159,7 @@
 				C33F463C276758BB009F7B4F /* LaunchScreen.storyboard */,
 				C33F463F276758BB009F7B4F /* Info.plist */,
 				C33F4637276758B8009F7B4F /* spaceNewsApi.xcdatamodeld */,
+				F5622F2127AAE901009F7138 /* Preferences.swift */,
 			);
 			path = spaceNewsApi;
 			sourceTree = "<group>";
@@ -185,6 +190,7 @@
 				C33F466827677B4A009F7B4F /* LabelTableViewCell.swift */,
 				C3E4465E2768A7D700AFE39B /* OnlyLabelTableViewCell.swift */,
 				C3B53B432771F311003FCC1A /* CacheValidityViewController.swift */,
+				F5622F2327AAED7D009F7138 /* TextSizeViewController.swift */,
 			);
 			path = more;
 			sourceTree = "<group>";
@@ -342,10 +348,12 @@
 			files = (
 				C33F3FFE277CAF9C009734A6 /* Article.swift in Sources */,
 				C33F466527676438009F7B4F /* SettingTableViewCell.swift in Sources */,
+				F5622F2427AAED7D009F7138 /* TextSizeViewController.swift in Sources */,
 				C33F466227675BB6009F7B4F /* MoreViewController.swift in Sources */,
 				C33F4667276773BC009F7B4F /* SwitchTableViewCell.swift in Sources */,
 				C3B53B442771F311003FCC1A /* CacheValidityViewController.swift in Sources */,
 				C33F4639276758B8009F7B4F /* spaceNewsApi.xcdatamodeld in Sources */,
+				F5622F2227AAE901009F7138 /* Preferences.swift in Sources */,
 				C3626EBB2789B372006AC642 /* DesignView.swift in Sources */,
 				C33F4633276758B7009F7B4F /* ViewController.swift in Sources */,
 				C3E4465F2768A7D700AFE39B /* OnlyLabelTableViewCell.swift in Sources */,

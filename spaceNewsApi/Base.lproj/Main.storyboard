@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="JvO-Ap-qP2">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="JvO-Ap-qP2">
     <device id="retina6_0" orientation="portrait" appearance="dark"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -56,11 +56,11 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="heart" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="YgM-sm-Cn9">
-                                <rect key="frame" x="248" y="385" width="20" height="21"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="heart" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="YgM-sm-Cn9">
+                                <rect key="frame" x="248" y="387" width="20" height="17.333333333333314"/>
                                 <color key="tintColor" systemColor="systemPurpleColor"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="1" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wyg-QL-RtN">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="1" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wyg-QL-RtN">
                                 <rect key="frame" x="215" y="385" width="86" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <nil key="textColor"/>
@@ -371,6 +371,59 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RS5-md-3Eq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1660" y="872.27488151658758"/>
+        </scene>
+        <!--Text Size View Controller-->
+        <scene sceneID="i1I-9S-lbk">
+            <objects>
+                <viewController storyboardIdentifier="TextSizeViewController" id="0lh-fz-YHB" customClass="TextSizeViewController" customModule="spaceNewsApi" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="hai-Tj-hvt">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="uz4-gq-egQ">
+                                <rect key="frame" x="14" y="238" width="304" height="31"/>
+                            </slider>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sam-yA-pYC">
+                                <rect key="frame" x="332" y="242" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Slide to change text size" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eAs-E6-bAt">
+                                <rect key="frame" x="102" y="177" width="186" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="URD-fI-p9Q">
+                                <rect key="frame" x="189" y="412" width="12" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="3cH-Dt-8R7"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="URD-fI-p9Q" firstAttribute="top" secondItem="uz4-gq-egQ" secondAttribute="bottom" constant="144" id="5TA-Lm-GkB"/>
+                            <constraint firstItem="uz4-gq-egQ" firstAttribute="top" secondItem="eAs-E6-bAt" secondAttribute="bottom" constant="40" id="TVP-4E-XGL"/>
+                            <constraint firstItem="Sam-yA-pYC" firstAttribute="top" secondItem="3cH-Dt-8R7" secondAttribute="top" constant="198" id="cKl-qC-eu0"/>
+                            <constraint firstItem="uz4-gq-egQ" firstAttribute="leading" secondItem="3cH-Dt-8R7" secondAttribute="leading" constant="16" id="hse-pE-8ul"/>
+                            <constraint firstItem="Sam-yA-pYC" firstAttribute="leading" secondItem="uz4-gq-egQ" secondAttribute="trailing" constant="16" id="i21-jM-w2h"/>
+                            <constraint firstItem="eAs-E6-bAt" firstAttribute="centerX" secondItem="hai-Tj-hvt" secondAttribute="centerX" id="k6P-4p-UuI"/>
+                            <constraint firstItem="eAs-E6-bAt" firstAttribute="top" secondItem="3cH-Dt-8R7" secondAttribute="top" constant="133" id="vmq-bA-ucI"/>
+                            <constraint firstItem="URD-fI-p9Q" firstAttribute="centerX" secondItem="hai-Tj-hvt" secondAttribute="centerX" id="wFE-qu-z1I"/>
+                            <constraint firstItem="3cH-Dt-8R7" firstAttribute="trailing" secondItem="Sam-yA-pYC" secondAttribute="trailing" constant="16" id="wOQ-bu-TRg"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="lbl_SizeEx" destination="URD-fI-p9Q" id="Afq-X4-cq8"/>
+                        <outlet property="lbl_fontSize" destination="Sam-yA-pYC" id="o2E-Or-qvp"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jI3-Gu-GO1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2469.2307692307691" y="874.4075829383886"/>
         </scene>
         <!--Today-->
         <scene sceneID="cq7-gI-jHl">

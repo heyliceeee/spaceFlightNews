@@ -11,6 +11,8 @@ import AlamofireImage
 
 class ArticleDetailsViewController: UIViewController {
     
+    var preferences : Preferences = Preferences()
+    
     //@IBOutlet weak var lbl_ID: UILabel!
     @IBOutlet weak var image: UIImageView!
     @IBOutlet weak var lbl_Title: UILabel!
@@ -30,6 +32,9 @@ class ArticleDetailsViewController: UIViewController {
     
     override func viewDidLoad(){
         super.viewDidLoad()
+        
+        //Preferences
+        lbl_Title.font  = lbl_Title.font.withSize(CGFloat(preferences.getfontSize()))
         
         //lbl_ID.text = id
         lbl_Title.text = titleArticle
