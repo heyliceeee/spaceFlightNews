@@ -20,12 +20,12 @@
         }
       },
       {
-        "package": "SDWebImage",
-        "repositoryURL": "https://github.com/SDWebImage/SDWebImage",
+        "package": "SideMenu",
+        "repositoryURL": "https://github.com/jonkykong/SideMenu",
         "state": {
           "branch": null,
-          "revision": "0fff0d7505b5306348263ea64fcc561253bbeb21",
-          "version": "5.12.2"
+          "revision": "8bd4fd128923cf5494fa726839af8afe12908ad9",
+          "version": "6.5.0"
         }
       }
     ]

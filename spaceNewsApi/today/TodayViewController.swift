@@ -8,18 +8,28 @@
 import UIKit
 import Alamofire
 import AlamofireImage
+import SideMenu
 
 class TodayViewController: UIViewController ,UITableViewDelegate, UITableViewDataSource{
 
     @IBOutlet weak var ArticlesTableView: UITableView!
+    
+    var menu: SideMenuNavigationController?
     
     var articles = [Article]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //menu sidebar
+        menu = SideMenuNavigationController(rootViewController: UIViewController())
+        menu?.leftSide = true
+        
+        SideMenuManager.default.leftMenuNavigationController = menu
+        SideMenuManager.default.addPanGestureToPresent(toView: self.view)
+        
         //navbar title
-        self.title = "Home"
+        self.title = "Today"
         
         ArticlesTableView.delegate = self
         ArticlesTableView.dataSource = self
@@ -35,6 +45,12 @@ class TodayViewController: UIViewController ,UITableViewDelegate, UITableViewDat
                 self.ArticlesTableView.reloadData()
             }
         }
+    }
+    
+    
+    //click sidebar
+    @IBAction func didTapMenu(){
+        present(menu!, animated: true)
     }
     
     
@@ -121,11 +137,6 @@ class TodayViewController: UIViewController ,UITableViewDelegate, UITableViewDat
             let dateconvert = newDateFormatter.date(from: dateconvertString)
             
             
-            print("HORA DO ARITGO: ", dateconvertString)
-            
-            
-            
-            
             //date current
             let date = Date()
             let df = DateFormatter()
@@ -138,9 +149,8 @@ class TodayViewController: UIViewController ,UITableViewDelegate, UITableViewDat
             
             //convert timeInterval (double) to int
             let timeIntervalInt = Int(timeInterval!) //seconds
-            print("SEGUNDOS DIFERENÇA: ", timeIntervalInt)
             
-            
+            //verify date and return
             if timeIntervalInt >= 0 && timeIntervalInt < 60 {
                 
                 vc.updatedAt = "\(timeIntervalInt) seconds ago"
@@ -178,5 +188,3 @@ class TodayViewController: UIViewController ,UITableViewDelegate, UITableViewDat
         }
     }
 }
-
-
