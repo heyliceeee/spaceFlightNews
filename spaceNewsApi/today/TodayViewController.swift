@@ -22,8 +22,9 @@ class TodayViewController: UIViewController ,UITableViewDelegate, UITableViewDat
         super.viewDidLoad()
         
         //menu sidebar
-        menu = SideMenuNavigationController(rootViewController: UIViewController())
+        menu = SideMenuNavigationController(rootViewController: MenuListController())
         menu?.leftSide = true
+        menu?.setNavigationBarHidden(true, animated: false)
         
         SideMenuManager.default.leftMenuNavigationController = menu
         SideMenuManager.default.addPanGestureToPresent(toView: self.view)
@@ -185,6 +186,40 @@ class TodayViewController: UIViewController ,UITableViewDelegate, UITableViewDat
                 let timeDays = ((timeIntervalInt / 86400)) //days
                 vc.updatedAt = "\(timeDays) days ago"
             }
+        }
+    }
+    
+    //menu sidebar
+    class MenuListController: UITableViewController {
+        
+        var items = ["Articles", "Blogs", "Reports"]
+        
+        override func viewDidLoad() {
+            
+            super.viewDidLoad()
+            tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cellsidebar")
+        }
+        
+        override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+            
+            return items.count
+        }
+        
+        override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+            
+            let cellsidebar = tableView.dequeueReusableCell(withIdentifier: "cellsidebar", for: indexPath)
+            
+            cellsidebar.textLabel?.text = items[indexPath.row]
+            
+            return cellsidebar
+        }
+        
+        override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+            
+            tableView.deselectRow(at: indexPath, animated: true)
+            
+            //do something
+            
         }
     }
 }
