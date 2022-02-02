@@ -35,9 +35,6 @@ class TodayViewController: UIViewController ,UITableViewDelegate, UITableViewDat
                 self.ArticlesTableView.reloadData()
             }
         }
-        //ArticlesTableView.separatorColor = UIColor(white: 0.95, alpha: 1)
-        
-        //apiService.getRecentArticles() //mostra todos os artigos
     }
     
     
@@ -55,40 +52,14 @@ class TodayViewController: UIViewController ,UITableViewDelegate, UITableViewDat
     }
     
     
-    //----- CONVERT URL TO IMAGEVIEW -----//
-//    func downloadImageFromUrl(urlImage: String, completion: @escaping (_ success: UIImage) -> Void){
-//
-//        let url = URL(string: urlImage)
-//
-//        let task = URLSession.shared.dataTask(with: url!){data, response, error in
-//            guard let data = data, error == nil else {return}
-//
-//            completion(UIImage(data: data)!)
-//        }
-//        task.resume()
-//    }
-    
-    
-    
     //O QUE A CELL MOSTRA
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ArticleTableViewCell
-//
-//        //backgroundColor da cell
-//        //cell.contentView.backgroundColor = UIColor(white: 0.95, alpha: 1)
-//
-        //image Articles list
-//        self.downloadImageFromUrl(urlImage: apiService.fetchedRecentArticles[indexPath.row].imageUrl as! String, completion: {image in
 
-//            DispatchQueue.main.sync {
-//                cell.imageCell.image = image
-//            }
-//        })
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ArticleTableViewCell
 
         let article = articles[indexPath.row]
         
-        
+        //image Articles list
         if let imageUrl = article.imageUrl {
             AF.request(imageUrl).responseImage(completionHandler: { (response) in
                print(response)
@@ -99,81 +70,111 @@ class TodayViewController: UIViewController ,UITableViewDelegate, UITableViewDat
                
                })
         }
-         
         
-        //cell.imageCell.image = UIImage(data: url)
-        
-//        //title Articles list
+        //title Articles list
         cell.titleCell?.text = article.title
 
-//        //newsSite Articles list
+        //newsSite Articles list
         cell.newsSiteCell.text = article.newsSite
 
-//        //Remove Cell Selection Backgound
+        //remove Cell Selection Backgound
         cell.selectionStyle = UITableViewCell.SelectionStyle.none
 
         return cell
     }
-//
-//
-//    //AO SELECIONAR UMA CELL - article details
+
+
+    //AO SELECIONAR UMA CELL - article details
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
         
         let article = articles[indexPath.row]
-//
+
         let articlesID = article.id
         let idconvert = "\(articlesID ?? 0)" //convert int to string
-//
-//        let articlesTitle = apiService.fetchedRecentArticles[indexPath.row].title
-
-        let articleUpdatedAt = article.updatedAt
-        
         
         if let vc = storyboard?.instantiateViewController(identifier: "ArticleDetailsStoryboard") as? ArticleDetailsViewController{
-//
+
             self.navigationController?.pushViewController(vc, animated: true)
-//
+
             vc.id = idconvert //id
             vc.titleArticle = article.title ?? "" //title
-            vc.Summary = article.summary ?? ""
+            vc.Summary = article.summary ?? "" //summary
             vc.newsSite = article.newsSite ?? ""
-            
-            //ALICE ESTÁ A TENTARRR
-            let formatter = ISO8601DateFormatter()
-            let date1 = formatter.date(from: articleUpdatedAt ?? "")
-            formatter.formatOptions = [.withFullDate, .withTime, .withDashSeparatorInDate, .withColonSeparatorInTime]
-            let date2 = formatter.date(from: articleUpdatedAt ?? "")
-            
-            
-            vc.updatedAt = "\(date2)"
-            
-            //let date = df.date(from: dateconvert)
-            
-            //vc.updatedAt = "\(date)" ?? ""
-            
-            //vc.publishedAt = fetchedArticle[indexPath.row].publishedAt ?? ""
-            //vc.updatedAt = fetchedArticle[indexPath.row].updatedAt ?? ""
-            //vc.urlArticle = fetchedArticle[indexPath.row].urlArticle ?? ""
             
             if let imageUrl = article.imageUrl {
                 
                 vc.img = imageUrl
-//                AF.request(imageUrl).responseImage(completionHandler: { (response) in
-//                   print(response)
-//
-//                   if case .success(let image) = response.result {
-//                       vc.img = image
-//                   }
-//
-//                   })
             }
-
-//            //image
-//            //let url = URL(string: fetchedArticle[indexPath])
-//            self.downloadImageFromUrl(urlImage: apiService.fetchedRecentArticles[indexPath.row].imageUrl as! String, completion: {image in
-//
-//                vc.img = image
-//            })
+            
+            //date
+            let articleUpdatedAt = article.publishedAt ?? ""
+            
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZZZZZ"
+            
+            let theDate = dateFormatter.date(from: articleUpdatedAt)!
+            
+            //date updatedAt
+            let newDateFormatter = DateFormatter()
+            newDateFormatter.dateFormat = "yyyy-MM-dd HH:mm"
+            let dateconvertString = newDateFormatter.string(from: theDate)
+            let dateconvert = newDateFormatter.date(from: dateconvertString)
+            
+            
+            print("HORA DO ARITGO: ", dateconvertString)
+            
+            
+            
+            
+            //date current
+            let date = Date()
+            let df = DateFormatter()
+            df.dateFormat = "yyyy-MM-dd HH:mm"
+            let datecurrentString = df.string(from: date)
+            let datecurrent = df.date(from: datecurrentString)
+            
+            //difference between date updatedAt and date current
+            let timeInterval = (datecurrent?.timeIntervalSince(dateconvert!))//seconds
+            
+            //convert timeInterval (double) to int
+            let timeIntervalInt = Int(timeInterval!) //seconds
+            print("SEGUNDOS DIFERENÇA: ", timeIntervalInt)
+            
+            
+            if timeIntervalInt >= 0 && timeIntervalInt < 60 {
+                
+                vc.updatedAt = "\(timeIntervalInt) seconds ago"
+            
+                
+            } else if timeIntervalInt >= 60 && timeIntervalInt < 3600 {
+            
+                let timeMinutes = ((timeIntervalInt % 3600) / 60) //minutes
+                vc.updatedAt = "\(timeMinutes) minutes ago"
+            
+                
+            } else if timeIntervalInt >= 3600 && timeIntervalInt < 7200 {
+                
+                let timeHour = ((timeIntervalInt % 86400) / 3600) //hour
+                vc.updatedAt = "\(timeHour) hour ago"
+            
+                
+            } else if timeIntervalInt >= 7200 && timeIntervalInt < 86400 {
+                
+                let timeHours = ((timeIntervalInt % 86400) / 3600) //hours
+                vc.updatedAt = "\(timeHours) hours ago"
+            
+                
+            } else if timeIntervalInt >= 86400  && timeIntervalInt < 172800 {
+                
+                let timeDay = ((timeIntervalInt / 86400)) //day
+                vc.updatedAt = "\(timeDay) day ago"
+            
+            
+            } else if timeIntervalInt >= 172800 {
+                
+                let timeDays = ((timeIntervalInt / 86400)) //days
+                vc.updatedAt = "\(timeDays) days ago"
+            }
         }
     }
 }

@@ -31,8 +31,6 @@ class ArticleDetailsViewController: UIViewController {
     override func viewDidLoad(){
         super.viewDidLoad()
         
-
-        
         //lbl_ID.text = id
         lbl_Title.text = titleArticle
         lbl_Summary.text = Summary
@@ -42,10 +40,12 @@ class ArticleDetailsViewController: UIViewController {
         //lbl_urlArticle.text = urlArticle
 
         AF.request(img).responseImage(completionHandler: { [self] (response) in
-                   print(response)
-                   if case .success(let imageView) = response.result {
-                       image.image = imageView
-                   }
-                   })
+            
+            print(response)
+            
+            if case .success(let imageView) = response.result {
+                image.image = imageView
+            }
+        })
     }
 }
