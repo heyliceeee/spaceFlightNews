@@ -1,17 +1,13 @@
 //
-//  Article.swift
+//  Launch.swift
 //  spaceNewsApi
 //
-//  Created by Alice Dias on 29/12/2021.
+//  Created by Tiago Costa on 02/02/2022.
 //
 
 import Foundation
 
-struct Launches: Decodable{
-    var id: String
-}
-
-struct Article: Decodable{
+struct Launch: Decodable {
     
     var id: Int?
     var title: String?
@@ -22,8 +18,5 @@ struct Article: Decodable{
     var publishedAt: String?
     var updatedAt: String?
     var featured: Bool?
-    var launches: [Launches]
-    //var events: String?
+    
 }
-
-

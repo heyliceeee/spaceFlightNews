@@ -35,6 +35,8 @@
 		F51E3E2227A99761001E1239 /* AlamofireImage in Frameworks */ = {isa = PBXBuildFile; productRef = F51E3E2127A99761001E1239 /* AlamofireImage */; };
 		F5622F2227AAE901009F7138 /* Preferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5622F2127AAE901009F7138 /* Preferences.swift */; };
 		F5622F2427AAED7D009F7138 /* TextSizeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5622F2327AAED7D009F7138 /* TextSizeViewController.swift */; };
+		F570B91E27AB2BF900C63449 /* LaunchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F570B91D27AB2BF900C63449 /* LaunchService.swift */; };
+		F570B92027AB2C0B00C63449 /* Launch.swift in Sources */ = {isa = PBXBuildFile; fileRef = F570B91F27AB2C0B00C63449 /* Launch.swift */; };
 		F58E1A8D27AB0B6C009CF0D3 /* CacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F58E1A8C27AB0B6C009CF0D3 /* CacheManager.swift */; };
 /* End PBXBuildFile section */
 
@@ -84,6 +86,8 @@
 		C3E4465E2768A7D700AFE39B /* OnlyLabelTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnlyLabelTableViewCell.swift; sourceTree = "<group>"; };
 		F5622F2127AAE901009F7138 /* Preferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preferences.swift; sourceTree = "<group>"; };
 		F5622F2327AAED7D009F7138 /* TextSizeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextSizeViewController.swift; sourceTree = "<group>"; };
+		F570B91D27AB2BF900C63449 /* LaunchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchService.swift; sourceTree = "<group>"; };
+		F570B91F27AB2C0B00C63449 /* Launch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Launch.swift; sourceTree = "<group>"; };
 		F58E1A8C27AB0B6C009CF0D3 /* CacheManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -203,6 +207,8 @@
 			children = (
 				C33F3FFB277C85E1009734A6 /* ArticleService.swift */,
 				C33F3FFD277CAF9B009734A6 /* Article.swift */,
+				F570B91D27AB2BF900C63449 /* LaunchService.swift */,
+				F570B91F27AB2C0B00C63449 /* Launch.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -351,7 +357,9 @@
 			files = (
 				C33F3FFE277CAF9C009734A6 /* Article.swift in Sources */,
 				C33F466527676438009F7B4F /* SettingTableViewCell.swift in Sources */,
+				F570B91E27AB2BF900C63449 /* LaunchService.swift in Sources */,
 				F5622F2427AAED7D009F7138 /* TextSizeViewController.swift in Sources */,
+				F570B92027AB2C0B00C63449 /* Launch.swift in Sources */,
 				C33F466227675BB6009F7B4F /* MoreViewController.swift in Sources */,
 				C33F4667276773BC009F7B4F /* SwitchTableViewCell.swift in Sources */,
 				C3B53B442771F311003FCC1A /* CacheValidityViewController.swift in Sources */,

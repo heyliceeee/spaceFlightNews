@@ -14,6 +14,7 @@ class TodayViewController: UIViewController ,UITableViewDelegate, UITableViewDat
     @IBOutlet weak var ArticlesTableView: UITableView!
     
     var articles = [Article]()
+    //var launches = [Launches]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -87,7 +88,9 @@ class TodayViewController: UIViewController ,UITableViewDelegate, UITableViewDat
     //AO SELECIONAR UMA CELL - article details
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
         
-        let article = articles[indexPath.row]
+        var article = articles[indexPath.row]
+        
+        //let launches = launches[indexPath.row]
 
         let articlesID = article.id
         let idconvert = "\(articlesID ?? 0)" //convert int to string
@@ -100,6 +103,11 @@ class TodayViewController: UIViewController ,UITableViewDelegate, UITableViewDat
             vc.titleArticle = article.title ?? "" //title
             vc.Summary = article.summary ?? "" //summary
             vc.newsSite = article.newsSite ?? ""
+            if article.launches.count != 0 {
+                vc.launchId = article.launches[0].id
+            }
+
+            //vc.launchId = article.launches[0].id
             
             if let imageUrl = article.imageUrl {
                 
