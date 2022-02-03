@@ -14,6 +14,7 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UITableViewDe
     @IBOutlet weak var SearchTableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
     
+    
     var articles = [Article]()
     private let cacheManager = CacheManager()
     
@@ -30,8 +31,15 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UITableViewDe
         SearchTableView.delegate = self
         SearchTableView.dataSource = self
         
+    }
+    
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        
+        print("SEARCH TEXT: \(searchBar.text!)")
+        
         let apiService = ArticleService(baseURL: "https://api.spaceflightnewsapi.net/v3")
-        apiService.getSearch(endPoint: "/articles")
+        apiService.getSearch(endPoint: "/articles", search: searchBar.text!)
         apiService.completionHandler { [weak self] (articles, status, message) in
             
             if status {
@@ -41,13 +49,6 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UITableViewDe
                 self.SearchTableView.reloadData()
             }
         }
-    }
-    
-    
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        
-        print("SEARCH TEXT: \(searchBar.text!)")
-        cacheManager.cacheSearchResult(searchResult: searchBar.text!)
     }
     
     
