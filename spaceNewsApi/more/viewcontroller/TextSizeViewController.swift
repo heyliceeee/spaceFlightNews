@@ -31,8 +31,8 @@ class TextSizeViewController: UIViewController {
         
         //set Slider Value
         slider_fontSize.value = cacheManager.getCachedFontSize() ?? Float(defaultTitleFontSize)
-
     }
+    
     @IBAction func sliderOnValueChange(_ sender: Any) {
         
         //Round Slider value to .5

@@ -1,57 +1,53 @@
 //
-//  TodayViewController.swift
+//  SearchViewController.swift
 //  spaceNewsApi
 //
-//  Created by Alice Dias on 29/12/2021.
+//  Created by Alice Dias on 03/02/2022.
 //
 
 import UIKit
 import Alamofire
 import AlamofireImage
-import SideMenu
 
-class TodayViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
-
-    @IBOutlet weak var ArticlesTableView: UITableView!
+class SearchViewController: UIViewController, UISearchBarDelegate, UITableViewDelegate, UITableViewDataSource {
     
-    var menu: SideMenuNavigationController?
+    @IBOutlet weak var SearchTableView: UITableView!
+    @IBOutlet weak var searchBar: UISearchBar!
     
     var articles = [Article]()
+    private let cacheManager = CacheManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //menu sidebar
-        menu = SideMenuNavigationController(rootViewController: MenuListController())
-        menu?.leftSide = true
-        menu?.setNavigationBarHidden(true, animated: false)
-        
-        SideMenuManager.default.leftMenuNavigationController = menu
-        SideMenuManager.default.addPanGestureToPresent(toView: self.view)
-        
         //navbar title
-        self.title = "Today"
+        self.title = "Search"
         
-        ArticlesTableView.delegate = self
-        ArticlesTableView.dataSource = self
+        //searchbar
+        searchBar.delegate = self
+        
+        //table
+        SearchTableView.delegate = self
+        SearchTableView.dataSource = self
         
         let apiService = ArticleService(baseURL: "https://api.spaceflightnewsapi.net/v3")
-        apiService.getRecentArticles(endPoint: "/articles")
+        apiService.getSearch(endPoint: "/articles")
         apiService.completionHandler { [weak self] (articles, status, message) in
             
             if status {
                 guard let self = self else { return }
                 guard let _articles = articles else { return }
                 self.articles = _articles
-                self.ArticlesTableView.reloadData()
+                self.SearchTableView.reloadData()
             }
         }
     }
     
     
-    //click sidebar
-    @IBAction func didTapMenu(){
-        present(menu!, animated: true)
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        
+        print("SEARCH TEXT: \(searchBar.text!)")
+        cacheManager.cacheSearchResult(searchResult: searchBar.text!)
     }
     
     
@@ -62,18 +58,18 @@ class TodayViewController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     
-    //num de rows por sections
+    //num de rows por section
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-
+        
         return articles.count
     }
     
     
-    //O QUE A CELL MOSTRA
+    //o que a cell mostra
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ArticleTableViewCell
-
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! SearchTableViewCell
+        
         let article = articles[indexPath.row]
         
         //image Articles list
@@ -99,8 +95,8 @@ class TodayViewController: UIViewController, UITableViewDelegate, UITableViewDat
 
         return cell
     }
-
-
+    
+    
     //AO SELECIONAR UMA CELL - article details
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
         
@@ -109,7 +105,7 @@ class TodayViewController: UIViewController, UITableViewDelegate, UITableViewDat
         let articlesID = article.id
         let idconvert = "\(articlesID ?? 0)" //convert int to string
         
-        if let vc = storyboard?.instantiateViewController(identifier: "ArticleDetailsStoryboard") as? ArticleDetailsViewController{
+        if let vc = storyboard?.instantiateViewController(identifier: "ArticleDetailsStoryboard") as? ArticleDetailsViewController {
 
             self.navigationController?.pushViewController(vc, animated: true)
 
@@ -192,37 +188,6 @@ class TodayViewController: UIViewController, UITableViewDelegate, UITableViewDat
             }
         }
     }
-    
-    //menu sidebar
-    class MenuListController: UITableViewController {
-        
-        var items = ["Articles", "Blogs", "Reports"]
-        
-        override func viewDidLoad() {
-            
-            super.viewDidLoad()
-            tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cellsidebar")
-        }
-        
-        override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-            
-            return items.count
-        }
-        
-        override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-            
-            let cellsidebar = tableView.dequeueReusableCell(withIdentifier: "cellsidebar", for: indexPath)
-            
-            cellsidebar.textLabel?.text = items[indexPath.row]
-            
-            return cellsidebar
-        }
-        
-        override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-            
-            tableView.deselectRow(at: indexPath, animated: true)
-            
-            //do something
-        }
-    }
 }
+
+

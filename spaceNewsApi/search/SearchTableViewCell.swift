@@ -1,13 +1,13 @@
 //
-//  ArticleTableViewCell.swift
+//  SearchTableViewCell.swift
 //  spaceNewsApi
 //
-//  Created by Alice Dias on 08/01/2022.
+//  Created by Alice Dias on 03/02/2022.
 //
 
 import UIKit
 
-class ArticleTableViewCell: UITableViewCell {
+class SearchTableViewCell: UITableViewCell {
 
     @IBOutlet weak var imageCell: UIImageView!
     @IBOutlet weak var titleCell: UILabel!
