@@ -88,7 +88,7 @@ class TodayViewController: UIViewController ,UITableViewDelegate, UITableViewDat
     //AO SELECIONAR UMA CELL - article details
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
         
-        var article = articles[indexPath.row]
+        let article = articles[indexPath.row]
         
         //let launches = launches[indexPath.row]
 
