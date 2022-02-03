@@ -18,6 +18,7 @@ enum SettingsOptionsType {
     
     case staticCell(model: SettingsOptions)
     case switchCell(model: SettingsSwitchOptions)
+    case iconsSwitchCell(model: SettingsIconsSwitchOptions)
     case labelCell(model: SettingsLabelOptions)
     case onlyLabelCell(model: SettingsOnlyLabelOptions)
 }
@@ -42,6 +43,12 @@ struct SettingsSwitchOptions {
     let handler: (() -> Void)
     var isOn: Bool
 }
+
+struct SettingsIconsSwitchOptions {
+    let title: String
+    let handler: (() -> Void)
+    var isOn: Bool
+}
 	
 
 struct SettingsOptions {
@@ -57,6 +64,7 @@ class MoreViewController: UIViewController, UITableViewDelegate, UITableViewData
         let table = UITableView(frame: .zero, style: .grouped)
         table.register(SettingTableViewCell.self, forCellReuseIdentifier: SettingTableViewCell.identifier)
         table.register(SwitchTableViewCell.self, forCellReuseIdentifier: SwitchTableViewCell.identifier)
+        table.register(IconsSwitchTableViewCell.self, forCellReuseIdentifier: IconsSwitchTableViewCell.identifier)
         table.register(LabelTableViewCell.self, forCellReuseIdentifier: LabelTableViewCell.identifier)
         table.register(OnlyLabelTableViewCell.self, forCellReuseIdentifier: OnlyLabelTableViewCell.identifier)
         
@@ -81,7 +89,7 @@ class MoreViewController: UIViewController, UITableViewDelegate, UITableViewData
         tableView.dataSource = self
         tableView.frame = view.bounds
     }
-    
+        
     
     func configure() {
         
@@ -95,23 +103,16 @@ class MoreViewController: UIViewController, UITableViewDelegate, UITableViewData
 
             })),
             
-            .labelCell(model: SettingsLabelOptions(title: "Appearance", myText: "Dark", handler: {
-                
-                //abrir ecra de dark/light mode
-                let aVC = self.storyboard?.instantiateViewController(withIdentifier: "AppearanceStoryboard")
-                self.navigationController?.pushViewController(aVC!, animated: false)
-                
-            })),
+            .iconsSwitchCell(model: SettingsIconsSwitchOptions(title: "Appearance", handler: {}, isOn: false)),
             
             .staticCell(model: SettingsOptions(title: "Text Size"){
+                
                 //abrir ecra de cache validity
                 let TSVC = self.storyboard?.instantiateViewController(withIdentifier: "TextSizeViewController")
                 self.navigationController?.pushViewController(TSVC!, animated: false)
             }),
             
             .switchCell(model: SettingsSwitchOptions(title: "Notifications", handler: {}, isOn: true)),
-            
-            .labelCell(model: SettingsLabelOptions(title: "Use Network", myText: "Wi-Fi and Mobile Data", handler: {}))
         ]))
         
         //models.append(Section(title: "USE NETWORK", options: [
@@ -186,6 +187,17 @@ class MoreViewController: UIViewController, UITableViewDelegate, UITableViewData
                 return cell
             
             
+            case .iconsSwitchCell(let model):
+                guard let cell = tableView.dequeueReusableCell(withIdentifier: IconsSwitchTableViewCell.identifier, for: indexPath) as? IconsSwitchTableViewCell else {
+                    
+                    return UITableViewCell()
+                }
+                
+                cell.configure(with: model)
+                
+                return cell
+            
+            
         case .labelCell(let model):
             guard let cell = tableView.dequeueReusableCell(withIdentifier: LabelTableViewCell.identifier, for: indexPath) as? LabelTableViewCell else {
                 
@@ -216,7 +228,6 @@ class MoreViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         let type = models[indexPath.section].options[indexPath.row]
         
-        //performSegue(withIdentifier: "showCacheValidity", sender: self)
         
         switch type.self {
             case .staticCell(let model):
@@ -224,6 +235,10 @@ class MoreViewController: UIViewController, UITableViewDelegate, UITableViewData
             
             
             case .switchCell(let model):
+                model.handler()
+            
+            
+            case .iconsSwitchCell(let model):
                 model.handler()
             
             
