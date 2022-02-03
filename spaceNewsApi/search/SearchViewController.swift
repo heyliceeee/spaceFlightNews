@@ -114,9 +114,6 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UITableViewDe
             vc.titleArticle = article.title ?? "" //title
             vc.Summary = article.summary ?? "" //summary
             vc.newsSite = article.newsSite ?? ""
-            if article.launches.count != 0 {
-                vc.launchId = article.launches[0].id
-            }
 
             
             if let imageUrl = article.imageUrl {
