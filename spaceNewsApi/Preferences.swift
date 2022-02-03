@@ -19,4 +19,6 @@ class Preferences: NSObject {
     func getfontSize() -> Float {
         return self.fontSize
     }
+    
+
 }

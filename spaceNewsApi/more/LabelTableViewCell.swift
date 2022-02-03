@@ -50,7 +50,7 @@ class LabelTableViewCell: UITableViewCell {
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        let size: CGFloat = contentView.frame.size.height - 12
+        //let size: CGFloat = contentView.frame.size.height - 12
         
         label.frame = CGRect(x: 25, y: 0, width: contentView.frame.size.width - 20, height: contentView.frame.size.height)
         

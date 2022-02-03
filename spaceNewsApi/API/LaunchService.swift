@@ -31,6 +31,7 @@ class LaunchService {
             
             do {
                 let launches = try JSONDecoder().decode([Launch].self, from: data)
+                print(launches)
                 self.callBack?(launches, true, "")
             } catch {
                 self.callBack?(nil, false, error.localizedDescription)
