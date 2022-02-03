@@ -11,6 +11,9 @@ class IconsSwitchTableViewCell: UITableViewCell {
     
     static let identifier = "IconsSwitchTableViewCell"
     
+    private let cacheManager = CacheManager()
+    
+    private let defaultAppearance = false
     
     private let label: UILabel = {
        
@@ -68,7 +71,7 @@ class IconsSwitchTableViewCell: UITableViewCell {
         super.prepareForReuse()
         
         label.text = nil
-        mySwitch.isOn = false
+        mySwitch.isOn = cacheManager.getCacheAppearance() ?? defaultAppearance
     }
     
     
@@ -83,7 +86,12 @@ class IconsSwitchTableViewCell: UITableViewCell {
     
     @objc func didTap(switch: UISwitch){
         
-        let value = mySwitch.isOn
+        //let value = mySwitch.isOn
+        cacheManager.cacheAppearance(appearance: mySwitch.isOn)
+        
+        print(cacheManager.getCacheAppearance())
+        
+        let value = cacheManager.getCacheAppearance() ?? defaultAppearance
         
         if (value == true){
             

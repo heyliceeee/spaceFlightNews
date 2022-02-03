@@ -13,6 +13,7 @@ struct CacheManager {
     
     enum Key: String {
         case fontSize
+        case appearance
         case searchResult
     }
     
@@ -22,6 +23,14 @@ struct CacheManager {
     
     func getCachedFontSize() -> Float? {
         return vault.value(forKey: Key.fontSize.rawValue) as? Float
+    }
+    
+    func cacheAppearance (appearance: Bool) {
+        vault.set(appearance, forKey: Key.appearance.rawValue)
+    }
+    
+    func getCacheAppearance() -> Bool? {
+        return vault.value(forKey: Key.appearance.rawValue) as? Bool
     }
     
     

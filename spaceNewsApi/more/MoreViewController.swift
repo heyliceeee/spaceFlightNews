@@ -59,6 +59,8 @@ struct SettingsOptions {
 
 class MoreViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    private let cacheManager = CacheManager()
+    
     private let tableView: UITableView = {
         
         let table = UITableView(frame: .zero, style: .grouped)
@@ -103,7 +105,7 @@ class MoreViewController: UIViewController, UITableViewDelegate, UITableViewData
 
             })),
             
-            .iconsSwitchCell(model: SettingsIconsSwitchOptions(title: "Appearance", handler: {}, isOn: false)),
+                .iconsSwitchCell(model: SettingsIconsSwitchOptions(title: "Dark Mode", handler: {}, isOn: cacheManager.getCacheAppearance() ?? false )),
             
             .staticCell(model: SettingsOptions(title: "Text Size"){
                 

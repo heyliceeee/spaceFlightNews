@@ -12,6 +12,10 @@ import SideMenu
 
 class TodayViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
 
+    private let cacheManager = CacheManager()
+    
+    private let defaultAppearance = false
+    
     @IBOutlet weak var ArticlesTableView: UITableView!
     
     var menu: SideMenuNavigationController?
@@ -20,6 +24,22 @@ class TodayViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let value = cacheManager.getCacheAppearance() ?? defaultAppearance
+        
+        if (value == true){
+            
+            print("dark")
+            UIApplication.shared.keyWindow?.overrideUserInterfaceStyle = .dark
+            
+            
+        } else if (value == false){
+            
+            print("light")
+            UIApplication.shared.keyWindow?.overrideUserInterfaceStyle = .light
+        }
+        
+        
         
         //menu sidebar
         menu = SideMenuNavigationController(rootViewController: MenuListController())
@@ -47,7 +67,6 @@ class TodayViewController: UIViewController, UITableViewDelegate, UITableViewDat
             }
         }
     }
-    
     
     //click sidebar
     @IBAction func didTapMenu(){
