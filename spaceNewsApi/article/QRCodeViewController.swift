@@ -58,6 +58,8 @@ class QRCodeViewController: UIViewController {
     //click button "scan"
     @IBAction func ScanOnTapped(_ sender: Any) {
         
-        
+        let vc = storyboard?.instantiateViewController(identifier: "ScanQRCodeStoryboard") as? QRCodeViewController
+            
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 }
