@@ -49,7 +49,10 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UITableViewDe
                 self.SearchTableView.reloadData()
             }
         }
+        //searchBar.showsCancelButton = false
+        searchBar.resignFirstResponder()
     }
+    
     
     
     //num de sections
@@ -65,6 +68,16 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UITableViewDe
         return articles.count
     }
     
+//    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+//        self.searchBar.showsCancelButton = true
+//    }
+//
+//    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+//        searchBar.showsCancelButton = false
+//        searchBar.text = ""
+//        searchBar.resignFirstResponder()
+//    }
+
     
     //o que a cell mostra
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -185,6 +198,18 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UITableViewDe
                 vc.updatedAt = "\(timeDays) days ago"
             }
         }
+    }
+    
+//    override func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+//        searchBar.endEditing(true)
+//    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.searchBar.endEditing(true)
+    }
+
+    @objc func doneButtonTapped() {
+        searchBar.endEditing(true)
     }
 }
 
