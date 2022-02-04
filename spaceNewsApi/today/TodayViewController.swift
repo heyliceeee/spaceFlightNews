@@ -25,6 +25,8 @@ class TodayViewController: UIViewController, UITableViewDelegate, UITableViewDat
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
+        //appearance
         let value = cacheManager.getCacheAppearance() ?? defaultAppearance
         
         if (value == true){
@@ -66,6 +68,11 @@ class TodayViewController: UIViewController, UITableViewDelegate, UITableViewDat
                 self.ArticlesTableView.reloadData()
             }
         }
+        
+        
+        //get uid
+        let uid = UIDevice.current.identifierForVendor!.uuidString
+        print("UID: ", uid)
     }
     
     //click sidebar

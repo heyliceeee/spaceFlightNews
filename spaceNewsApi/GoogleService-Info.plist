@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>655107060266-m53cgqmsp4o3oi89v2d8k9a04f864mr2.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.655107060266-m53cgqmsp4o3oi89v2d8k9a04f864mr2</string>
+	<key>API_KEY</key>
+	<string>AIzaSyDGgyr8zHzlHNa_a9pO2pNjk2-6ESTx7fA</string>
+	<key>GCM_SENDER_ID</key>
+	<string>655107060266</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.estg.spaceNewsApi</string>
+	<key>PROJECT_ID</key>
+	<string>spaceflightnews-c5209</string>
+	<key>STORAGE_BUCKET</key>
+	<string>spaceflightnews-c5209.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:655107060266:ios:99c98adaff326309a4c953</string>
+</dict>
+</plist>

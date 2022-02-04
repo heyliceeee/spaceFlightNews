@@ -88,7 +88,6 @@ class ScanQRCodeViewController: UIViewController, AVCaptureMetadataOutputObjects
         if(captureSession?.isRunning == false){
             
             captureSession.startRunning()
-            
         }
     }
     
@@ -115,6 +114,7 @@ class ScanQRCodeViewController: UIViewController, AVCaptureMetadataOutputObjects
             AudioServicesPlaySystemSound(SystemSoundID(kSystemSoundID_Vibrate))
             
             found(code: stringValue)
+            captureSession.stopRunning()
         }
         
         dismiss(animated: true)
@@ -124,6 +124,9 @@ class ScanQRCodeViewController: UIViewController, AVCaptureMetadataOutputObjects
     func found(code: String){
         
         print(code)
+        
+        guard let link = URL(string: "\(code)") else { return }
+        UIApplication.shared.open(link)
     }
     
     
