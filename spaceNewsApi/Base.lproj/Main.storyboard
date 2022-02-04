@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="JvO-Ap-qP2">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="JvO-Ap-qP2">
     <device id="retina6_0" orientation="portrait" appearance="dark"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -63,10 +63,6 @@
                                                     <constraint firstAttribute="height" constant="1" id="6uj-9e-Jq0"/>
                                                 </constraints>
                                             </view>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cWh-Ga-HhJ">
-                                                <rect key="frame" x="75" y="534" width="240" height="128"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            </imageView>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="heart.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="KcO-wh-uIi">
                                                 <rect key="frame" x="344" y="329" width="20.666666666666686" height="17.333333333333314"/>
                                                 <color key="tintColor" systemColor="systemPurpleColor"/>
@@ -119,12 +115,20 @@
                         </constraints>
                     </scrollView>
                     <navigationItem key="navigationItem" id="eQN-Gw-8ML">
-                        <barButtonItem key="rightBarButtonItem" image="square.and.arrow.up" catalog="system" id="A4b-dj-LHk">
-                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <connections>
-                                <action selector="onShareTapped:" destination="Rxq-DW-C9C" id="Pbl-5P-Stn"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem image="square.and.arrow.up" catalog="system" id="A4b-dj-LHk">
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <action selector="onShareTapped:" destination="Rxq-DW-C9C" id="Pbl-5P-Stn"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem image="qrcode" catalog="system" id="ifk-mT-Zsx">
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <action selector="onQRCodeTapped:" destination="Rxq-DW-C9C" id="tBY-nN-PzF"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <connections>
                         <outlet property="image" destination="OYr-Kj-THd" id="cY1-cx-m6A"/>
@@ -138,6 +142,68 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lxk-rn-8m1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2623.0769230769229" y="-598.57819905213262"/>
+        </scene>
+        <!--Code View Controller-->
+        <scene sceneID="Teo-b0-Xdk">
+            <objects>
+                <viewController storyboardIdentifier="QRCodeStoryboard" id="f1y-ep-HOR" customClass="QRCodeViewController" customModule="spaceNewsApi" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="D1v-AV-fGY">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cWh-Ga-HhJ">
+                                <rect key="frame" x="131" y="155" width="128" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="Rat-zp-nLB"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CPL-rN-0NI">
+                                <rect key="frame" x="167" y="407" width="57" height="31"/>
+                                <color key="tintColor" systemColor="systemPurpleColor"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Scan">
+                                    <color key="baseBackgroundColor" systemColor="systemPurpleColor"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="ScanOnTapped:" destination="f1y-ep-HOR" eventType="touchUpInside" id="5fm-vY-hEs"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Ws2-AE-Jdk"/>
+                        <color key="backgroundColor" systemColor="tertiarySystemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="cWh-Ga-HhJ" firstAttribute="leading" secondItem="Ws2-AE-Jdk" secondAttribute="leading" constant="131" id="0zX-Ub-CeG"/>
+                            <constraint firstItem="cWh-Ga-HhJ" firstAttribute="top" secondItem="Ws2-AE-Jdk" secondAttribute="top" constant="111" id="5oC-2P-aEu"/>
+                            <constraint firstItem="CPL-rN-0NI" firstAttribute="centerX" secondItem="cWh-Ga-HhJ" secondAttribute="centerX" id="Wzh-0H-OKP"/>
+                            <constraint firstItem="Ws2-AE-Jdk" firstAttribute="bottom" secondItem="CPL-rN-0NI" secondAttribute="bottom" constant="372" id="fCc-kp-tDM"/>
+                            <constraint firstItem="CPL-rN-0NI" firstAttribute="leading" secondItem="Ws2-AE-Jdk" secondAttribute="leading" constant="167" id="jaf-oy-Fpb"/>
+                            <constraint firstItem="CPL-rN-0NI" firstAttribute="centerX" secondItem="D1v-AV-fGY" secondAttribute="centerX" id="r3L-Mu-lnD"/>
+                            <constraint firstItem="CPL-rN-0NI" firstAttribute="centerY" secondItem="D1v-AV-fGY" secondAttribute="centerY" id="zzc-Ic-6cE"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="btnScan" destination="CPL-rN-0NI" id="2aG-Ls-s4y"/>
+                        <outlet property="imgQRCode" destination="cWh-Ga-HhJ" id="BgS-KY-V8z"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="107-HQ-fPH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3350.7692307692305" y="-599.28909952606637"/>
+        </scene>
+        <!--ScanQR Code View Controller-->
+        <scene sceneID="lUG-4G-hHb">
+            <objects>
+                <viewController storyboardIdentifier="ScanQRCodeStoryboard" id="mP8-CL-uzW" customClass="ScanQRCodeViewController" customModule="spaceNewsApi" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="klG-vc-LTF">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="E6n-LU-5Px"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Bwl-vr-Jee" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4078" y="-599"/>
         </scene>
         <!--Today View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -648,6 +714,7 @@
     <resources>
         <image name="chevron.backward" catalog="system" width="96" height="128"/>
         <image name="heart.fill" catalog="system" width="128" height="109"/>
+        <image name="qrcode" catalog="system" width="128" height="114"/>
         <image name="sidebar.left" catalog="system" width="128" height="93"/>
         <image name="square.and.arrow.up" catalog="system" width="115" height="128"/>
         <image name="star.fill" catalog="system" width="128" height="116"/>

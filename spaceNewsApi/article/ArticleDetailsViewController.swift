@@ -36,10 +36,15 @@ class ArticleDetailsViewController: UIViewController {
     var img = ""
     var launchId = ""
     var url = URL(string: "")
-    var imgQR = ""
+    
     
     override func viewDidLoad(){
+        
         super.viewDidLoad()
+        
+        //navbar
+        self.title = "Article Details"
+        
         
         //Preferences
         //lbl_Title.font  = lbl_Title.font.withSize(CGFloat(preferences.getfontSize()))
@@ -61,30 +66,6 @@ class ArticleDetailsViewController: UIViewController {
                 image.image = imageView
             }
         })
-        
-        
-        //qr code
-        func generateQRCode(from string: String) -> UIImage?{
-            
-            let data = string.data(using: String.Encoding.ascii)
-            
-            if let filter = CIFilter(name: "CIQRCodeGenerator") {
-                
-                filter.setValue(data, forKey: "inputMessage")
-                
-                let transform = CGAffineTransform(scaleX: 3, y: 3)
-                
-                if let output = filter.outputImage?.transformed(by: transform){
-                    return UIImage(ciImage: output)
-                }
-            }
-            
-            return nil
-        }
-        
-        let imageQR = generateQRCode(from: "\(url	)")
-        
-        img_qr.image = imageQR
     }
     
     
@@ -93,5 +74,17 @@ class ArticleDetailsViewController: UIViewController {
         
         let activityController = UIActivityViewController(activityItems: ["Check out this article from SpaceFlight News:", url as Any], applicationActivities: nil)
         present(activityController, animated: true, completion: nil)
+    }
+    
+    
+    //qr code item click
+    @IBAction func onQRCodeTapped(_ sender: Any) {
+        
+        if let vc = storyboard?.instantiateViewController(identifier: "QRCodeStoryboard") as? QRCodeViewController {
+            
+            self.navigationController?.pushViewController(vc, animated: true)
+            
+            vc.urlQRCode = url
+        }
     }
 }

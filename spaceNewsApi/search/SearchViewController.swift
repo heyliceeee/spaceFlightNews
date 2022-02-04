@@ -30,7 +30,6 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UITableViewDe
         //table
         SearchTableView.delegate = self
         SearchTableView.dataSource = self
-        
     }
     
     

@@ -23,6 +23,11 @@ class TextSizeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        	
+        
+        //navbar
+        self.title = "Text Size"
+        
         
         //set Label Text
         lbl_fontSize.text = "\(cacheManager.getCachedFontSize() ?? Float(defaultTitleFontSize))"
