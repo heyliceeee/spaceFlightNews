@@ -342,11 +342,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="SAn-7q-aAV">
-                                <rect key="frame" x="20" y="88" width="350" height="673"/>
+                                <rect key="frame" x="20" y="100" width="350" height="661"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="130" id="Dx9-Vb-tJT" customClass="ArticleTableViewCell" customModule="spaceNewsApi" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="130" id="Dx9-Vb-tJT" customClass="FavoritesTableViewCell" customModule="spaceNewsApi" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="44.666666030883789" width="350" height="130"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Dx9-Vb-tJT" id="bmv-M1-Ldl">
@@ -423,6 +423,11 @@
                                                 <constraint firstItem="HjM-9I-MeC" firstAttribute="leading" secondItem="bmv-M1-Ldl" secondAttribute="leading" constant="5" id="sE5-fN-89c"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="imageCell" destination="g4A-XV-Q8z" id="ts2-L3-ti0"/>
+                                            <outlet property="newsSiteCell" destination="eAM-y4-JUm" id="oLo-L9-nGY"/>
+                                            <outlet property="titleCell" destination="BPZ-U4-vmo" id="3EM-ph-9Dv"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -431,6 +436,9 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="1A1-5E-BXg"/>
+                    <connections>
+                        <outlet property="FavoritesTableView" destination="SAn-7q-aAV" id="oQe-sk-Myf"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FZ7-K5-kmX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

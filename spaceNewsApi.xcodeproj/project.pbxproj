@@ -34,6 +34,7 @@
 		C37094BA27AC0B00005E062C /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37094B927AC0B00005E062C /* SearchViewController.swift */; };
 		C37094BC27AC11D3005E062C /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37094BB27AC11D3005E062C /* SearchTableViewCell.swift */; };
 		C37D5FF327AB0165005E94A6 /* SideMenu in Frameworks */ = {isa = PBXBuildFile; productRef = C37D5FF227AB0165005E94A6 /* SideMenu */; };
+		C3A1A22827AE90E900CDE6EF /* FavoritesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3A1A22727AE90E900CDE6EF /* FavoritesTableViewCell.swift */; };
 		C3A6A7D127AD50880091729A /* QRCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3A6A7D027AD50880091729A /* QRCodeViewController.swift */; };
 		C3A6A7D327AD50B20091729A /* ScanQRCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3A6A7D227AD50B20091729A /* ScanQRCodeViewController.swift */; };
 		C3B53B442771F311003FCC1A /* CacheValidityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B53B432771F311003FCC1A /* CacheValidityViewController.swift */; };
@@ -103,6 +104,7 @@
 		C37094B427ABD18B005E062C /* IconsSwitchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconsSwitchTableViewCell.swift; sourceTree = "<group>"; };
 		C37094B927AC0B00005E062C /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		C37094BB27AC11D3005E062C /* SearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
+		C3A1A22727AE90E900CDE6EF /* FavoritesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesTableViewCell.swift; sourceTree = "<group>"; };
 		C3A6A7D027AD50880091729A /* QRCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeViewController.swift; sourceTree = "<group>"; };
 		C3A6A7D227AD50B20091729A /* ScanQRCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanQRCodeViewController.swift; sourceTree = "<group>"; };
 		C3B53B432771F311003FCC1A /* CacheValidityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheValidityViewController.swift; sourceTree = "<group>"; };
@@ -174,6 +176,7 @@
 			isa = PBXGroup;
 			children = (
 				C31A071327AE82D000DA6035 /* FavoritesViewController.swift */,
+				C3A1A22727AE90E900CDE6EF /* FavoritesTableViewCell.swift */,
 			);
 			path = favorites;
 			sourceTree = "<group>";
@@ -575,6 +578,7 @@
 				C33F4633276758B7009F7B4F /* ViewController.swift in Sources */,
 				F565EC8927AB49E70008762E /* LaunchService.swift in Sources */,
 				C3E4465F2768A7D700AFE39B /* OnlyLabelTableViewCell.swift in Sources */,
+				C3A1A22827AE90E900CDE6EF /* FavoritesTableViewCell.swift in Sources */,
 				F565EC8727AB49C80008762E /* Launch.swift in Sources */,
 				C33F462F276758B7009F7B4F /* AppDelegate.swift in Sources */,
 				C37094BA27AC0B00005E062C /* SearchViewController.swift in Sources */,
