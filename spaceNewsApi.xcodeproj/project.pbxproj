@@ -54,6 +54,10 @@
 		F5813F4B27AEA052009D6E18 /* BlogTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5813F4A27AEA052009D6E18 /* BlogTableViewCell.swift */; };
 		F5813F4D27AEA10F009D6E18 /* BlogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5813F4C27AEA10F009D6E18 /* BlogViewController.swift */; };
 		F583A0E527AECC8A0042D428 /* Report.swift in Sources */ = {isa = PBXBuildFile; fileRef = F583A0E427AECC8A0042D428 /* Report.swift */; };
+		F583A0E727AECFBD0042D428 /* ReportService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F583A0E627AECFBD0042D428 /* ReportService.swift */; };
+		F583A0EA27AED0FF0042D428 /* ReportTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F583A0E927AED0FF0042D428 /* ReportTableViewCell.swift */; };
+		F583A0F027AED15E0042D428 /* ReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F583A0EF27AED15E0042D428 /* ReportViewController.swift */; };
+		F583A0F227AED17C0042D428 /* ReportDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F583A0F127AED17C0042D428 /* ReportDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -128,6 +132,10 @@
 		F5813F4A27AEA052009D6E18 /* BlogTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlogTableViewCell.swift; sourceTree = "<group>"; };
 		F5813F4C27AEA10F009D6E18 /* BlogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlogViewController.swift; sourceTree = "<group>"; };
 		F583A0E427AECC8A0042D428 /* Report.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Report.swift; sourceTree = "<group>"; };
+		F583A0E627AECFBD0042D428 /* ReportService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportService.swift; sourceTree = "<group>"; };
+		F583A0E927AED0FF0042D428 /* ReportTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportTableViewCell.swift; sourceTree = "<group>"; };
+		F583A0EF27AED15E0042D428 /* ReportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportViewController.swift; sourceTree = "<group>"; };
+		F583A0F127AED17C0042D428 /* ReportDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -226,6 +234,7 @@
 		C33F462D276758B7009F7B4F /* spaceNewsApi */ = {
 			isa = PBXGroup;
 			children = (
+				F583A0E827AED0E00042D428 /* report */,
 				F5813F4927AE9F94009D6E18 /* blog */,
 				C382C748278A512900EFA1C6 /* API */,
 				C3A6A7CF27AD50410091729A /* article */,
@@ -359,6 +368,7 @@
 			isa = PBXGroup;
 			children = (
 				F583A0E427AECC8A0042D428 /* Report.swift */,
+				F583A0E627AECFBD0042D428 /* ReportService.swift */,
 			);
 			path = Report;
 			sourceTree = "<group>";
@@ -371,6 +381,16 @@
 				F562A08627AEC3DD000C1C74 /* BlogDetailsViewController.swift */,
 			);
 			path = blog;
+			sourceTree = "<group>";
+		};
+		F583A0E827AED0E00042D428 /* report */ = {
+			isa = PBXGroup;
+			children = (
+				F583A0E927AED0FF0042D428 /* ReportTableViewCell.swift */,
+				F583A0EF27AED15E0042D428 /* ReportViewController.swift */,
+				F583A0F127AED17C0042D428 /* ReportDetailViewController.swift */,
+			);
+			path = report;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -631,16 +651,19 @@
 				C33F466527676438009F7B4F /* SettingTableViewCell.swift in Sources */,
 				C33F466227675BB6009F7B4F /* MoreViewController.swift in Sources */,
 				C3A6A7D127AD50880091729A /* QRCodeViewController.swift in Sources */,
+				F583A0E727AECFBD0042D428 /* ReportService.swift in Sources */,
 				C33F4667276773BC009F7B4F /* SwitchTableViewCell.swift in Sources */,
 				C3B53B442771F311003FCC1A /* CacheValidityViewController.swift in Sources */,
 				C33F4639276758B8009F7B4F /* spaceNewsApi.xcdatamodeld in Sources */,
 				C3626EBB2789B372006AC642 /* DesignView.swift in Sources */,
 				C33F4633276758B7009F7B4F /* ViewController.swift in Sources */,
+				F583A0F227AED17C0042D428 /* ReportDetailViewController.swift in Sources */,
 				F565EC8927AB49E70008762E /* LaunchService.swift in Sources */,
 				C3E4465F2768A7D700AFE39B /* OnlyLabelTableViewCell.swift in Sources */,
 				C3A1A22827AE90E900CDE6EF /* FavoritesTableViewCell.swift in Sources */,
 				F565EC8727AB49C80008762E /* Launch.swift in Sources */,
 				F583A0E527AECC8A0042D428 /* Report.swift in Sources */,
+				F583A0F027AED15E0042D428 /* ReportViewController.swift in Sources */,
 				C33F462F276758B7009F7B4F /* AppDelegate.swift in Sources */,
 				C37094BA27AC0B00005E062C /* SearchViewController.swift in Sources */,
 				C3A6A7D327AD50B20091729A /* ScanQRCodeViewController.swift in Sources */,
@@ -649,6 +672,7 @@
 				F5813F4D27AEA10F009D6E18 /* BlogViewController.swift in Sources */,
 				F565EC8B27AB4A0F0008762E /* TextSizeViewController.swift in Sources */,
 				C33F3FFC277C85E1009734A6 /* ArticleService.swift in Sources */,
+				F583A0EA27AED0FF0042D428 /* ReportTableViewCell.swift in Sources */,
 				C33F466927677B4A009F7B4F /* LabelTableViewCell.swift in Sources */,
 				F565EC8F27AB4A570008762E /* Preferences.swift in Sources */,
 				C33F4631276758B7009F7B4F /* SceneDelegate.swift in Sources */,

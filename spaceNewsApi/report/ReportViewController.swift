@@ -1,5 +1,5 @@
 //
-//  BlogViewController.swift
+//  ReportViewController.swift
 //  spaceNewsApi
 //
 //  Created by Tiago Costa on 05/02/2022.
@@ -10,19 +10,19 @@ import Alamofire
 import AlamofireImage
 import SideMenu
 
-class BlogViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class ReportViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    static let identifier = "BlogViewController"
+    static let identifier = "ReportViewController"
     
     private let cacheManager = CacheManager()
 
     private let defaultAppearance = false
 
-    @IBOutlet weak var BlogTableView: UITableView!
+    @IBOutlet weak var ReportTableView: UITableView!
 
     var menu : SideMenuNavigationController?
 
-    var blogs = [Blog]()
+    var reports = [Report]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,20 +51,20 @@ class BlogViewController: UIViewController, UITableViewDelegate, UITableViewData
         SideMenuManager.default.addPanGestureToPresent(toView: self.view)
 
         //navbar title
-        self.title = "Blogs"
+        self.title = "Reports"
 
-        BlogTableView.delegate = self
-        BlogTableView.dataSource = self
+        ReportTableView.delegate = self
+        ReportTableView.dataSource = self
 
-        let apiService = BlogService(baseURL: "https://api.spaceflightnewsapi.net/v3")
-        apiService.getRecentBlogs(endPoint: "/blogs")
-        apiService.completionHandler { [weak self] (blogs, status, message) in
+        let apiService = ReportService(baseURL: "https://api.spaceflightnewsapi.net/v3")
+        apiService.getRecentReport(endPoint: "/reports")
+        apiService.completionHandler { [weak self] (reports, status, message) in
 
             if status {
                 guard let self = self else { return }
-                guard let _blogs = blogs else { return }
-                self.blogs = _blogs
-                self.BlogTableView.reloadData()
+                guard let _reports = reports else { return }
+                self.reports = _reports
+                self.ReportTableView.reloadData()
             }
         }
 
@@ -86,19 +86,19 @@ class BlogViewController: UIViewController, UITableViewDelegate, UITableViewData
         //num de rows por sections
         func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 
-            return blogs.count
+            return reports.count
         }
 
 
         //O QUE A CELL MOSTRA
         func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
-            let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! BlogTableViewCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ReportTableViewCell
 
-            let blog = blogs[indexPath.row]
+            let report = reports[indexPath.row]
 
             //image Articles list
-            if let imageUrl = blog.imageUrl {
+            if let imageUrl = report.imageUrl {
                 AF.request(imageUrl).responseImage(completionHandler: { (response) in
                    print(response)
 
@@ -110,10 +110,10 @@ class BlogViewController: UIViewController, UITableViewDelegate, UITableViewData
             }
 
             //title Articles list
-            cell.titleCell?.text = blog.title
+            cell.titleCell?.text = report.title
 
             //newsSite Articles list
-            cell.newsSiteCell.text = blog.newsSite
+            cell.newsSiteCell.text = report.newsSite
 
             //remove Cell Selection Backgound
             cell.selectionStyle = UITableViewCell.SelectionStyle.none
@@ -125,33 +125,33 @@ class BlogViewController: UIViewController, UITableViewDelegate, UITableViewData
         //AO SELECIONAR UMA CELL - article details
         func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
 
-            let blog = blogs[indexPath.row]
+            let report = reports[indexPath.row]
 
-            let blogId = blog.id
-            let idconvert = "\(blogId ?? 0)" //convert int to string
+            let reportId = report.id
+            let idconvert = "\(reportId ?? 0)" //convert int to string
 
-            if let vc = storyboard?.instantiateViewController(identifier: "BlogDetailStoryboard") as? BlogDetailViewController{
+            if let vc = storyboard?.instantiateViewController(identifier: "ReportDetailStoryboard") as? ReportDetailViewController {
 
                 self.navigationController?.pushViewController(vc, animated: true)
 
                 vc.id = idconvert //id
-                vc.titleArticle = blog.title ?? "" //title
-                vc.Summary = blog.summary ?? "" //summary
-                vc.newsSite = blog.newsSite ?? ""
-                vc.url = blog.url
+                vc.titleArticle = report.title ?? "" //title
+                vc.Summary = report.summary ?? "" //summary
+                vc.newsSite = report.newsSite ?? ""
+                vc.url = report.url
 
-                if let imageUrl = blog.imageUrl {
+                if let imageUrl = report.imageUrl {
 
                     vc.img = imageUrl
                 }
 
                 //date
-                let blogPublishedAt = blog.publishedAt ?? ""
+                let reportPublishedAt = report.publishedAt ?? ""
 
                 let dateFormatter = DateFormatter()
                 dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZZZZZ"
 
-                let theDate = dateFormatter.date(from: blogPublishedAt)!
+                let theDate = dateFormatter.date(from: reportPublishedAt)!
 
                 //date updatedAt
                 let newDateFormatter = DateFormatter()
@@ -245,30 +245,30 @@ class BlogViewController: UIViewController, UITableViewDelegate, UITableViewData
 
             if (items[indexPath.row] == "Articles") {
                 
-                var BlogStoryboard : UIStoryboard!
-                BlogStoryboard = UIStoryboard(name:"Main", bundle: nil)
+                var ReportStoryboard : UIStoryboard!
+                ReportStoryboard = UIStoryboard(name:"Main", bundle: nil)
                 
-                 let tvc = BlogStoryboard.instantiateViewController(withIdentifier: "TodayStoryboard") as! TodayViewController
+                 let tvc = ReportStoryboard.instantiateViewController(withIdentifier: "TodayStoryboard") as! TodayViewController
                 
                     print(items[indexPath.row])
                 self.navigationController?.show(tvc, sender: nil)
                 
             } else if (items[indexPath.row] == "Blogs") {
 
-                var BlogStoryboard : UIStoryboard!
-                BlogStoryboard = UIStoryboard(name:"Main", bundle: nil)
+                var ReportStoryboard : UIStoryboard!
+                ReportStoryboard = UIStoryboard(name:"Main", bundle: nil)
                 
-                 let bvc = BlogStoryboard.instantiateViewController(withIdentifier: "BlogStoryboard") as! BlogViewController
+                 let bvc = ReportStoryboard.instantiateViewController(withIdentifier: "BlogStoryboard") as! BlogViewController
                 
                     print(items[indexPath.row])
                 self.navigationController?.show(bvc, sender: nil)
                 
             } else if (items[indexPath.row] == "Reports") {
                 
-                var BlogStoryboard : UIStoryboard!
-                BlogStoryboard = UIStoryboard(name:"Main", bundle: nil)
+                var ReportStoryboard : UIStoryboard!
+                ReportStoryboard = UIStoryboard(name:"Main", bundle: nil)
                 
-                 let bvc = BlogStoryboard.instantiateViewController(withIdentifier: "ReportStoryboard") as! ReportViewController
+                 let bvc = ReportStoryboard.instantiateViewController(withIdentifier: "ReportStoryboard") as! ReportViewController
                 
                     print(items[indexPath.row])
                 self.navigationController?.show(bvc, sender: nil)
@@ -279,3 +279,4 @@ class BlogViewController: UIViewController, UITableViewDelegate, UITableViewData
         }
     }
 }
+

@@ -263,14 +263,15 @@ class TodayViewController: UIViewController, UITableViewDelegate, UITableViewDat
                     print(items[indexPath.row])
                 self.navigationController?.show(bvc, sender: nil)
                 
-                
-//                var kaynakStryBrd: UIStoryboard!
-//                            kaynakStryBrd = UIStoryboard(name: "Main", bundle: nil)
-//                            let ikinciVC = kaynakStryBrd.instantiateViewController(withIdentifier: "BlogStoryboard") as! BlogViewController
-//                            self.navigationController?.show(ikinciVC, sender: nil)
-//
             } else if (items[indexPath.row] == "Reports") {
                 
+                var TodayStoryboard : UIStoryboard!
+                TodayStoryboard = UIStoryboard(name:"Main", bundle: nil)
+                
+                 let bvc = TodayStoryboard.instantiateViewController(withIdentifier: "ReportStoryboard") as! ReportViewController
+                
+                    print(items[indexPath.row])
+                self.navigationController?.show(bvc, sender: nil)
             }
             //do something
         }
