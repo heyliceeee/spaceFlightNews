@@ -7,13 +7,20 @@
 
 import UIKit
 import FirebaseDatabase
+import Alamofire
 
 class FavoritesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     //get uid
     let uID = UIDevice.current.identifierForVendor!.uuidString
+    var favorites = [Favorite]()
     
-    @IBOutlet weak var FavoritesTableView: UITableView!
+    @IBOutlet weak var FavoritesTableView: UITableView! {
+        
+        didSet{
+            FavoritesTableView.dataSource = self
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,18 +32,33 @@ class FavoritesViewController: UIViewController, UITableViewDelegate, UITableVie
         FavoritesTableView.delegate = self
         FavoritesTableView.dataSource = self
         
-        
         //open db firebase
         let ref = Database.database(url: "https://spaceflightnews-c5209-default-rtdb.europe-west1.firebasedatabase.app").reference()
         
-        
         //read favorites from db
-        ref.child("favorites").child(self.uID).observe(.value) { (snapshot) in
+        ref.child("favorites").child(self.uID).observe(.childAdded, with: { (snapshot) in
+
+            let ID = snapshot.key as String //get autoID
+            let value = snapshot.value as! [String:Any]
             
-            let data = snapshot.value as? [String:Any]
-            
-            print("FAVORITES :", data as Any)
-        }
+            let titledb = value["title"] as? String
+            let imagedb = value["image"] as? String
+            let newssitedb = value["newsSite"] as? String
+            let summarydb = value["summary"] as? String
+                
+            let favorite = Favorite(id: ID, title: titledb, image: imagedb, newsSite: newssitedb, summary: summarydb)
+                
+                self.favorites.append(favorite)
+                
+                
+                let row = self.favorites.count
+                
+                if ((row) != 0) {
+                    
+                    let indexPath = IndexPath(row: row-1, section: 0)
+                    self.FavoritesTableView.insertRows(at: [indexPath], with: .automatic)
+                }
+        })
     }
     
     
@@ -50,7 +72,7 @@ class FavoritesViewController: UIViewController, UITableViewDelegate, UITableVie
     //num de rows por sections
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return 1 //articles.count
+        return favorites.count
     }
     
     
@@ -60,26 +82,26 @@ class FavoritesViewController: UIViewController, UITableViewDelegate, UITableVie
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! FavoritesTableViewCell
         
         
-
-//        let article = articles[indexPath.row]
-//
+        let favorite = favorites[indexPath.row]
+ 
+        
         //image Articles list
-//        if let imageUrl = article.imageUrl {
-//            AF.request(imageUrl).responseImage(completionHandler: { (response) in
-//               print(response)
-//
-//               if case .success(let image) = response.result {
-//                   cell.imageCell.image = image
-//               }
+        if let imageUrl = favorite.image {
+            AF.request(imageUrl).responseImage(completionHandler: { (response) in
+               print(response)
 
-//               })
-//        }
+               if case .success(let image) = response.result {
+                   cell.imageCell?.image = image
+               }
+               })
+        }
 
-        //title Articles list
-//        cell.titleCell?.text = article.title
+        
+        //newsSite Articles list
+        cell.titleCell?.text = favorite.title
 
         //newsSite Articles list
-//        cell.newsSiteCell.text = article.newsSite
+        cell.newsSiteCell?.text = favorite.newsSite
 
         //remove Cell Selection Backgound
         cell.selectionStyle = UITableViewCell.SelectionStyle.none

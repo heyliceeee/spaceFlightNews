@@ -10,6 +10,7 @@
 		48EC4B0C172B9A64F8D1F41B /* Pods_spaceNewsApi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F6F6198024555124B1E1EA7 /* Pods_spaceNewsApi.framework */; };
 		58F3D2B3D7370549A7716CCD /* Pods_spaceNewsApi_spaceNewsApiUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6082B387661A81D70135BC37 /* Pods_spaceNewsApi_spaceNewsApiUITests.framework */; };
 		C31A071427AE82D000DA6035 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C31A071327AE82D000DA6035 /* FavoritesViewController.swift */; };
+		C31D37FE27AED2D100B11B46 /* Favorite.swift in Sources */ = {isa = PBXBuildFile; fileRef = C31D37FD27AED2D100B11B46 /* Favorite.swift */; };
 		C31F050B27ADD21E00F5D453 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C31F050A27ADD21E00F5D453 /* GoogleService-Info.plist */; };
 		C33F3FF8277C798D009734A6 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C33F3FF7277C798D009734A6 /* TodayViewController.swift */; };
 		C33F3FFC277C85E1009734A6 /* ArticleService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C33F3FFB277C85E1009734A6 /* ArticleService.swift */; };
@@ -77,6 +78,7 @@
 		6082B387661A81D70135BC37 /* Pods_spaceNewsApi_spaceNewsApiUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_spaceNewsApi_spaceNewsApiUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6F3169A4D39EE42FC70DC59F /* Pods-spaceNewsApiTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-spaceNewsApiTests.release.xcconfig"; path = "Target Support Files/Pods-spaceNewsApiTests/Pods-spaceNewsApiTests.release.xcconfig"; sourceTree = "<group>"; };
 		C31A071327AE82D000DA6035 /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
+		C31D37FD27AED2D100B11B46 /* Favorite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Favorite.swift; sourceTree = "<group>"; };
 		C31F050A27ADD21E00F5D453 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C33F3FF7277C798D009734A6 /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
 		C33F3FFB277C85E1009734A6 /* ArticleService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleService.swift; sourceTree = "<group>"; };
@@ -175,6 +177,7 @@
 		C31A071227AE822C00DA6035 /* favorites */ = {
 			isa = PBXGroup;
 			children = (
+				C31D37FD27AED2D100B11B46 /* Favorite.swift */,
 				C31A071327AE82D000DA6035 /* FavoritesViewController.swift */,
 				C3A1A22727AE90E900CDE6EF /* FavoritesTableViewCell.swift */,
 			);
@@ -568,6 +571,7 @@
 				C37094B527ABD18B005E062C /* IconsSwitchTableViewCell.swift in Sources */,
 				C31A071427AE82D000DA6035 /* FavoritesViewController.swift in Sources */,
 				C33F3FFE277CAF9C009734A6 /* Article.swift in Sources */,
+				C31D37FE27AED2D100B11B46 /* Favorite.swift in Sources */,
 				C33F466527676438009F7B4F /* SettingTableViewCell.swift in Sources */,
 				C33F466227675BB6009F7B4F /* MoreViewController.swift in Sources */,
 				C3A6A7D127AD50880091729A /* QRCodeViewController.swift in Sources */,
