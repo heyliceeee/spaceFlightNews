@@ -240,6 +240,36 @@ class TodayViewController: UIViewController, UITableViewDelegate, UITableViewDat
             
             tableView.deselectRow(at: indexPath, animated: true)
             
+            if (items[indexPath.row] == "Articles") {
+                
+                var TodayStoryboard : UIStoryboard!
+                TodayStoryboard = UIStoryboard(name:"Main", bundle: nil)
+                
+                 let tvc = TodayStoryboard.instantiateViewController(withIdentifier: "TodayStoryboard") as! TodayViewController
+                
+                    print(items[indexPath.row])
+                self.navigationController?.show(tvc, sender: nil)
+                
+            } else if (items[indexPath.row] == "Blogs") {
+
+                var TodayStoryboard : UIStoryboard!
+                TodayStoryboard = UIStoryboard(name:"Main", bundle: nil)
+                
+                 let bvc = TodayStoryboard.instantiateViewController(withIdentifier: "BlogStoryboard") as! BlogViewController
+                
+                    print(items[indexPath.row])
+                self.navigationController?.show(bvc, sender: nil)
+                
+            } else if (items[indexPath.row] == "Reports") {
+                
+                var TodayStoryboard : UIStoryboard!
+                TodayStoryboard = UIStoryboard(name:"Main", bundle: nil)
+                
+                 let bvc = TodayStoryboard.instantiateViewController(withIdentifier: "ReportStoryboard") as! ReportViewController
+                
+                    print(items[indexPath.row])
+                self.navigationController?.show(bvc, sender: nil)
+            }
             //do something
         }
     }
