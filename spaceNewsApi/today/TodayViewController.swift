@@ -68,11 +68,6 @@ class TodayViewController: UIViewController, UITableViewDelegate, UITableViewDat
                 self.ArticlesTableView.reloadData()
             }
         }
-        
-        
-        //get uid
-        let uid = UIDevice.current.identifierForVendor!.uuidString
-        print("UID: ", uid)
     }
     
     //click sidebar

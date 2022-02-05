@@ -8,11 +8,15 @@
 import UIKit
 import Alamofire
 import AlamofireImage
+import FirebaseDatabase
+
 
 class ArticleDetailsViewController: UIViewController {
     
     private let cacheManager = CacheManager()
     var preferences : Preferences = Preferences()
+    
+    let uID = UIDevice.current.identifierForVendor!.uuidString
     
     var launches = [Launch]()
     
@@ -23,6 +27,7 @@ class ArticleDetailsViewController: UIViewController {
     @IBOutlet weak var lbl_newsSite: UILabel!
     @IBOutlet weak var img_qr: UIImageView!
     @IBOutlet weak var lbl_date: UILabel!
+    @IBOutlet weak var img_heart: UIImageView!
     
     private let defaultTitleFontSize = 20.0
     
@@ -66,6 +71,47 @@ class ArticleDetailsViewController: UIViewController {
                 image.image = imageView
             }
         })
+        
+        
+        //gesture tap in heart (favorite)
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(favoriteTapped(_:)))
+        
+        img_heart.isUserInteractionEnabled = true
+        img_heart.addGestureRecognizer(tapGestureRecognizer)
+    }
+    
+    
+    //favorite click
+    @objc func favoriteTapped(_ sender: AnyObject){
+        
+        var refreshAlert = UIAlertController(title: "Add Favorites", message: "Do you want add this article your favorites?", preferredStyle: UIAlertController.Style.alert)
+        
+        
+        refreshAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action: UIAlertAction!) in
+            
+            //open db firebase
+            let ref = Database.database(url: "https://spaceflightnews-c5209-default-rtdb.europe-west1.firebasedatabase.app").reference()
+            
+            //add article favorite to db
+            ref.child("favorites").child(self.uID).childByAutoId().setValue([
+                "image": self.img,
+                "title": self.titleArticle,
+                "summary": self.Summary,
+                "newsSite": self.newsSite
+            ])
+            
+            
+            print("add db")
+        }))
+        
+        
+        refreshAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action: UIAlertAction!) in
+            
+            print("press cancel")
+        }))
+        
+        
+        present(refreshAlert, animated: true, completion: nil)
     }
     
     
