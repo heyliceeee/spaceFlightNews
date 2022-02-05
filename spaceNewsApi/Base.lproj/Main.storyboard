@@ -163,8 +163,8 @@
                                     <action selector="onTappedScan:" destination="f1y-ep-HOR" eventType="touchUpInside" id="a2t-NE-AUm"/>
                                 </connections>
                             </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cWh-Ga-HhJ">
-                                <rect key="frame" x="110" y="183" width="171" height="170"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cWh-Ga-HhJ">
+                                <rect key="frame" x="110" y="183" width="170" height="170"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="170" id="Rat-zp-nLB"/>
                                 </constraints>
@@ -236,7 +236,7 @@
                                                             </constraints>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="wsX-BM-owL">
-                                                            <rect key="frame" x="121.00000000000001" y="96.333333333333329" width="157.33333333333337" height="13.666666666666671"/>
+                                                            <rect key="frame" x="121" y="91.666666666666671" width="210" height="18.333333333333329"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" secondItem="wsX-BM-owL" secondAttribute="height" multiplier="23:2" id="Mr8-4G-J4u"/>
                                                             </constraints>
@@ -256,6 +256,7 @@
                                                         <constraint firstAttribute="width" constant="363" id="1SV-Vb-1Wh"/>
                                                         <constraint firstItem="wsX-BM-owL" firstAttribute="leading" secondItem="WTW-hD-6xl" secondAttribute="trailing" constant="8" id="4Ff-Xd-swh"/>
                                                         <constraint firstItem="WTW-hD-6xl" firstAttribute="top" secondItem="bbL-dJ-RTP" secondAttribute="top" constant="5" id="8oe-tc-nlV"/>
+                                                        <constraint firstAttribute="trailing" secondItem="wsX-BM-owL" secondAttribute="trailing" constant="8" id="8vv-T7-kgq"/>
                                                         <constraint firstAttribute="trailingMargin" secondItem="IS0-Sv-PSD" secondAttribute="trailing" id="GI7-e5-VHp"/>
                                                         <constraint firstAttribute="bottom" secondItem="wsX-BM-owL" secondAttribute="bottom" constant="8" id="K21-Kh-wZf"/>
                                                         <constraint firstItem="IS0-Sv-PSD" firstAttribute="leading" secondItem="WTW-hD-6xl" secondAttribute="trailing" constant="8" id="Kvk-Ti-LHo"/>
@@ -341,7 +342,7 @@
                                                             </constraints>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="eAM-y4-JUm">
-                                                            <rect key="frame" x="121.00000000000001" y="96.333333333333329" width="157.33333333333337" height="13.666666666666671"/>
+                                                            <rect key="frame" x="121" y="91.666666666666671" width="210" height="18.333333333333329"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" secondItem="eAM-y4-JUm" secondAttribute="height" multiplier="23:2" id="ePg-Sn-TiW"/>
                                                             </constraints>
@@ -364,6 +365,7 @@
                                                         <constraint firstItem="g4A-XV-Q8z" firstAttribute="top" secondItem="HjM-9I-MeC" secondAttribute="top" constant="5" id="D8F-SR-uBV"/>
                                                         <constraint firstItem="g4A-XV-Q8z" firstAttribute="leading" secondItem="HjM-9I-MeC" secondAttribute="leading" constant="5" id="OV9-7a-va1"/>
                                                         <constraint firstAttribute="bottom" secondItem="g4A-XV-Q8z" secondAttribute="bottom" constant="5" id="bio-Tf-u5S"/>
+                                                        <constraint firstAttribute="trailing" secondItem="eAM-y4-JUm" secondAttribute="trailing" constant="8" id="cCr-pW-gVh"/>
                                                         <constraint firstItem="BPZ-U4-vmo" firstAttribute="leading" secondItem="g4A-XV-Q8z" secondAttribute="trailing" constant="8" id="eK6-Sk-POq"/>
                                                         <constraint firstAttribute="bottom" secondItem="eAM-y4-JUm" secondAttribute="bottom" constant="8" id="f7U-WY-zIU"/>
                                                         <constraint firstAttribute="width" constant="363" id="mmQ-7n-XxW"/>
@@ -435,7 +437,7 @@
                                                             </constraints>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="v1V-Tn-N8L">
-                                                            <rect key="frame" x="121.00000000000001" y="96.333333333333329" width="157.33333333333337" height="13.666666666666671"/>
+                                                            <rect key="frame" x="121" y="91.666666666666671" width="210" height="18.333333333333329"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" secondItem="v1V-Tn-N8L" secondAttribute="height" multiplier="23:2" id="Al1-Nb-S2t"/>
                                                             </constraints>
@@ -455,6 +457,7 @@
                                                         <constraint firstItem="RxZ-WC-PxI" firstAttribute="leading" secondItem="V7o-ew-uUR" secondAttribute="trailing" constant="8" id="0xi-Vq-Q17"/>
                                                         <constraint firstAttribute="bottom" secondItem="V7o-ew-uUR" secondAttribute="bottom" constant="5" id="BPh-7o-5mO"/>
                                                         <constraint firstItem="V7o-ew-uUR" firstAttribute="leading" secondItem="Ach-Mj-DQR" secondAttribute="leading" constant="5" id="IeI-LX-e2d"/>
+                                                        <constraint firstAttribute="trailing" secondItem="v1V-Tn-N8L" secondAttribute="trailing" constant="8" id="gTd-pk-i6U"/>
                                                         <constraint firstItem="v1V-Tn-N8L" firstAttribute="leading" secondItem="V7o-ew-uUR" secondAttribute="trailing" constant="8" id="gTl-8B-SLT"/>
                                                         <constraint firstItem="V7o-ew-uUR" firstAttribute="top" secondItem="Ach-Mj-DQR" secondAttribute="top" constant="5" id="lYn-AC-uv3"/>
                                                         <constraint firstAttribute="bottom" secondItem="v1V-Tn-N8L" secondAttribute="bottom" constant="8" id="nP5-1l-k8h"/>
@@ -845,7 +848,7 @@
                                                             </constraints>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="01s-Ha-17r">
-                                                            <rect key="frame" x="121.00000000000001" y="96.333333333333329" width="157.33333333333337" height="13.666666666666671"/>
+                                                            <rect key="frame" x="121" y="91.666666666666671" width="210" height="18.333333333333329"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" secondItem="01s-Ha-17r" secondAttribute="height" multiplier="23:2" id="Wrp-bI-Vwx"/>
                                                             </constraints>
@@ -863,6 +866,7 @@
                                                     <color key="backgroundColor" systemColor="tertiarySystemBackgroundColor"/>
                                                     <constraints>
                                                         <constraint firstAttribute="bottom" secondItem="ErQ-zV-GV2" secondAttribute="bottom" constant="5" id="0hL-E3-y7n"/>
+                                                        <constraint firstAttribute="trailing" secondItem="01s-Ha-17r" secondAttribute="trailing" constant="8" id="5qM-XL-2vZ"/>
                                                         <constraint firstItem="xkg-2U-p8S" firstAttribute="top" secondItem="jgV-QD-scS" secondAttribute="topMargin" id="IbM-rb-pEE"/>
                                                         <constraint firstAttribute="width" constant="363" id="JP9-Yd-EFG"/>
                                                         <constraint firstItem="01s-Ha-17r" firstAttribute="leading" secondItem="ErQ-zV-GV2" secondAttribute="trailing" constant="8" id="Ogx-mp-lYM"/>
@@ -918,7 +922,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xrH-UX-Xtq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1694" y="-1254"/>
+            <point key="canvasLocation" x="1693.8461538461538" y="-1254.0284360189573"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="nae-1c-3ZE">
@@ -1121,7 +1125,7 @@
                                                             </constraints>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="uW0-TU-ZEc">
-                                                            <rect key="frame" x="121.00000000000001" y="96.333333333333329" width="157.33333333333337" height="13.666666666666671"/>
+                                                            <rect key="frame" x="121" y="91.666666666666671" width="210" height="18.333333333333329"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" secondItem="uW0-TU-ZEc" secondAttribute="height" multiplier="23:2" id="Ezp-8m-eRF"/>
                                                             </constraints>
@@ -1139,6 +1143,7 @@
                                                     <color key="backgroundColor" systemColor="tertiarySystemBackgroundColor"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="103" id="1j7-l5-16M"/>
+                                                        <constraint firstAttribute="trailing" secondItem="uW0-TU-ZEc" secondAttribute="trailing" constant="8" id="HT9-mP-Dod"/>
                                                         <constraint firstAttribute="bottom" secondItem="Okn-uM-Yl7" secondAttribute="bottom" constant="5" id="JnM-A3-Pwf"/>
                                                         <constraint firstAttribute="trailingMargin" secondItem="fpx-ug-LtJ" secondAttribute="trailing" id="LN5-ur-CjA"/>
                                                         <constraint firstItem="Okn-uM-Yl7" firstAttribute="leading" secondItem="x8a-Hs-d1z" secondAttribute="leading" constant="5" id="PwT-z2-d9a"/>
@@ -1194,7 +1199,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Ao-U2-xwM" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1694" y="-1902"/>
+            <point key="canvasLocation" x="1693.8461538461538" y="-1902.3696682464454"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="U1V-Zx-T71">
