@@ -29,6 +29,8 @@ class ArticleDetailsViewController: UIViewController {
     @IBOutlet weak var img_qr: UIImageView!
     @IBOutlet weak var lbl_date: UILabel!
     @IBOutlet weak var img_heart: UIImageView!
+    @IBOutlet weak var text_field_comment: UITextView!
+    //@IBOutlet weak var txt_field_comment: UITextView!
     
     private let defaultTitleFontSize = 20.0
     
@@ -51,6 +53,10 @@ class ArticleDetailsViewController: UIViewController {
         //navbar
         self.title = "Article Details"
         
+        //comment placeholder
+        text_field_comment.text = "Insert comment"
+        text_field_comment.backgroundColor = UIColor.white
+        text_field_comment.textColor = UIColor.black
         
         //get username
         let urName = UIDevice.current.name
