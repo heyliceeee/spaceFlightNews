@@ -8,6 +8,7 @@ target 'spaceNewsApi' do
   # Pods for spaceNewsApi
 	pod 'Firebase/Core'
 	pod 'Firebase/Database'
+	pod 'Firebase/Messaging'
 
 
   target 'spaceNewsApiTests' do

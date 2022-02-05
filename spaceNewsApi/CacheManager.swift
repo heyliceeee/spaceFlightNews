@@ -31,5 +31,4 @@ struct CacheManager {
     func getCacheAppearance() -> Bool? {
         return vault.value(forKey: Key.appearance.rawValue) as? Bool
     }
-    
 }

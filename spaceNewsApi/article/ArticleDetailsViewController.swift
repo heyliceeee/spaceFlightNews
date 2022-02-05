@@ -58,12 +58,6 @@ class ArticleDetailsViewController: UIViewController {
         text_field_comment.backgroundColor = UIColor.white
         text_field_comment.textColor = UIColor.black
         
-        //get username
-        let urName = UIDevice.current.name
-        
-        print("OLÁ , \(urName)")
-        
-        
         //Preferences
         //lbl_Title.font  = lbl_Title.font.withSize(CGFloat(preferences.getfontSize()))
         lbl_Title.font = lbl_Title.font.withSize(CGFloat(cacheManager.getCachedFontSize() ?? Float(defaultTitleFontSize)))
@@ -92,6 +86,33 @@ class ArticleDetailsViewController: UIViewController {
         img_heart.isUserInteractionEnabled = true
         img_heart.addGestureRecognizer(tapGestureRecognizer)
     }
+    
+    
+    //comment click
+    //verifica se textfield está vazio, se sim ignora, se nao
+    //
+    
+    //get username
+    let urName = UIDevice.current.name
+     
+    //get date current
+//    let date = Date()
+//
+//    let formatter = DateFormatter()
+//    formatter.dateFormat = "dd.MM.yyyy"
+//
+//    let dateCurrent = formatter.string(from: date)
+    
+    
+    //open db firebase
+    let ref = Database.database(url: "https://spaceflightnews-c5209-default-rtdb.europe-west1.firebasedatabase.app").reference()
+    
+    //add article favorite to db
+//    ref.child("comments").child(self.id).childByAutoId().setValue([
+//        "name": self.urName,
+//        "comment": self.comment,
+//        "date": self.dateCurrent
+//    ])
     
     
     
