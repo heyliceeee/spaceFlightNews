@@ -14,7 +14,6 @@ struct CacheManager {
     enum Key: String {
         case fontSize
         case appearance
-        case searchResult
     }
     
     func cacheFontSize (fontSize: Float) {
@@ -33,12 +32,4 @@ struct CacheManager {
         return vault.value(forKey: Key.appearance.rawValue) as? Bool
     }
     
-    
-    func cacheSearchResult (searchResult: String) {
-        vault.set(searchResult, forKey: Key.searchResult.rawValue)
-    }
-    
-    func getCachedSearchResult() -> String? {
-        return vault.value(forKey: Key.searchResult.rawValue) as? String
-    }
 }
