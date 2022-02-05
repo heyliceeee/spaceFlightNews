@@ -9,6 +9,7 @@ import UIKit
 import Alamofire
 import AlamofireImage
 import FirebaseDatabase
+import CloudKit
 
 
 class ArticleDetailsViewController: UIViewController {
@@ -51,6 +52,12 @@ class ArticleDetailsViewController: UIViewController {
         self.title = "Article Details"
         
         
+        //get username
+        let urName = UIDevice.current.name
+        
+        print("OLÁ , \(urName)")
+        
+        
         //Preferences
         //lbl_Title.font  = lbl_Title.font.withSize(CGFloat(preferences.getfontSize()))
         lbl_Title.font = lbl_Title.font.withSize(CGFloat(cacheManager.getCachedFontSize() ?? Float(defaultTitleFontSize)))
@@ -79,6 +86,8 @@ class ArticleDetailsViewController: UIViewController {
         img_heart.isUserInteractionEnabled = true
         img_heart.addGestureRecognizer(tapGestureRecognizer)
     }
+    
+    
     
     
     //favorite click
