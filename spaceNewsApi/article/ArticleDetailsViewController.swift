@@ -256,6 +256,8 @@ class ArticleDetailsViewController: UIViewController, UITableViewDelegate, UITab
             
             center.add(request, withCompletionHandler: nil)
         }
+        
+        tf_comment.text = ""
     }
     
     
