@@ -10,9 +10,10 @@ import Alamofire
 import AlamofireImage
 import FirebaseDatabase
 import CloudKit
+import UserNotifications
 
 
-class ArticleDetailsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
+class ArticleDetailsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate, UNUserNotificationCenterDelegate {
     
     private let cacheManager = CacheManager()
     var preferences : Preferences = Preferences()
@@ -129,6 +130,15 @@ class ArticleDetailsViewController: UIViewController, UITableViewDelegate, UITab
                     self.CommentsTableView.insertRows(at: [indexPath], with: .automatic)
                 }
         })
+        
+        
+        //notifications - get user permission
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge], completionHandler: { (granted, error) in
+            
+            if granted {
+                print("user gave permissions for local notifications")
+            }
+        })
     }
     
     
@@ -223,6 +233,24 @@ class ArticleDetailsViewController: UIViewController, UITableViewDelegate, UITab
             
             
             print("nao esta vazio")
+            
+            
+            //notifications
+            let center = UNUserNotificationCenter.current()
+            
+            let content = UNMutableNotificationContent()
+            content.title = "New Comment"
+            content.body = "You added a new comment to an Article"
+            content.sound = .default
+            content.badge = 1
+            
+            let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 10, repeats: false)
+            
+            let request = UNNotificationRequest(identifier: "comment", content: content, trigger: trigger)
+            
+            center.delegate = self
+            
+            center.add(request, withCompletionHandler: nil)
         }
     }
     
@@ -248,6 +276,28 @@ class ArticleDetailsViewController: UIViewController, UITableViewDelegate, UITab
             
             
             print("add db")
+            
+            
+            //notifications
+            let center = UNUserNotificationCenter.current()
+            
+            let content = UNMutableNotificationContent()
+            content.title = "Favories"
+            content.body = "You've added a new article to your Favorites"
+            content.sound = .default
+            content.badge = 1
+            
+            let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
+            
+            let request = UNNotificationRequest(identifier: "favorite", content: content, trigger: trigger)
+            
+            center.add(request){ (error) in
+                
+                if error != nil {
+                    
+                    print("error: \(error?.localizedDescription ?? "error local notification")")
+                }
+            }
         }))
         
         
@@ -278,5 +328,12 @@ class ArticleDetailsViewController: UIViewController, UITableViewDelegate, UITab
             
             vc.urlQRCode = url
         }
+    }
+    
+    
+    //notifications
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        
+        completionHandler([.alert, .sound, .badge])
     }
 }

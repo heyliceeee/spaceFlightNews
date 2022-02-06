@@ -241,14 +241,15 @@
 		C33F462D276758B7009F7B4F /* spaceNewsApi */ = {
 			isa = PBXGroup;
 			children = (
+				C382C748278A512900EFA1C6 /* API */,
 				F561091A27AEE3DF002BA0E7 /* report */,
 				F561091327AEE375002BA0E7 /* blog */,
-				C382C748278A512900EFA1C6 /* API */,
 				C3A6A7CF27AD50410091729A /* article */,
 				C33F3FFA277C838C009734A6 /* today */,
 				C31A071227AE822C00DA6035 /* favorites */,
 				C37094B827AC09E2005E062C /* search */,
 				C33F466327675D59009F7B4F /* more */,
+				C3840B8527AFDB8A00707CE6 /* cache */,
 				C33F4632276758B7009F7B4F /* ViewController.swift */,
 				C33F462E276758B7009F7B4F /* AppDelegate.swift */,
 				C33F4630276758B7009F7B4F /* SceneDelegate.swift */,
@@ -258,8 +259,6 @@
 				C31F050A27ADD21E00F5D453 /* GoogleService-Info.plist */,
 				C33F463F276758BB009F7B4F /* Info.plist */,
 				C33F4637276758B8009F7B4F /* spaceNewsApi.xcdatamodeld */,
-				F565EC8C27AB4A360008762E /* CacheManager.swift */,
-				F565EC8E27AB4A570008762E /* Preferences.swift */,
 			);
 			path = spaceNewsApi;
 			sourceTree = "<group>";
@@ -330,6 +329,15 @@
 				F561090727AEE29F002BA0E7 /* Article */,
 			);
 			path = API;
+			sourceTree = "<group>";
+		};
+		C3840B8527AFDB8A00707CE6 /* cache */ = {
+			isa = PBXGroup;
+			children = (
+				F565EC8C27AB4A360008762E /* CacheManager.swift */,
+				F565EC8E27AB4A570008762E /* Preferences.swift */,
+			);
+			path = cache;
 			sourceTree = "<group>";
 		};
 		C3A6A7CF27AD50410091729A /* article */ = {
@@ -875,6 +883,7 @@
 				DEVELOPMENT_TEAM = 9R59K3GS6B;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = spaceNewsApi/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "$spaceNewsApi camera use";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -904,6 +913,7 @@
 				DEVELOPMENT_TEAM = 9R59K3GS6B;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = spaceNewsApi/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "$spaceNewsApi camera use";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
