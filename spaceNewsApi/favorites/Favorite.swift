@@ -10,6 +10,7 @@ import Foundation
 struct Favorite: Decodable {
     
     var id: String?
+    var url: URL?
     var title: String?
     var image: String?
     var newsSite: String?

@@ -42,12 +42,13 @@ class FavoritesViewController: UIViewController, UITableViewDelegate, UITableVie
             let ID = snapshot.key as String //get autoID
             let value = snapshot.value as! [String:Any]
             
+            let urldb = value["url"] as? URL
             let titledb = value["title"] as? String
             let imagedb = value["image"] as? String
             let newssitedb = value["newsSite"] as? String
             let summarydb = value["summary"] as? String
                 
-            let favorite = Favorite(id: ID, title: titledb, image: imagedb, newsSite: newssitedb, summary: summarydb)
+            let favorite = Favorite(id: ID, url: urldb, title: titledb, image: imagedb, newsSite: newssitedb, summary: summarydb)
                 
                 self.favorites.append(favorite)
                 

@@ -274,6 +274,8 @@ class ArticleDetailsViewController: UIViewController, UITableViewDelegate, UITab
             
             //add article favorite to db
             ref.child("favorites").child(self.uID).childByAutoId().setValue([
+                "id": self.id,
+                "url": self.url?.absoluteString,
                 "image": self.img,
                 "title": self.titleArticle,
                 "summary": self.Summary,

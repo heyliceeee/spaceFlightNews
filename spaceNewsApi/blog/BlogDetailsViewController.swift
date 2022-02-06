@@ -73,7 +73,7 @@ class BlogDetailViewController: UIViewController {
     //share social media
     @IBAction func onShareTapped(_ sender: Any) {
         
-        let activityController = UIActivityViewController(activityItems: ["Check out this article from SpaceFlight News:", url as Any], applicationActivities: nil)
+        let activityController = UIActivityViewController(activityItems: ["Check out this blog from SpaceFlight News:", url as Any], applicationActivities: nil)
         present(activityController, animated: true, completion: nil)
     }
     
