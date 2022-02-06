@@ -128,13 +128,12 @@ class FavoritesViewController: UIViewController, UITableViewDelegate, UITableVie
             vc.titleArticle = favorite.title ?? "" //title
             vc.Summary = favorite.summary ?? "" //summary
             vc.newsSite = favorite.newsSite ?? ""
-            //vc.url = favorite.url
+            vc.url = favorite.url
 
             if let imageUrl = favorite.image {
 
                 vc.img = imageUrl
             }
-
         }
     }
 }
