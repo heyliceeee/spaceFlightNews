@@ -69,31 +69,6 @@ class FavoritesViewController: UIViewController, UITableViewDelegate, UITableVie
     }
     
     
-    private func delete(rowIndexPath indexPath: IndexPath) -> UIContextualAction {
-        let action = UIContextualAction(style: .destructive, title: "delete") { [weak self] (_,_,_) in
-            guard let self = self else {return}
-            
-            let favorite = self.favorites[indexPath.row]
-            
-            let favoriteID = favorite.id ?? ""
-            
-            let ref = Database.database(url: "https://spaceflightnews-c5209-default-rtdb.europe-west1.firebasedatabase.app").reference()
-            let delete = ref.child("favorites").child(self.uID).child(favoriteID).removeValue()
-            //numberOfFavorites -= 1
-            self.FavoritesTableView.deleteRows(at: [indexPath], with: .automatic)
-            self.FavoritesTableView.reloadData()
-            
-        }
-        
-        return action
-    }
-
-    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        let delete = self.delete(rowIndexPath: indexPath)
-        let swipe = UISwipeActionsConfiguration(actions: [delete])
-        return swipe
-    }
-    
     //num de sections
     func numberOfSections(in tableView: UITableView) -> Int {
 
@@ -113,7 +88,6 @@ class FavoritesViewController: UIViewController, UITableViewDelegate, UITableVie
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! FavoritesTableViewCell
         
-        
         let favorite = favorites[indexPath.row]
  
         
@@ -125,7 +99,7 @@ class FavoritesViewController: UIViewController, UITableViewDelegate, UITableVie
                if case .success(let image) = response.result {
                    cell.imageCell?.image = image
                }
-               })
+            })
         }
 
         
@@ -141,9 +115,6 @@ class FavoritesViewController: UIViewController, UITableViewDelegate, UITableVie
         return cell
     }
     
-    
-    
-   
 
     //AO SELECIONAR UMA CELL - article details
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){

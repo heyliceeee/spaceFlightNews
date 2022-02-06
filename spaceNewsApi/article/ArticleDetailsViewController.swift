@@ -21,8 +21,6 @@ class ArticleDetailsViewController: UIViewController, UITableViewDelegate, UITab
     let uID = UIDevice.current.identifierForVendor!.uuidString
     
     var launches = [Launch]()
-    
-    
     var comments = [Comment]()
     
     
@@ -134,15 +132,6 @@ class ArticleDetailsViewController: UIViewController, UITableViewDelegate, UITab
                     self.CommentsTableView.insertRows(at: [indexPath], with: .automatic)
                 }
         })
-        
-        
-        //notifications - get user permission
-        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge], completionHandler: { (granted, error) in
-            
-            if granted {
-                print("user gave permissions for local notifications")
-            }
-        })
     }
     
     
@@ -176,7 +165,6 @@ class ArticleDetailsViewController: UIViewController, UITableViewDelegate, UITab
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
             
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! CommentsTableViewCell
-            
             
         let comment = comments[indexPath.row]
      

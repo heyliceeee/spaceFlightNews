@@ -9,8 +9,9 @@ import UIKit
 import Alamofire
 import AlamofireImage
 import SideMenu
+import UserNotifications
 
-class TodayViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
+class TodayViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UNUserNotificationCenterDelegate {
 
     private let cacheManager = CacheManager()
     
@@ -68,7 +69,35 @@ class TodayViewController: UIViewController, UITableViewDelegate, UITableViewDat
                 self.ArticlesTableView.reloadData()
             }
         }
+        
+        
+        //notifications - get user permission
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge], completionHandler: { (granted, error) in
+            
+            if granted {
+                print("user gave permissions for local notifications")
+            }
+        })
+        
+        
+        //notifications
+        let center = UNUserNotificationCenter.current()
+        
+        let content = UNMutableNotificationContent()
+        content.title = "New Article"
+        content.body = "A new Article has been published"
+        content.sound = .default
+        content.badge = 1
+        
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 60, repeats: true)
+        
+        let request = UNNotificationRequest(identifier: "article", content: content, trigger: trigger)
+        
+        center.delegate = self
+        
+        center.add(request, withCompletionHandler: nil)
     }
+    
     
     //click sidebar
     @IBAction func didTapMenu(){
@@ -105,8 +134,7 @@ class TodayViewController: UIViewController, UITableViewDelegate, UITableViewDat
                if case .success(let image) = response.result {
                    cell.imageCell.image = image
                }
-               
-               })
+            })
         }
         
         //title Articles list
@@ -117,7 +145,7 @@ class TodayViewController: UIViewController, UITableViewDelegate, UITableViewDat
 
         //remove Cell Selection Backgound
         cell.selectionStyle = UITableViewCell.SelectionStyle.none
-
+        
         return cell
     }
 
@@ -272,5 +300,12 @@ class TodayViewController: UIViewController, UITableViewDelegate, UITableViewDat
             }
             //do something
         }
+    }
+    
+    
+    //notifications
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        
+        completionHandler([.alert, .sound, .badge])
     }
 }
