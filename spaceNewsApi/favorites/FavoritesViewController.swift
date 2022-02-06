@@ -11,9 +11,12 @@ import Alamofire
 
 class FavoritesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    
     //get uid
     let uID = UIDevice.current.identifierForVendor!.uuidString
     var favorites = [Favorite]()
+    
+    //var numberOfFavorites = favorites.count
     
     @IBOutlet weak var FavoritesTableView: UITableView! {
         
@@ -21,6 +24,8 @@ class FavoritesViewController: UIViewController, UITableViewDelegate, UITableVie
             FavoritesTableView.dataSource = self
         }
     }
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,7 +46,7 @@ class FavoritesViewController: UIViewController, UITableViewDelegate, UITableVie
 
             let ID = snapshot.key as String //get autoID
             let value = snapshot.value as! [String:Any]
-            
+ 
             let urldb = value["url"] as? String
             let titledb = value["title"] as? String
             let imagedb = value["image"] as? String
@@ -63,6 +68,31 @@ class FavoritesViewController: UIViewController, UITableViewDelegate, UITableVie
         })
     }
     
+    
+    private func delete(rowIndexPath indexPath: IndexPath) -> UIContextualAction {
+        let action = UIContextualAction(style: .destructive, title: "delete") { [weak self] (_,_,_) in
+            guard let self = self else {return}
+            
+            let favorite = self.favorites[indexPath.row]
+            
+            let favoriteID = favorite.id ?? ""
+            
+            let ref = Database.database(url: "https://spaceflightnews-c5209-default-rtdb.europe-west1.firebasedatabase.app").reference()
+            let delete = ref.child("favorites").child(self.uID).child(favoriteID).removeValue()
+            //numberOfFavorites -= 1
+            self.FavoritesTableView.deleteRows(at: [indexPath], with: .automatic)
+            self.FavoritesTableView.reloadData()
+            
+        }
+        
+        return action
+    }
+
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let delete = self.delete(rowIndexPath: indexPath)
+        let swipe = UISwipeActionsConfiguration(actions: [delete])
+        return swipe
+    }
     
     //num de sections
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -110,7 +140,10 @@ class FavoritesViewController: UIViewController, UITableViewDelegate, UITableVie
 
         return cell
     }
-
+    
+    
+    
+   
 
     //AO SELECIONAR UMA CELL - article details
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
