@@ -61,6 +61,7 @@
 		F565EC8B27AB4A0F0008762E /* TextSizeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F565EC8A27AB4A0F0008762E /* TextSizeViewController.swift */; };
 		F565EC8D27AB4A360008762E /* CacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F565EC8C27AB4A360008762E /* CacheManager.swift */; };
 		F565EC8F27AB4A570008762E /* Preferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = F565EC8E27AB4A570008762E /* Preferences.swift */; };
+		F584227A27B0163700A61CFA /* FavoriteDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F584227927B0163700A61CFA /* FavoriteDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -142,6 +143,7 @@
 		F565EC8A27AB4A0F0008762E /* TextSizeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextSizeViewController.swift; sourceTree = "<group>"; };
 		F565EC8C27AB4A360008762E /* CacheManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheManager.swift; sourceTree = "<group>"; };
 		F565EC8E27AB4A570008762E /* Preferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preferences.swift; sourceTree = "<group>"; };
+		F584227927B0163700A61CFA /* FavoriteDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -204,6 +206,7 @@
 				C31D37FD27AED2D100B11B46 /* Favorite.swift */,
 				C31A071327AE82D000DA6035 /* FavoritesViewController.swift */,
 				C3A1A22727AE90E900CDE6EF /* FavoritesTableViewCell.swift */,
+				F584227927B0163700A61CFA /* FavoriteDetailViewController.swift */,
 			);
 			path = favorites;
 			sourceTree = "<group>";
@@ -689,6 +692,7 @@
 				F561092027AEE41C002BA0E7 /* ReportDetailViewController.swift in Sources */,
 				C37094BA27AC0B00005E062C /* SearchViewController.swift in Sources */,
 				C3A6A7D327AD50B20091729A /* ScanQRCodeViewController.swift in Sources */,
+				F584227A27B0163700A61CFA /* FavoriteDetailViewController.swift in Sources */,
 				F565EC8D27AB4A360008762E /* CacheManager.swift in Sources */,
 				C3626EBD2789E06D006AC642 /* ArticleTableViewCell.swift in Sources */,
 				F565EC8B27AB4A0F0008762E /* TextSizeViewController.swift in Sources */,

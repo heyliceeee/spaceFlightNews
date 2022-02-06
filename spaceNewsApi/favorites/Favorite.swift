@@ -14,4 +14,5 @@ struct Favorite: Decodable {
     var image: String?
     var newsSite: String?
     var summary: String?
+    
 }
