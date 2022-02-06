@@ -66,6 +66,10 @@ class ArticleDetailsViewController: UIViewController, UITableViewDelegate, UITab
         //navbar
         self.title = "Article Details"
         
+        tf_comment.attributedPlaceholder = NSAttributedString(
+            string: "Insert Comment",
+            attributes: [NSAttributedString.Key.foregroundColor: UIColor.systemGray2]
+        )
         
         CommentsTableView.delegate = self
         CommentsTableView.dataSource = self
