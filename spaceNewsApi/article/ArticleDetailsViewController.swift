@@ -12,7 +12,7 @@ import FirebaseDatabase
 import CloudKit
 
 
-class ArticleDetailsViewController: UIViewController {
+class ArticleDetailsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
     
     private let cacheManager = CacheManager()
     var preferences : Preferences = Preferences()
@@ -20,6 +20,10 @@ class ArticleDetailsViewController: UIViewController {
     let uID = UIDevice.current.identifierForVendor!.uuidString
     
     var launches = [Launch]()
+    
+    
+    var comments = [Comment]()
+    
     
     //@IBOutlet weak var lbl_ID: UILabel!
     @IBOutlet weak var image: UIImageView!
@@ -29,7 +33,15 @@ class ArticleDetailsViewController: UIViewController {
     @IBOutlet weak var img_qr: UIImageView!
     @IBOutlet weak var lbl_date: UILabel!
     @IBOutlet weak var img_heart: UIImageView!
-    @IBOutlet weak var text_field_comment: UITextView!
+    @IBOutlet weak var tf_comment: UITextField!
+    //@IBOutlet weak var text_field_comment: UITextView!
+    @IBOutlet weak var btn_comment: UIButton!
+    @IBOutlet weak var CommentsTableView: UITableView! {
+        
+        didSet{
+            CommentsTableView.dataSource = self
+        }
+    }
     //@IBOutlet weak var txt_field_comment: UITextView!
     
     private let defaultTitleFontSize = 20.0
@@ -53,10 +65,14 @@ class ArticleDetailsViewController: UIViewController {
         //navbar
         self.title = "Article Details"
         
-        //comment placeholder
-        text_field_comment.text = "Insert comment"
-        text_field_comment.backgroundColor = UIColor.white
-        text_field_comment.textColor = UIColor.black
+        
+        CommentsTableView.delegate = self
+        CommentsTableView.dataSource = self
+        
+        
+        //hide keyboard
+        tf_comment.delegate = self
+        
         
         //Preferences
         //lbl_Title.font  = lbl_Title.font.withSize(CGFloat(preferences.getfontSize()))
@@ -85,36 +101,130 @@ class ArticleDetailsViewController: UIViewController {
         
         img_heart.isUserInteractionEnabled = true
         img_heart.addGestureRecognizer(tapGestureRecognizer)
+        
+        
+        //open db firebase
+        let ref = Database.database(url: "https://spaceflightnews-c5209-default-rtdb.europe-west1.firebasedatabase.app").reference()
+        
+        //read favorites from db
+        ref.child("comments").child(self.id).observe(.childAdded, with: { (snapshot) in
+
+            let ID = snapshot.key as String //get autoID
+            let value = snapshot.value as! [String:Any]
+            
+            let commentdb = value["comment"] as? String
+            let datedb = value["date"] as? String
+            let namedb = value["name"] as? String
+                
+            let comment = Comment(id: ID, name: namedb, date: datedb, comment: commentdb)
+                
+                self.comments.append(comment)
+                
+                
+                let row = self.comments.count
+                
+                if ((row) != 0) {
+                    
+                    let indexPath = IndexPath(row: row-1, section: 0)
+                    self.CommentsTableView.insertRows(at: [indexPath], with: .automatic)
+                }
+        })
+    }
+    
+    
+    //hidden keyboard
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        
+        self.view.endEditing(true)
+    }
+    
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        
+        tf_comment.resignFirstResponder()
+    }
+        
+    
+    //num de sections
+    func numberOfSections(in tableView: UITableView) -> Int {
+
+        return 1
+    }
+        
+        
+    //num de rows por sections
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        return comments.count
+    }
+        
+        
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+            
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! CommentsTableViewCell
+            
+            
+        let comment = comments[indexPath.row]
+     
+            
+        //name Comments list
+        cell.nameCell?.text = comment.name
+
+        //date Comments list
+        cell.dateCell?.text = comment.date
+            
+        //comment Comments list
+        cell.commentCell?.text = comment.comment
+
+        //remove Cell Selection Backgound
+        cell.selectionStyle = UITableViewCell.SelectionStyle.none
+
+        return cell
     }
     
     
     //comment click
-    //verifica se textfield está vazio, se sim ignora, se nao
-    //
+    @IBAction func onTappedComment(_ sender: Any) {
+        
+        //get username
+        let urName = UIDevice.current.name
+        
+        //get date current
+        let date = Date()
     
-    //get username
-    let urName = UIDevice.current.name
-     
-    //get date current
-//    let date = Date()
-//
-//    let formatter = DateFormatter()
-//    formatter.dateFormat = "dd.MM.yyyy"
-//
-//    let dateCurrent = formatter.string(from: date)
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd.MM.yyyy"
     
+        let dateCurrent = formatter.string(from: date)
     
-    //open db firebase
-    let ref = Database.database(url: "https://spaceflightnews-c5209-default-rtdb.europe-west1.firebasedatabase.app").reference()
-    
-    //add article favorite to db
-//    ref.child("comments").child(self.id).childByAutoId().setValue([
-//        "name": self.urName,
-//        "comment": self.comment,
-//        "date": self.dateCurrent
-//    ])
-    
-    
+        
+        tf_comment.resignFirstResponder()
+        
+        
+        //verifica se textfield está vazio, se sim ignora, se nao
+        if tf_comment.text == "" {
+            
+            print("vazio")
+        
+        
+        } else if tf_comment.text != "" {
+
+            print(tf_comment.text ?? "")
+            
+            //open db firebase
+            let ref = Database.database(url: "https://spaceflightnews-c5209-default-rtdb.europe-west1.firebasedatabase.app").reference()
+            
+            //add article favorite to db
+            ref.child("comments").child(self.id).childByAutoId().setValue([
+                "name": urName,
+                "comment": tf_comment.text ?? "",
+                "date": dateCurrent
+            ])
+            
+            
+            print("nao esta vazio")
+        }
+    }
     
     
     //favorite click

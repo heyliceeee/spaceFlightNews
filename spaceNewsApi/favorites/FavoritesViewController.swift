@@ -32,6 +32,7 @@ class FavoritesViewController: UIViewController, UITableViewDelegate, UITableVie
         FavoritesTableView.delegate = self
         FavoritesTableView.dataSource = self
         
+        
         //open db firebase
         let ref = Database.database(url: "https://spaceflightnews-c5209-default-rtdb.europe-west1.firebasedatabase.app").reference()
         
