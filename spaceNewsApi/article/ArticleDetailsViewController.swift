@@ -295,17 +295,13 @@ class ArticleDetailsViewController: UIViewController, UITableViewDelegate, UITab
             content.sound = .default
             content.badge = 1
             
-            let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
+            let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 10, repeats: false)
             
             let request = UNNotificationRequest(identifier: "favorite", content: content, trigger: trigger)
             
-            center.add(request){ (error) in
-                
-                if error != nil {
-                    
-                    print("error: \(error?.localizedDescription ?? "error local notification")")
-                }
-            }
+            center.delegate = self
+            
+            center.add(request, withCompletionHandler: nil)
         }))
         
         
