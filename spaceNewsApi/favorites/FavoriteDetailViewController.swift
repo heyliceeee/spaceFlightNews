@@ -31,18 +31,18 @@ class FavoriteDetailViewController: UIViewController, UITableViewDelegate, UITab
     @IBOutlet weak var lbl_Title: UILabel!
     @IBOutlet weak var lbl_Summary: UILabel!
     @IBOutlet weak var lbl_newsSite: UILabel!
-    @IBOutlet weak var img_qr: UIImageView!
-    @IBOutlet weak var lbl_date: UILabel!
-    @IBOutlet weak var img_heart: UIImageView!
-    @IBOutlet weak var tf_comment: UITextField!
+    //@IBOutlet weak var img_qr: UIImageView!
+    //@IBOutlet weak var lbl_date: UILabel!
+    //@IBOutlet weak var img_heart: UIImageView!
+    //@IBOutlet weak var tf_comment: UITextField!
     //@IBOutlet weak var text_field_comment: UITextView!
-    @IBOutlet weak var btn_comment: UIButton!
-    @IBOutlet weak var CommentsTableView: UITableView! {
-        
-        didSet{
-            CommentsTableView.dataSource = self
-        }
-    }
+    //@IBOutlet weak var btn_comment: UIButton!
+//    @IBOutlet weak var CommentsTableView: UITableView! {
+//
+//        didSet{
+//            CommentsTableView.dataSource = self
+//        }
+//    }
     //@IBOutlet weak var txt_field_comment: UITextView!
     
     private let defaultTitleFontSize = 20.0
@@ -66,17 +66,6 @@ class FavoriteDetailViewController: UIViewController, UITableViewDelegate, UITab
         //navbar
         self.title = "Article Details"
         
-        tf_comment.attributedPlaceholder = NSAttributedString(
-            string: "Insert Comment",
-            attributes: [NSAttributedString.Key.foregroundColor: UIColor.systemGray2]
-        )
-        
-        CommentsTableView.delegate = self
-        CommentsTableView.dataSource = self
-        
-        
-        //hide keyboard
-        tf_comment.delegate = self
         
         
         //Preferences
@@ -112,18 +101,6 @@ class FavoriteDetailViewController: UIViewController, UITableViewDelegate, UITab
     }
     
     
-    //hidden keyboard
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        
-        self.view.endEditing(true)
-    }
-    
-    
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        
-        tf_comment.resignFirstResponder()
-    }
-        
     
     //num de sections
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -163,124 +140,6 @@ class FavoriteDetailViewController: UIViewController, UITableViewDelegate, UITab
     }
     
     
-    //comment click
-    @IBAction func onTappedComment(_ sender: Any) {
-        
-        //get username
-        let urName = UIDevice.current.name
-        
-        //get date current
-        let date = Date()
-    
-        let formatter = DateFormatter()
-        formatter.dateFormat = "dd.MM.yyyy"
-    
-        let dateCurrent = formatter.string(from: date)
-    
-        
-        tf_comment.resignFirstResponder()
-        
-        
-        //verifica se textfield está vazio, se sim ignora, se nao
-        if tf_comment.text == "" {
-            
-            print("vazio")
-        
-        
-        } else if tf_comment.text != "" {
-
-            print(tf_comment.text ?? "")
-            
-            //open db firebase
-            let ref = Database.database(url: "https://spaceflightnews-c5209-default-rtdb.europe-west1.firebasedatabase.app").reference()
-            
-            //add article favorite to db
-            ref.child("comments").child(self.id).childByAutoId().setValue([
-                "name": urName,
-                "comment": tf_comment.text ?? "",
-                "date": dateCurrent
-            ])
-            
-            
-            print("nao esta vazio")
-            
-            
-            //notifications
-            let center = UNUserNotificationCenter.current()
-            
-            let content = UNMutableNotificationContent()
-            content.title = "New Comment"
-            content.body = "You added a new comment to an Article"
-            content.sound = .default
-            content.badge = 1
-            
-            let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 10, repeats: false)
-            
-            let request = UNNotificationRequest(identifier: "comment", content: content, trigger: trigger)
-            
-            center.delegate = self
-            
-            center.add(request, withCompletionHandler: nil)
-        }
-        
-        tf_comment.text = ""
-    }
-    
-    
-    //favorite click
-    @objc func favoriteTapped(_ sender: AnyObject){
-        
-        var refreshAlert = UIAlertController(title: "Add Favorites", message: "Do you want add this article your favorites?", preferredStyle: UIAlertController.Style.alert)
-        
-        
-        refreshAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action: UIAlertAction!) in
-            
-            //open db firebase
-            let ref = Database.database(url: "https://spaceflightnews-c5209-default-rtdb.europe-west1.firebasedatabase.app").reference()
-            
-            //add article favorite to db
-            ref.child("favorites").child(self.uID).childByAutoId().setValue([
-                "image": self.img,
-                "title": self.titleArticle,
-                "summary": self.Summary,
-                "newsSite": self.newsSite
-            ])
-            
-            
-            print("add db")
-            
-            
-            //notifications
-            let center = UNUserNotificationCenter.current()
-            
-            let content = UNMutableNotificationContent()
-            content.title = "Favories"
-            content.body = "You've added a new article to your Favorites"
-            content.sound = .default
-            content.badge = 1
-            
-            let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
-            
-            let request = UNNotificationRequest(identifier: "favorite", content: content, trigger: trigger)
-            
-            center.add(request){ (error) in
-                
-                if error != nil {
-                    
-                    print("error: \(error?.localizedDescription ?? "error local notification")")
-                }
-            }
-        }))
-        
-        
-        refreshAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action: UIAlertAction!) in
-            
-            print("press cancel")
-        }))
-        
-        
-        present(refreshAlert, animated: true, completion: nil)
-    }
     
     
     //share social media
