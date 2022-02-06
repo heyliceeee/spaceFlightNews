@@ -56,7 +56,7 @@ class FavoriteDetailViewController: UIViewController, UITableViewDelegate, UITab
     var urlArticle = ""
     var img = ""
     var launchId = ""
-    var url = URL(string: "")
+    var url = ""
     
     
     override func viewDidLoad(){
@@ -145,7 +145,7 @@ class FavoriteDetailViewController: UIViewController, UITableViewDelegate, UITab
     //share social media
     @IBAction func onShareTapped(_ sender: Any) {
         
-        let activityController = UIActivityViewController(activityItems: ["Check out this article from SpaceFlight News:", url as Any], applicationActivities: nil)
+        let activityController = UIActivityViewController(activityItems: ["Check out this article from SpaceFlight News:", URL(string: "\(url)") as Any], applicationActivities: nil)
         present(activityController, animated: true, completion: nil)
     }
     
@@ -157,7 +157,7 @@ class FavoriteDetailViewController: UIViewController, UITableViewDelegate, UITab
             
             self.navigationController?.pushViewController(vc, animated: true)
             
-            vc.urlQRCode = url
+            vc.urlQRCode = URL(string: "\(url)")
         }
     }
     

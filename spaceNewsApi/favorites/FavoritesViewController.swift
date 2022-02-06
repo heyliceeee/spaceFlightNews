@@ -42,7 +42,7 @@ class FavoritesViewController: UIViewController, UITableViewDelegate, UITableVie
             let ID = snapshot.key as String //get autoID
             let value = snapshot.value as! [String:Any]
             
-            let urldb = value["url"] as? URL
+            let urldb = value["url"] as? String
             let titledb = value["title"] as? String
             let imagedb = value["image"] as? String
             let newssitedb = value["newsSite"] as? String
@@ -117,19 +117,17 @@ class FavoritesViewController: UIViewController, UITableViewDelegate, UITableVie
         
         let favorite = favorites[indexPath.row]
 
-        let favoriteId = favorite.id
-        let idconvert = "\(String(describing: favoriteId))" //convert int to string
-
         if let vc = storyboard?.instantiateViewController(identifier: "FavoriteDetailStoryboard") as? FavoriteDetailViewController{
 
             self.navigationController?.pushViewController(vc, animated: true)
 
-            vc.id = idconvert //id
+            vc.id = favorite.id ?? "" //id
             vc.titleArticle = favorite.title ?? "" //title
             vc.Summary = favorite.summary ?? "" //summary
             vc.newsSite = favorite.newsSite ?? ""
-            vc.url = favorite.url
+            vc.url = favorite.url ?? ""
 
+            
             if let imageUrl = favorite.image {
 
                 vc.img = imageUrl
