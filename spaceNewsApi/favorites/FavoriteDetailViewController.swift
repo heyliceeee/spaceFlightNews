@@ -64,8 +64,9 @@ class FavoriteDetailViewController: UIViewController, UITableViewDelegate, UITab
         super.viewDidLoad()
         
         //navbar
-        self.title = "Article Details"
+        self.title = "Favorite Details"
         
+        print(url)
         
         
         //Preferences
